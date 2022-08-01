@@ -8,12 +8,27 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Jul 2022 14:08:18 +0800</lastBuildDate><atom:link href="https://mango001228.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>测试</title>
+      <title>Scoop创建hugo博客与GitHub</title>
       <link>https://mango001228.github.io/post/blog/</link>
       <pubDate>Fri, 29 Jul 2022 14:08:18 +0800</pubDate>
       
       <guid>https://mango001228.github.io/post/blog/</guid>
-      <description>启动测试</description>
+      <description>博客网址:https://mango001228.github.io/
+主题下载网址：themes.gohugo.io
+hugo new site xxx 创建新博客/站点 xxx名字自拟
+在根目录下工作 C:\Users\Mango\MangoBlog
+主题网站克隆对应主题 git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+hugo server -D 默认主题启动
+hugo server -t m10c &amp;ndash;buildDrafts 带指定主题启动
+在config.tom里设置自动启动主题 hugo server -D可直接启动
+根目录下创建文章等内容 hugo new xxx/xxx.md
+hugo部署到GitHub
+github部署地址 hugo &amp;ndash;theme=m10c &amp;ndash;baseUrl=&amp;ldquo;https://mango001228.github.io&amp;rdquo; &amp;ndash;buildDrafts
+git打包提交
+进入public目录下进行打包提交 PS C:\Users\Mango\MangoBlog\public&amp;gt;
+git init &amp;mdash;&amp;ndash;&amp;gt; git add . &amp;mdash;&amp;ndash;&amp;gt; git commit -m &amp;ldquo;xx的博客第x次提交&amp;rdquo;
+public本地与远端仓库关联 git remote add origin https://github.com/Mango001228/mango001228.github.io.git
+git push推送 失败选择git push-u origin master进行账号登陆</description>
     </item>
     
   </channel>
