@@ -6,38 +6,71 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Aug 2022 11:09:35 +0800</lastBuildDate><atom:link href="https://mango001228.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Aug 2022 11:43:19 +0800</lastBuildDate><atom:link href="https://mango001228.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>https://mango001228.github.io/post/test/</link>
+      <pubDate>Tue, 02 Aug 2022 11:43:19 +0800</pubDate>
+      
+      <guid>https://mango001228.github.io/post/test/</guid>
+      <description>Scoop部分</description>
+    </item>
+    
     <item>
       <title>Scoop</title>
       <link>https://mango001228.github.io/post/scoop/</link>
       <pubDate>Tue, 02 Aug 2022 11:09:35 +0800</pubDate>
       
       <guid>https://mango001228.github.io/post/scoop/</guid>
-      <description></description>
+      <description>scoop官网：
+https://scoop.sh/
+github项目地址：
+https://github.com/lukesampson/scoop
+Scoop是一个强大的Windows包管理工具
+需要满足.NET Framework 4.5+和PowerShell 5+
+点击Windows PowerShall启动，win10+一般符合.NET Framework版本
+查询.NET Framework版本：
+$PSVersionTable.CLRVersion
+查询PowerShell版本：
+$PSVersionTable.PSVersion
+Major为版本号</description>
     </item>
     
     <item>
-      <title>Scoop创建hugo博客与GitHub</title>
+      <title>Scoop创建hugo博客部署在远端仓库GitHub</title>
       <link>https://mango001228.github.io/post/blog/</link>
       <pubDate>Fri, 29 Jul 2022 14:08:18 +0800</pubDate>
       
       <guid>https://mango001228.github.io/post/blog/</guid>
       <description>博客网址:https://mango001228.github.io/
 主题下载网址：themes.gohugo.io
+Scoop部分:
+Scoop命令安装hugo
+scoop install hugo
+验证是否成功
+hugo version
+hugo创建及上传：
 hugo new site xxx 创建新博客/站点 xxx名字自拟
-在根目录下工作 C:\Users\Mango\MangoBlog
-主题网站克隆对应主题 git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
-hugo server -D 默认主题启动
-hugo server -t m10c &amp;ndash;buildDrafts 带指定主题启动
+在根目录下工作
+C:\Users\Mango\MangoBlog
+主题网站克隆对应主题
+git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+默认主题启动
+hugo server -D
+带指定主题启动
+hugo server -t m10c &amp;ndash;buildDrafts
 在config.tom里设置自动启动主题 hugo server -D可直接启动
-根目录下创建文章等内容 hugo new xxx/xxx.md
+根目录下创建文章等内容
+hugo new xxx/xxx.md
 hugo部署到GitHub
 github部署地址 hugo &amp;ndash;theme=m10c &amp;ndash;baseUrl=&amp;ldquo;https://mango001228.github.io&amp;rdquo; &amp;ndash;buildDrafts
 git打包提交
-进入public目录下进行打包提交 PS C:\Users\Mango\MangoBlog\public&amp;gt;
+进入public目录下进行打包提交
+PS C:\Users\Mango\MangoBlog\public&amp;gt;
 git init &amp;mdash;&amp;ndash;&amp;gt; git add . &amp;mdash;&amp;ndash;&amp;gt; git commit -m &amp;ldquo;xx的博客第x次提交&amp;rdquo;
-public本地与远端仓库关联 git remote add origin https://github.com/Mango001228/mango001228.github.io.git
-git push推送 失败选择git push-u origin master进行账号登陆</description>
+public本地与远端仓库关联
+git remote add origin https://github.com/Mango001228/mango001228.github.io.git
+git push推送</description>
     </item>
     
   </channel>
