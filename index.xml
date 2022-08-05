@@ -6,7 +6,54 @@
     <description>Recent content on Mango&#39;s&#39; Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 02 Aug 2022 11:43:19 +0800</lastBuildDate><atom:link href="https://mango001228.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Aug 2022 15:42:12 +0800</lastBuildDate><atom:link href="https://mango001228.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UnstallMySQL</title>
+      <link>https://mango001228.github.io/post/unstallmysql/</link>
+      <pubDate>Fri, 05 Aug 2022 15:42:12 +0800</pubDate>
+      
+      <guid>https://mango001228.github.io/post/unstallmysql/</guid>
+      <description>1.关闭MySQL服务 &amp;mdash;&amp;mdash;&amp;ndash;&amp;gt; 我的电脑&amp;ndash;右键管理&amp;ndash;服务与应用程序&amp;ndash;服务
+2.控制面板卸载MySQL软件
+3.删除C: Program Files (x86)\MySQL该目录下剩余了所有文件，包括mysql文件夹
+4.windows+R运行“regedit”文件，打开注册表。 删除注册表：HKEY_LOCAL_MACHINESYSTEM\ControlSet001\Services\Eventlog\Application\MySQL文件夹，如没有则不用管
+5.删除C盘下的C:ProgramData\MySQL 所有文件
+6.删除C:\Users\你的用户名字\AppData\Roaming\MySQL
+7.完成，再次重装即可</description>
+    </item>
+    
+    <item>
+      <title>命令行指令</title>
+      <link>https://mango001228.github.io/post/commandlines/</link>
+      <pubDate>Fri, 05 Aug 2022 15:17:23 +0800</pubDate>
+      
+      <guid>https://mango001228.github.io/post/commandlines/</guid>
+      <description>命令行知识点：
+1.Windows 是dir查看目录，Linux与mac 是ls查看目录 2.cd进入目录，例如Program Files的需要在两边加上双引号，即&amp;quot;Program Files&amp;quot;</description>
+    </item>
+    
+    <item>
+      <title>安装与配置MySQL</title>
+      <link>https://mango001228.github.io/post/installmysql/</link>
+      <pubDate>Fri, 05 Aug 2022 15:05:59 +0800</pubDate>
+      
+      <guid>https://mango001228.github.io/post/installmysql/</guid>
+      <description>问题汇总：
+net start mysql 发生错误 安装MySQL：
+官方下载所需版本，双击启动安装程序 点击developer default ，再next，再点击back（帮助选择所需开发工具），再选择custom（经典自定义安装），更改install directory和data directory，选择自己所需位置，不建议默认安装至c盘，可能会导致权限问题 一键next+execute，设置数据库密码，最后check，确保不出错 在mysql/bin目录下cmd，mysql -u root -p 登录mysql成功后，再验证版本号mysql &amp;ndash;version，能正确显示即安装成功 配置环境：
+系统变量Path中，新增MySQL bin地址即可 ，例：D:\MySQL\MySQL Server 8.0\bin win+r，cmd启动命令提示符，mysql -u root -p 验证是否能在全局启动MySQL，能跑即环境配置完毕 MySQL命令行指令：
+mysql &amp;ndash;version 查询版本号 mysql -u root -p 登录mysql net stop/start mysql 关闭/开启mysql服务 </description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://mango001228.github.io/post/java/</link>
+      <pubDate>Wed, 03 Aug 2022 14:26:48 +0800</pubDate>
+      
+      <guid>https://mango001228.github.io/post/java/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Test</title>
       <link>https://mango001228.github.io/post/test/</link>
