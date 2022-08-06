@@ -17,14 +17,14 @@
 net start mysql 发生错误 安装MySQL：
 官方下载所需版本，双击启动安装程序 点击developer default ，再next，再点击back（帮助选择所需开发工具），再选择custom（经典自定义安装），更改install directory和data directory，选择自己所需位置，不建议默认安装至c盘，可能会导致权限问题 一键next&#43;execute，设置数据库密码，最后check，确保不出错 在mysql/bin目录下cmd，mysql -u root -p 登录mysql成功后，再验证版本号mysql &ndash;version，能正确显示即安装成功 配置环境：
 系统变量Path中，新增MySQL bin地址即可 ，例：D:\MySQL\MySQL Server 8.0\bin win&#43;r，cmd启动命令提示符，mysql -u root -p 验证是否能在全局启动MySQL，能跑即环境配置完毕 MySQL命令行指令：
-mysql &ndash;version 查询版本号 mysql -u root -p 登录mysql net stop/start mysql 关闭/开启mysql服务 "/>
+mysql &ndash;version 查询版本号 mysql -u root -p 登录mysql net stop/start mysql80 关闭/开启mysql服务 cmd &mdash;&mdash;-&gt;services.msc进入系统服务管理 "/>
 
     <meta property="og:title" content="安装与配置MySQL" />
 <meta property="og:description" content="问题汇总：
 net start mysql 发生错误 安装MySQL：
 官方下载所需版本，双击启动安装程序 点击developer default ，再next，再点击back（帮助选择所需开发工具），再选择custom（经典自定义安装），更改install directory和data directory，选择自己所需位置，不建议默认安装至c盘，可能会导致权限问题 一键next&#43;execute，设置数据库密码，最后check，确保不出错 在mysql/bin目录下cmd，mysql -u root -p 登录mysql成功后，再验证版本号mysql &ndash;version，能正确显示即安装成功 配置环境：
 系统变量Path中，新增MySQL bin地址即可 ，例：D:\MySQL\MySQL Server 8.0\bin win&#43;r，cmd启动命令提示符，mysql -u root -p 验证是否能在全局启动MySQL，能跑即环境配置完毕 MySQL命令行指令：
-mysql &ndash;version 查询版本号 mysql -u root -p 登录mysql net stop/start mysql 关闭/开启mysql服务 " />
+mysql &ndash;version 查询版本号 mysql -u root -p 登录mysql net stop/start mysql80 关闭/开启mysql服务 cmd &mdash;&mdash;-&gt;services.msc进入系统服务管理 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mango001228.github.io/post/installmysql/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-08-05T15:05:59+08:00" />
@@ -114,7 +114,8 @@ mysql &ndash;version 查询版本号 mysql -u root -p 登录mysql net stop/start
 <ol>
 <li>mysql &ndash;version 查询版本号</li>
 <li>mysql -u root -p 登录mysql</li>
-<li>net stop/start mysql 关闭/开启mysql服务</li>
+<li>net stop/start mysql80 关闭/开启mysql服务</li>
+<li>cmd &mdash;&mdash;-&gt;services.msc进入系统服务管理</li>
 </ol>
 
     </div>

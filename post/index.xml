@@ -6,7 +6,33 @@
     <description>Recent content in Posts on Mango&#39;s&#39; Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 05 Aug 2022 15:42:12 +0800</lastBuildDate><atom:link href="https://mango001228.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Aug 2022 12:50:19 +0800</lastBuildDate><atom:link href="https://mango001228.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sql</title>
+      <link>https://mango001228.github.io/post/sql/</link>
+      <pubDate>Sat, 06 Aug 2022 12:50:19 +0800</pubDate>
+      
+      <guid>https://mango001228.github.io/post/sql/</guid>
+      <description>基础掌握：MySQL概述;SQL；函数；约束；多表查询；事务
+进阶掌握：存储引擎；索引；SQL优化；视图/存储过程/触发器/锁/InnoDB核心；MySQL管理
+高级掌握：日志；主从复制；分库分表；读写分离
+SQL语法篇：
+​	*通用语法规范：
+​	1.SQL语句可以单行或多行书写，以分号结尾
+​	2.SQL语句可以使用空格/缩进来增强语句的可读性
+​	3.MySQL数据库的SQL语句不区分大小写，关键字建议大写
+​	4.注释：单行：&amp;ndash;注释内容&amp;ndash; 或者 #注释内容
+​	多行：/注释内容/
+​	*DDL数据库定义语言（数据库，表，字段）;DML数据库操作语言（增删改）;DQL数据库查询语言（查）;DCL数据库控制语言，创建数据用户、控制数据库的访问权限
+**创建MySQL数据库字符集不建议设置utf8（最多三个字节），MySQL中存在特殊字符是四个字节，建议设置为uft8mb4
+*	查询所有数据库：SHOW DATABASES; *	查询当前数据库：SELECT DATABASE(); *	创建：CREATE DATABASE [][][ IF NOT EXISTS]数据库名 [ DEFAULT CHARSET 字符集] [ COLLATE 排序规则] ； *	删除：DROP DATABASE [ IF EXISTS ] 数据库名； *	使用：USE 数据库名； DDL&amp;mdash;表操作&amp;mdash;查询
+查询当前数据库所有表：SHOW TABLES; 查询表结构：DESC 表名； 查询指定表的建表语句：SHOW CREATE TABLE 表名; DB 数据库
+DBMS数据库管理系统
+SQL关系型数据库统一编程语言
+市场占有率：Oracle &amp;gt;MySQL&amp;gt;SQL server
+通过二维表（类excel表）操作数据库就是关系型数据库</description>
+    </item>
+    
     <item>
       <title>UnstallMySQL</title>
       <link>https://mango001228.github.io/post/unstallmysql/</link>
@@ -42,7 +68,7 @@
 net start mysql 发生错误 安装MySQL：
 官方下载所需版本，双击启动安装程序 点击developer default ，再next，再点击back（帮助选择所需开发工具），再选择custom（经典自定义安装），更改install directory和data directory，选择自己所需位置，不建议默认安装至c盘，可能会导致权限问题 一键next+execute，设置数据库密码，最后check，确保不出错 在mysql/bin目录下cmd，mysql -u root -p 登录mysql成功后，再验证版本号mysql &amp;ndash;version，能正确显示即安装成功 配置环境：
 系统变量Path中，新增MySQL bin地址即可 ，例：D:\MySQL\MySQL Server 8.0\bin win+r，cmd启动命令提示符，mysql -u root -p 验证是否能在全局启动MySQL，能跑即环境配置完毕 MySQL命令行指令：
-mysql &amp;ndash;version 查询版本号 mysql -u root -p 登录mysql net stop/start mysql 关闭/开启mysql服务 </description>
+mysql &amp;ndash;version 查询版本号 mysql -u root -p 登录mysql net stop/start mysql80 关闭/开启mysql服务 cmd &amp;mdash;&amp;mdash;-&amp;gt;services.msc进入系统服务管理 </description>
     </item>
     
     <item>
