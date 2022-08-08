@@ -111,7 +111,7 @@ CREATE TABLE 表名（
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          3 min read
         </div>
       </div>
     </header>
@@ -191,7 +191,152 @@ CREATE TABLE 表名（
 <p>删除指定表，并重新创建该表：TRUNCATE TABLE 表名； &mdash;&mdash;&mdash;&mdash;&mdash;数据删除，保留表结构</p>
 </li>
 </ul>
-<ol>
+<p>DML 增删改</p>
+<ul>
+<li>
+<p>增：INSERT</p>
+<p>删：UPDATE</p>
+<p>改：DELETE</p>
+</li>
+</ul>
+<p>DML-添加数据</p>
+<ul>
+<li>
+<p>给指定字段添加数据：INSERT INTO 表名（字段1，字段2，&hellip;）VALUES(值1，值2，&hellip;);</p>
+<pre tabindex="0"><code>insert into emplyee (id,workno,name,gender,age,idcard,entrydata) values (1,&#39;1&#39;,&#39;小翁同学&#39;,&#39;女&#39;,24,&#39;121312121312121312&#39;,&#39;2022-07-25&#39;);
+</code></pre></li>
+<li>
+<p>给全部字段添加数据：INSERT INTO表名 VALUES(值1，值2，&hellip;);</p>
+<pre tabindex="0"><code>insert into emplyee values (2,&#39;2&#39;,&#39;同学&#39;,&#39;女&#39;,24,&#39;1213121312&#39;,&#39;2000-08-25&#39;);
+</code></pre></li>
+<li>
+<p>批量添加数据：INSERT INTO 表名（字段1，字段2，&hellip;）VALUES(值1，值2,&hellip;),(值1，值2,&hellip;),(值1，值2,&hellip;);</p>
+<p>​						   INSERT INTO 表名 VALUES(值1，值2,&hellip;),(值1，值2,&hellip;),(值1，值2,&hellip;);</p>
+<p>​</p>
+<pre tabindex="0"><code>insert into emplyee values (3,&#39;3&#39;,&#39;同&#39;,&#39;女&#39;,24,&#39;12676121312&#39;,&#39;2004-10-2&#39;),(4,&#39;4&#39;,&#39;学&#39;,&#39;女&#39;,24,&#39;12676741312&#39;,&#39;2011-03-5&#39;);
+</code></pre></li>
+</ul>
+<p>DML-修改数据</p>
+<ul>
+<li>UPDATE 表名 SET 字段名1 = 值1，字段名2 = 值2，&hellip;[WHERE 条件];</li>
+</ul>
+<pre tabindex="0"><code>UPDATE emplyee set name = &#39;sdbjkwa&#39; where id = 2;
+
+UPDATE emplyee set name = &#39;小昭&#39;, gender =&#39;男&#39; where id = 3;
+
+update emplyee set entrydata =&#39;2022-7-25&#39;;
+</code></pre><p>DML-删除数据</p>
+<ul>
+<li>DELETE FROM 表名 [WHERE 条件];</li>
+</ul>
+<pre tabindex="0"><code>delete from emplyee where gender =&#39;男&#39;;
+
+delete from emplyee;
+</code></pre><p>DQL-查询</p>
+<ul>
+<li>关键字：select</li>
+</ul>
+<p>DQL-基本查询</p>
+<ul>
+<li>
+<p>查询多个字段：SELECT 字段1，字段2，字段3&hellip;FROM 表名；</p>
+<pre><code>  				  SELECT*FROM 表名；
+</code></pre>
+<p>​</p>
+<pre tabindex="0"><code>select name,workno,age from emplyee;
+
+select *from emplyee;
+//尽量不使用通配符*，影响效率且不直观;
+</code></pre></li>
+<li>
+<p>设置别名：SELECT 字段1 [AS别名1]，字段2 [AS别名1] &hellip; FROM 表名；</p>
+<pre tabindex="0"><code>select workaddress as &#39;工作地址&#39; from emplyee;
+select workaddress &#39;工作地址&#39; from emplyee;
+//as可以省略
+</code></pre></li>
+<li>
+<p>去除重复记录：SELECT DISTINCT 字段列表 FROM 表名；</p>
+<pre tabindex="0"><code>select distinct workaddress &#39;工作地址&#39; from emplyee;
+</code></pre></li>
+</ul>
+<p>DQL-条件查询</p>
+<ul>
+<li>
+<p>语法：SELECT 字符列表 FROM 表名 WHERE 条件列表；</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220808183914653.png" alt="image-20220808183914653"></p>
+</li>
+</ul>
+<pre tabindex="0"><code>查询表中的姓名，工号和年龄
+select name,workno,age from emplyee;
+
+查询表中所有内容
+select *from emplyee;
+
+查询表中所有人的工作地址
+select workaddress as &#39;工作地址&#39; from emplyee;
+select workaddress &#39;工作地址&#39; from emplyee;
+
+查询表中所有人的工作地址并除去重复项
+select distinct workaddress &#39;工作地址&#39; from emplyee;
+
+查询年龄等于88的员工
+select name FROM emplyee WHERE age = 88;
+
+查询年龄小于等于20岁的员工信息
+select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where age &lt;= 20;
+
+查询年龄小于20岁的员工信息
+select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where age &lt; 20;
+
+查询没有身份证的员工信息
+select * from emplyee where idcard is null;
+
+查询有身份证的员工信息
+select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where idcard is not null;
+
+查询年龄不等于88的员工信息
+select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where age &lt;&gt; 88;
+
+查询年龄区间在15到20之间的员工信息
+select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where age between 15 and 20;
+
+查询年龄小于25岁女员工的员工信息
+select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where gender =&#39;女&#39; and age &lt;25;
+
+查询年龄等于19或20或40岁的员工信息
+select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where age = 18 or age = 20 or age =40;
+select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where age in(18,20,40);
+
+查询姓名为两个字的员工信息
+select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where name like &#39;__&#39;;
+
+查询身份证末尾为x的员工信息
+select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where idcard like &#39;%x&#39;;
+</code></pre><p>DQL-聚合函数</p>
+<ul>
+<li>count ——统计数量</li>
+<li>max ——最大值</li>
+<li>min ——最小值</li>
+<li>avg ——平均值</li>
+<li>sum ——求和</li>
+<li>null值不参与计算</li>
+</ul>
+<p>语句：SELECT 聚合函数 (字段列表) FROM 表名；</p>
+<pre tabindex="0"><code>1.统计该企业员工的数量
+select count(*) from emplyee;
+
+2.统计该企业员工的平均年龄
+select avg(age) from emplyee;
+
+3.统计该企业的最大年龄
+select max(age) from emplyee;
+
+4.统计该企业员工的最小年龄
+select min(age) from emplyee;
+
+5.统计西安地区员工的年龄之和
+select  sum(age) from emplyee where workaddress = &#39;西安&#39;;
+</code></pre><ol>
 <li>
 <p>DB 数据库</p>
 <p>DBMS数据库管理系统</p>
@@ -204,6 +349,25 @@ CREATE TABLE 表名（
 <p>通过二维表（类excel表）操作数据库就是关系型数据库</p>
 </li>
 </ol>
+<p>DQL-分组查询</p>
+<ul>
+<li>
+<p>语法：SELECT 字段列表 FROM 表名 [WHERE 条件] GROUP BY 分组字段名 [HAVING 分组后过滤条件]</p>
+</li>
+<li>
+<p>where与having的区别：1.执行时机不同：where是分组前进行过滤；having是分组后过滤</p>
+<pre><code>  								  2.判断条件不同：where不能对聚合函数进行判断，而having可以
+</code></pre>
+<pre tabindex="0"><code>据性别分组，统计男性员工和女性员工的数量
+select gender , count(gender) from emplyee group by gender;
+
+2.根据性别分组，统计男性员工和女性员工的平均年龄
+select gender,avg(age) from emplyee group by gender;
+
+3.查询年龄小于45岁的员工，并根据工作地址分组，获取员工数量大于等于3的工作地址
+select workaddress,count(workaddress) from emplyee where age &lt; 45 group by  workaddress having count(workaddress) &gt;= 3;
+</code></pre></li>
+</ul>
 <p>sql数值类型</p>
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220808111809378.png" alt="image-20220808111809378"></p>
 <p>sql字符串类型</p>

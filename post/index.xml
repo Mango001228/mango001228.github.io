@@ -75,7 +75,7 @@ mysql &amp;ndash;version 查询版本号 mysql -u root -p 登录mysql net stop/s
       <pubDate>Wed, 03 Aug 2022 14:26:48 +0800</pubDate>
       
       <guid>https://mango001228.github.io/post/java/</guid>
-      <description></description>
+      <description>null和空字符的区别： 1、NULL：代表声明了一个空对象，不是一个字符串，可以赋给任何对象。 空字符：代表声明了一个对象实例，这个对象实例的值是一个长度为0的空字符串。</description>
     </item>
     
     <item>
