@@ -16,8 +16,7 @@
 <meta name="twitter:description" content="基础掌握：MySQL概述;SQL；函数；约束；多表查询；事务
 进阶掌握：存储引擎；索引；SQL优化；视图/存储过程/触发器/锁/InnoDB核心；MySQL管理
 高级掌握：日志；主从复制；分库分表；读写分离
-SQL语法篇：
-​	*通用语法规范：
+SQL语法篇： ​	*通用语法规范：
 ​	1.SQL语句可以单行或多行书写，以分号结尾
 ​	2.SQL语句可以使用空格/缩进来增强语句的可读性
 ​	3.MySQL数据库的SQL语句不区分大小写，关键字建议大写
@@ -34,8 +33,7 @@ CREATE TABLE 表名（
 <meta property="og:description" content="基础掌握：MySQL概述;SQL；函数；约束；多表查询；事务
 进阶掌握：存储引擎；索引；SQL优化；视图/存储过程/触发器/锁/InnoDB核心；MySQL管理
 高级掌握：日志；主从复制；分库分表；读写分离
-SQL语法篇：
-​	*通用语法规范：
+SQL语法篇： ​	*通用语法规范：
 ​	1.SQL语句可以单行或多行书写，以分号结尾
 ​	2.SQL语句可以使用空格/缩进来增强语句的可读性
 ​	3.MySQL数据库的SQL语句不区分大小写，关键字建议大写
@@ -111,7 +109,7 @@ CREATE TABLE 表名（
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          4 min read
+          5 min read
         </div>
       </div>
     </header>
@@ -119,7 +117,7 @@ CREATE TABLE 表名（
       <p>基础掌握：MySQL概述;SQL；函数；约束；多表查询；事务</p>
 <p>进阶掌握：存储引擎；索引；SQL优化；视图/存储过程/触发器/锁/InnoDB核心；MySQL管理</p>
 <p>高级掌握：日志；主从复制；分库分表；读写分离</p>
-<p>SQL语法篇：</p>
+<h2 id="sql语法篇">SQL语法篇：</h2>
 <p>​	*通用语法规范：</p>
 <p>​			1.SQL语句可以单行或多行书写，以分号结尾</p>
 <p>​			2.SQL语句可以使用空格/缩进来增强语句的可读性</p>
@@ -428,7 +426,86 @@ select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220808112213228.png" alt="image-20220808112213228"></p>
 <p>sql日期时间类型</p>
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220808112322725.png" alt="image-20220808112322725"></p>
+<p>DCL-管理用户</p>
+<ul>
+<li>
+<p>查询用户：USE mysql；</p>
+<pre><code>  			  SLELECT*FROM user;
+</code></pre>
+</li>
+<li>
+<p>创建用户：CREATE USER &lsquo;用户名&rsquo;@&lsquo;主机名&rsquo; IDENTIFIED BY &lsquo;密码&rsquo;</p>
+</li>
+<li>
+<p>修改用户密码：ALTER USER &lsquo;用户名&rsquo;@&lsquo;主机名&rsquo; IDENTIFIED WITH mysql_native_password BY &lsquo;新密码&rsquo;;</p>
+</li>
+<li>
+<p>删除用户：DROP USER &lsquo;用户名&rsquo;@&lsquo;主机名&rsquo;；</p>
+</li>
+<li>
+<p>主机名可以使用%通配，指代所有主机</p>
+</li>
+</ul>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220810110413432.png" alt="image-20220810110413432"></p>
+<h2 id="函数">函数</h2>
+<p>定义：函数是指一段可以直接被另一段程序调用的程序或代码</p>
+<h4 id="字符串函数">字符串函数</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220810111646653.png" alt="image-20220810111646653"></p>
+<pre tabindex="0"><code>字符串函数练习
+1.由于业务需求变更，企业员工的工号，统一为5位数，目前不足5位数的全部在前面补0.比如：1号员工的工号应该为00001。
+update emplyee set workno = lpad(workno,5,0);
+</code></pre><h4 id="数值函数">数值函数</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220810160051175.png" alt="image-20220810160051175"></p>
+<pre tabindex="0"><code>数值函数练习
+1.通过数据库的函数，生成一个六位数的随机验证码。
+select lpad(round(rand()*1000000, 0), 6, &#39;0&#39;);
+</code></pre><h4 id="日期函数">日期函数</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220810162914645.png" alt="image-20220810162914645"></p>
+<pre tabindex="0"><code>日期函数练习
+--curdate()
+select curdate();
 
+--curtime()
+select curtime();
+
+--now()
+select now();
+
+--YEAR , MONTH , DAY
+select Year(now());
+
+select MONTH(now());
+
+select DAY(now());
+
+--date_add
+select date_add(now(),interval 2 year );
+
+--datediff
+select datediff(&#39;2022-12-24&#39;,&#39;2022-8-10&#39;);
+
+查询所有员工的入职天数，并根据入职天数倒序排序
+select name,datediff(curdate(),entrydata) &#34;入职天数&#34; from emplyee  order by &#34;入职天数&#34; desc ;
+</code></pre><h4 id="流程函数">流程函数</h4>
+<p>​	流程函数也是很常用的一类函数，可以在SQL语句中实现条件筛选，从而提高语句的效率</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220810172608683.png" alt="image-20220810172608683"></p>
+<pre tabindex="0"><code>流程控制函数
+--if
+select if(true,&#39;ok&#39;,&#39;Default&#39;);
+
+--ifnull
+select ifnull(&#39;ok&#39;,&#39;Default&#39;);
+
+select ifnull(&#39;&#39;,&#39;Default&#39;);
+
+select ifnull(null,&#39;Default&#39;);
+
+--case when then else end
+--需求：查询employee表员工姓名和工作地址（北京/上海 ---&gt;一线城市，其他---&gt;二线城市）
+select name,
+       (case workaddress when &#39;北京&#39; then &#39;一线城市&#39; when &#39;上海&#39; then &#39;一线城市&#39; else &#39;二线城市&#39; end) as &#39;工作地址&#39;
+       from emplyee;
+</code></pre>
     </div>
     <div class="post-footer">
       
