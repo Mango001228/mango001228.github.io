@@ -16,34 +16,28 @@
 <meta name="twitter:description" content="基础掌握：MySQL概述;SQL；函数；约束；多表查询；事务
 进阶掌握：存储引擎；索引；SQL优化；视图/存储过程/触发器/锁/InnoDB核心；MySQL管理
 高级掌握：日志；主从复制；分库分表；读写分离
-SQL语法篇： ​	*通用语法规范：
-​	1.SQL语句可以单行或多行书写，以分号结尾
+SQL语法篇： *通用语法规范： ​	1.SQL语句可以单行或多行书写，以分号结尾
 ​	2.SQL语句可以使用空格/缩进来增强语句的可读性
 ​	3.MySQL数据库的SQL语句不区分大小写，关键字建议大写
 ​	4.注释：单行：&ndash;注释内容&ndash; 或者 #注释内容
 ​	多行：/注释内容/
 ​	*DDL数据库定义语言（数据库，表，字段）;DML数据库操作语言（增删改）;DQL数据库查询语言（查）;DCL数据库控制语言，创建数据用户、控制数据库的访问权限
 **创建MySQL数据库字符集不建议设置utf8（最多三个字节），MySQL中存在特殊字符是四个字节，建议设置为uft8mb4
-*	查询所有数据库：SHOW DATABASES; *	查询当前数据库：SELECT DATABASE(); *	创建：CREATE DATABASE [IF NOT EXISTS] 数据库名 [ DEFAULT CHARSET 字符集] [ COLLATE 排序规则] ； *	删除：DROP DATABASE [ IF EXISTS ] 数据库名； *	使用：USE 数据库名； DDL&mdash;表操作&mdash;查询
-查询当前数据库所有表：SHOW TABLES; 查询表结构：DESC 表名； 查询指定表的建表语句：SHOW CREATE TABLE 表名; DDL&mdash;表操作&mdash;创建
-CREATE TABLE 表名（
+*	查询所有数据库：SHOW DATABASES; *	查询当前数据库：SELECT DATABASE(); *	创建：CREATE DATABASE [IF NOT EXISTS] 数据库名 [ DEFAULT CHARSET 字符集] [ COLLATE 排序规则] ； *	删除：DROP DATABASE [ IF EXISTS ] 数据库名； *	使用：USE 数据库名； DDL&mdash;表操作&mdash;查询 查询当前数据库所有表：SHOW TABLES; 查询表结构：DESC 表名； 查询指定表的建表语句：SHOW CREATE TABLE 表名; DDL&mdash;表操作&mdash;创建 CREATE TABLE 表名（
 ​	字段1 字段1类型 [COMMENT 字段1注释]，"/>
 
     <meta property="og:title" content="Sql" />
 <meta property="og:description" content="基础掌握：MySQL概述;SQL；函数；约束；多表查询；事务
 进阶掌握：存储引擎；索引；SQL优化；视图/存储过程/触发器/锁/InnoDB核心；MySQL管理
 高级掌握：日志；主从复制；分库分表；读写分离
-SQL语法篇： ​	*通用语法规范：
-​	1.SQL语句可以单行或多行书写，以分号结尾
+SQL语法篇： *通用语法规范： ​	1.SQL语句可以单行或多行书写，以分号结尾
 ​	2.SQL语句可以使用空格/缩进来增强语句的可读性
 ​	3.MySQL数据库的SQL语句不区分大小写，关键字建议大写
 ​	4.注释：单行：&ndash;注释内容&ndash; 或者 #注释内容
 ​	多行：/注释内容/
 ​	*DDL数据库定义语言（数据库，表，字段）;DML数据库操作语言（增删改）;DQL数据库查询语言（查）;DCL数据库控制语言，创建数据用户、控制数据库的访问权限
 **创建MySQL数据库字符集不建议设置utf8（最多三个字节），MySQL中存在特殊字符是四个字节，建议设置为uft8mb4
-*	查询所有数据库：SHOW DATABASES; *	查询当前数据库：SELECT DATABASE(); *	创建：CREATE DATABASE [IF NOT EXISTS] 数据库名 [ DEFAULT CHARSET 字符集] [ COLLATE 排序规则] ； *	删除：DROP DATABASE [ IF EXISTS ] 数据库名； *	使用：USE 数据库名； DDL&mdash;表操作&mdash;查询
-查询当前数据库所有表：SHOW TABLES; 查询表结构：DESC 表名； 查询指定表的建表语句：SHOW CREATE TABLE 表名; DDL&mdash;表操作&mdash;创建
-CREATE TABLE 表名（
+*	查询所有数据库：SHOW DATABASES; *	查询当前数据库：SELECT DATABASE(); *	创建：CREATE DATABASE [IF NOT EXISTS] 数据库名 [ DEFAULT CHARSET 字符集] [ COLLATE 排序规则] ； *	删除：DROP DATABASE [ IF EXISTS ] 数据库名； *	使用：USE 数据库名； DDL&mdash;表操作&mdash;查询 查询当前数据库所有表：SHOW TABLES; 查询表结构：DESC 表名； 查询指定表的建表语句：SHOW CREATE TABLE 表名; DDL&mdash;表操作&mdash;创建 CREATE TABLE 表名（
 ​	字段1 字段1类型 [COMMENT 字段1注释]，" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mango001228.github.io/post/sql/" /><meta property="article:section" content="post" />
@@ -117,8 +111,8 @@ CREATE TABLE 表名（
       <p>基础掌握：MySQL概述;SQL；函数；约束；多表查询；事务</p>
 <p>进阶掌握：存储引擎；索引；SQL优化；视图/存储过程/触发器/锁/InnoDB核心；MySQL管理</p>
 <p>高级掌握：日志；主从复制；分库分表；读写分离</p>
-<h2 id="sql语法篇">SQL语法篇：</h2>
-<p>​	*通用语法规范：</p>
+<h1 id="sql语法篇">SQL语法篇：</h1>
+<h2 id="通用语法规范">*通用语法规范：</h2>
 <p>​			1.SQL语句可以单行或多行书写，以分号结尾</p>
 <p>​			2.SQL语句可以使用空格/缩进来增强语句的可读性</p>
 <p>​			3.MySQL数据库的SQL语句不区分大小写，关键字建议大写</p>
@@ -132,13 +126,13 @@ CREATE TABLE 表名（
  *	删除：DROP DATABASE [ IF EXISTS ] 数据库名；
  *	使用：USE 数据库名；
 </code></pre>
-<p>DDL&mdash;表操作&mdash;查询</p>
+<h3 id="ddl---表操作---查询">DDL&mdash;表操作&mdash;查询</h3>
 <ul>
 <li>查询当前数据库所有表：SHOW TABLES;</li>
 <li>查询表结构：DESC 表名；</li>
 <li>查询指定表的建表语句：SHOW CREATE TABLE 表名;</li>
 </ul>
-<p>DDL&mdash;表操作&mdash;创建</p>
+<h3 id="ddl---表操作---创建">DDL&mdash;表操作&mdash;创建</h3>
 <ul>
 <li>
 <p>CREATE TABLE 表名（</p>
@@ -162,7 +156,7 @@ CREATE TABLE 表名（
 	) comment &#39;员工表&#39;;
 </code></pre></li>
 </ul>
-<p>DDL&mdash;表操作&mdash;修改</p>
+<h3 id="ddl---表操作---修改">DDL&mdash;表操作&mdash;修改</h3>
 <ul>
 <li>
 <p>添加字段：ALTER TABLE 表名 ADD 字段名 类型（长度）[COMMENT注释] [约束]</p>
@@ -189,7 +183,7 @@ CREATE TABLE 表名（
 <p>删除指定表，并重新创建该表：TRUNCATE TABLE 表名； &mdash;&mdash;&mdash;&mdash;&mdash;数据删除，保留表结构</p>
 </li>
 </ul>
-<p>DML 增删改</p>
+<h2 id="dml-增删改">DML 增删改</h2>
 <ul>
 <li>
 <p>增：INSERT</p>
@@ -197,7 +191,7 @@ CREATE TABLE 表名（
 <p>改：DELETE</p>
 </li>
 </ul>
-<p>DML-添加数据</p>
+<h3 id="dml-添加数据">DML-添加数据</h3>
 <ul>
 <li>
 <p>给指定字段添加数据：INSERT INTO 表名（字段1，字段2，&hellip;）VALUES(值1，值2，&hellip;);</p>
@@ -214,7 +208,7 @@ CREATE TABLE 表名（
 <pre tabindex="0"><code>insert into emplyee values (3,&#39;3&#39;,&#39;同&#39;,&#39;女&#39;,24,&#39;12676121312&#39;,&#39;2004-10-2&#39;),(4,&#39;4&#39;,&#39;学&#39;,&#39;女&#39;,24,&#39;12676741312&#39;,&#39;2011-03-5&#39;);
 </code></pre></li>
 </ul>
-<p>DML-修改数据</p>
+<h3 id="dml-修改数据">DML-修改数据</h3>
 <ul>
 <li>UPDATE 表名 SET 字段名1 = 值1，字段名2 = 值2，&hellip;[WHERE 条件];</li>
 </ul>
@@ -223,18 +217,18 @@ CREATE TABLE 表名（
 UPDATE emplyee set name = &#39;小昭&#39;, gender =&#39;男&#39; where id = 3;
 
 update emplyee set entrydata =&#39;2022-7-25&#39;;
-</code></pre><p>DML-删除数据</p>
+</code></pre><h3 id="dml-删除数据">DML-删除数据</h3>
 <ul>
 <li>DELETE FROM 表名 [WHERE 条件];</li>
 </ul>
 <pre tabindex="0"><code>delete from emplyee where gender =&#39;男&#39;;
 
 delete from emplyee;
-</code></pre><p>DQL-查询</p>
+</code></pre><h2 id="dql-查询">DQL-查询</h2>
 <ul>
 <li>关键字：select</li>
 </ul>
-<p>DQL-基本查询</p>
+<h3 id="dql-基本查询">DQL-基本查询</h3>
 <ul>
 <li>
 <p>查询多个字段：SELECT 字段1，字段2，字段3&hellip;FROM 表名；</p>
@@ -257,7 +251,7 @@ select workaddress &#39;工作地址&#39; from emplyee;
 <pre tabindex="0"><code>select distinct workaddress &#39;工作地址&#39; from emplyee;
 </code></pre></li>
 </ul>
-<p>DQL-条件查询</p>
+<h3 id="dql-条件查询">DQL-条件查询</h3>
 <ul>
 <li>
 <p>语法：SELECT 字符列表 FROM 表名 WHERE 条件列表；</p>
@@ -310,7 +304,7 @@ select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where
 
 查询身份证末尾为x的员工信息
 select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where idcard like &#39;%x&#39;;
-</code></pre><p>DQL-聚合函数</p>
+</code></pre><h3 id="dql-聚合函数">DQL-聚合函数</h3>
 <ul>
 <li>count ——统计数量</li>
 <li>max ——最大值</li>
@@ -347,7 +341,7 @@ select  sum(age) from emplyee where workaddress = &#39;西安&#39;;
 <p>通过二维表（类excel表）操作数据库就是关系型数据库</p>
 </li>
 </ol>
-<p>DQL-分组查询</p>
+<h3 id="dql-分组查询">DQL-分组查询</h3>
 <ul>
 <li>
 <p>语法：SELECT 字段列表 FROM 表名 [WHERE 条件] GROUP BY 分组字段名 [HAVING 分组后过滤条件]</p>
@@ -366,7 +360,7 @@ select gender,avg(age) from emplyee group by gender;
 select workaddress,count(workaddress) from emplyee where age &lt; 45 group by  workaddress having count(workaddress) &gt;= 3;
 </code></pre></li>
 </ul>
-<p>DQL-排序查询</p>
+<h3 id="dql-排序查询">DQL-排序查询</h3>
 <ul>
 <li>
 <p>语法：SELECT 字段列表 FROM 表名 ORDER BY 字段1 排序方式1，字段2 排序方式2；</p>
@@ -384,7 +378,7 @@ select name,entrydata from emplyee order by entrydata desc;
 
 3.根据年龄对公司的员工进行升序排序，年龄相同，再按照入职时间进行降序排序
 select name,age,entrydata from emplyee order by age ,entrydata desc;
-</code></pre><p>DQL-分页查询</p>
+</code></pre><h3 id="dql-分页查询">DQL-分页查询</h3>
 <ul>
 <li>语法：SELECT 字段列表 FROM 表名 LIMIT 起始索引，查询记录数；</li>
 <li>***limit语句在最后</li>
@@ -419,14 +413,15 @@ select name,age,entrydata from emplyee where age &lt;= 35 order by age ,entrydat
 5.查询性别为男，且年龄在20~40岁以内的前3个员工信息（查询第一页前三个记录），对查询的结果按年龄升序排序，年龄相同按入职时间升序排序
 select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where gender = &#39;男&#39; and age between 20 and 40 order by age asc ,entrydata asc limit 0,3  ;
 select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where gender = &#39;男&#39; and age between 20 and 40 order by age ,entrydata limit 0,3 ;
-</code></pre><p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220809153142065.png" alt="image-20220809153142065"></p>
-<p>sql数值类型</p>
+</code></pre><h3 id="dql执行顺序">DQL执行顺序</h3>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220811113746566.png" alt=""></p>
+<h4 id="sql数值类型">sql数值类型</h4>
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220808111809378.png" alt="image-20220808111809378"></p>
-<p>sql字符串类型</p>
+<h4 id="sql字符串类型">sql字符串类型</h4>
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220808112213228.png" alt="image-20220808112213228"></p>
-<p>sql日期时间类型</p>
+<h4 id="sql日期时间类型">sql日期时间类型</h4>
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220808112322725.png" alt="image-20220808112322725"></p>
-<p>DCL-管理用户</p>
+<h3 id="dcl-管理用户">DCL-管理用户</h3>
 <ul>
 <li>
 <p>查询用户：USE mysql；</p>
@@ -449,17 +444,17 @@ select id,workno,name,gender,age,idcard,workaddress,entrydata from emplyee where
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220810110413432.png" alt="image-20220810110413432"></p>
 <h2 id="函数">函数</h2>
 <p>定义：函数是指一段可以直接被另一段程序调用的程序或代码</p>
-<h4 id="字符串函数">字符串函数</h4>
+<h3 id="字符串函数">字符串函数</h3>
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220810111646653.png" alt="image-20220810111646653"></p>
 <pre tabindex="0"><code>字符串函数练习
 1.由于业务需求变更，企业员工的工号，统一为5位数，目前不足5位数的全部在前面补0.比如：1号员工的工号应该为00001。
 update emplyee set workno = lpad(workno,5,0);
-</code></pre><h4 id="数值函数">数值函数</h4>
+</code></pre><h3 id="数值函数">数值函数</h3>
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220810160051175.png" alt="image-20220810160051175"></p>
 <pre tabindex="0"><code>数值函数练习
 1.通过数据库的函数，生成一个六位数的随机验证码。
 select lpad(round(rand()*1000000, 0), 6, &#39;0&#39;);
-</code></pre><h4 id="日期函数">日期函数</h4>
+</code></pre><h3 id="日期函数">日期函数</h3>
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220810162914645.png" alt="image-20220810162914645"></p>
 <pre tabindex="0"><code>日期函数练习
 --curdate()
@@ -486,7 +481,7 @@ select datediff(&#39;2022-12-24&#39;,&#39;2022-8-10&#39;);
 
 查询所有员工的入职天数，并根据入职天数倒序排序
 select name,datediff(curdate(),entrydata) &#34;入职天数&#34; from emplyee  order by &#34;入职天数&#34; desc ;
-</code></pre><h4 id="流程函数">流程函数</h4>
+</code></pre><h3 id="流程函数">流程函数</h3>
 <p>​	流程函数也是很常用的一类函数，可以在SQL语句中实现条件筛选，从而提高语句的效率</p>
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220810172608683.png" alt="image-20220810172608683"></p>
 <pre tabindex="0"><code>流程控制函数
@@ -505,7 +500,32 @@ select ifnull(null,&#39;Default&#39;);
 select name,
        (case workaddress when &#39;北京&#39; then &#39;一线城市&#39; when &#39;上海&#39; then &#39;一线城市&#39; else &#39;二线城市&#39; end) as &#39;工作地址&#39;
        from emplyee;
-</code></pre>
+</code></pre><h2 id="约束">约束</h2>
+<ul>
+<li>概念：约束是作用于表上字段上的规则，用于限制存储在表中的数据</li>
+</ul>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220811114140798.png" alt="image-20220811114140798"></p>
+<h3 id="外键约束">外键约束</h3>
+<h4 id="概念">概念</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220811120040486.png" alt="image-20220811120040486"></p>
+<h4 id="语法">语法</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220811120658925.png" alt="image-20220811120658925"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220811120806004.png" alt="image-20220811120806004"></p>
+<h4 id="删除更新行为">删除/更新行为</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220811121457408.png" alt=""></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220811121116510.png" alt="image-20220811121116510"></p>
+<h3 id="小结">小结</h3>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220811121623679.png" alt="image-20220811121623679"></p>
+<h2 id="事务">事务</h2>
+<h3 id="事务简介">事务简介</h3>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220811114553374.png" alt="image-20220811114553374"></p>
+<h3 id="事务操作">事务操作</h3>
+<h3 id="事务四大特性">事务四大特性</h3>
+<h3 id="并发事务问题">并发事务问题</h3>
+<h3 id="事务隔离级别">事务隔离级别</h3>
+<h3 id="小结-1">小结</h3>
+<!-- raw HTML omitted -->
+
     </div>
     <div class="post-footer">
       
