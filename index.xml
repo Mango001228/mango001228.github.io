@@ -6,14 +6,30 @@
     <description>Recent content on Mango&#39;s&#39; Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 11 Aug 2022 14:21:47 +0800</lastBuildDate><atom:link href="https://mango001228.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Aug 2022 15:57:50 +0800</lastBuildDate><atom:link href="https://mango001228.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Javaweb</title>
+      <link>https://mango001228.github.io/post/javaweb/</link>
+      <pubDate>Thu, 11 Aug 2022 15:57:50 +0800</pubDate>
+      
+      <guid>https://mango001228.github.io/post/javaweb/</guid>
+      <description>JavaWeb 网页：展现数据 数据库:存储和管理数据 javaweb程序：逻辑处理 JDBC JDBC简介 快速入门 JDBC API详解 DriverManger 1.注册驱动Class.forName(&amp;quot;&amp;quot;);
+Connection 1.获取执行SQL的对象
+2.管理事务
+Statement ResultSet 使用方法 PreparedStatment 使用 </description>
+    </item>
+    
     <item>
       <title>Essay</title>
       <link>https://mango001228.github.io/post/essay/</link>
       <pubDate>Thu, 11 Aug 2022 14:21:47 +0800</pubDate>
       
       <guid>https://mango001228.github.io/post/essay/</guid>
-      <description></description>
+      <description>redis https://blog.csdn.net/ThinkWon/article/details/103522351
+负载均衡 https://www.bilibili.com/read/cv14183412?spm_id_from=333.999.0.0
+zookeeper ZooKeeper是最常用的分布式协调服务，它能够解决大多数集群问题，包括发布/订阅、负载均衡、命令服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列等。同时针对集群资源管理的需求，又衍生了Hadoop YARN
+SSM https://www.yuque.com/docs/share/1194b3d8-0db9-4c16-8ea0-3ebd1f44c908?#%20%E3%80%8ASpring%E3%80%8B
+BUG解决合集 Establishing SSL connection without server&amp;#39;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&amp;#39;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &amp;#39;false&amp;#39;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.</description>
     </item>
     
     <item>
@@ -25,6 +41,7 @@
       <description>基础掌握：MySQL概述;SQL；函数；约束；多表查询；事务
 进阶掌握：存储引擎；索引；SQL优化；视图/存储过程/触发器/锁/InnoDB核心；MySQL管理
 高级掌握：日志；主从复制；分库分表；读写分离
+sql:Structued Query Language,结构化查询语言
 SQL语法篇： *通用语法规范： ​	1.SQL语句可以单行或多行书写，以分号结尾
 ​	2.SQL语句可以使用空格/缩进来增强语句的可读性
 ​	3.MySQL数据库的SQL语句不区分大小写，关键字建议大写
