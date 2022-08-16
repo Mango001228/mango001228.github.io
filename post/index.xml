@@ -16,7 +16,11 @@
       <description>JavaWeb 网页：展现数据 数据库:存储和管理数据 javaweb程序：逻辑处理 JDBC JDBC简介 快速入门 JDBC API详解 DriverManger 1.注册驱动Class.forName(&amp;quot;&amp;quot;);
 Connection 1.获取执行SQL的对象
 2.管理事务
-Statement ResultSet 使用方法 PreparedStatment 使用 </description>
+Statement ResultSet 使用方法 PreparedStatment 目的 防止sql注入问题的发生———&amp;gt;将敏感字符进行转义
+使用 useServerPrepStmts=true预编译功能开启，默认是关闭的，添加在url后
+数据库连接池 标准接口：DataSource&#39;
+官方提供的数据库连接池标准接口，由第三方组织实现此接口 功能：获取连接 是个容器，管理分配数据库连接（Connection） Connection getConnection()
+Druid数据库连接池 使用步骤 //1.导入Druid maven依赖 //2.定义配置文件 //3.加载配置文件 Properties prop = new Properties(); prop.load(new FileInputStream(&amp;#34;src/druid.properties&amp;#34;)); //4.获取连接池对象 DataSource dataSource = DruidDataSourceFactory.createDataSource(prop); //5.获取数据库连接Connection Connection connection = dataSource.getConnection(); System.out.println(connection); JDBC增删改查练习 建表 create table tb_brand( -- id 主键 自增长 id int primary key auto_increment, -- 品牌名称 brand_name varchar(20), -- 企业名称 company_name varchar(20), -- 排序字段 ordered int, -- 描述信息 description varchar(50), -- 状态： 0：禁用 1：启用 status int ); -- 添加数据 insert into tb_brand (brand_name, company_name, ordered, description, status) VALUES ( &amp;#39;三只松鼠&amp;#39;,&amp;#39;三只松鼠股份有限公司&amp;#39;,5,&amp;#39;好吃不上火&amp;#39;,0),( &amp;#39;华为&amp;#39;,&amp;#39;华为技术有限公司&amp;#39;,100,&amp;#39;华为致力于把数字世界带入每个人、每个家庭、每个组织，构建万物互联的智能世界&amp;#39;,1),( &amp;#39;小米&amp;#39;,&amp;#39;小米科技有限公司&amp;#39;,50,&amp;#39;are u ok&amp;#39;,1); select * from tb_brand; 操作相同和不同之处</description>
     </item>
     
     <item>
@@ -97,7 +101,7 @@ mysql &amp;ndash;version 查询版本号 mysql -u root -p 登录mysql net stop/s
       <pubDate>Wed, 03 Aug 2022 14:26:48 +0800</pubDate>
       
       <guid>https://mango001228.github.io/post/java/</guid>
-      <description>null和空字符的区别： 1、NULL：代表声明了一个空对象，不是一个字符串，可以赋给任何对象。 空字符：代表声明了一个对象实例，这个对象实例的值是一个长度为0的空字符串。</description>
+      <description>1.null和空字符的区别： 1、**NULL：代表声明了一个空对象，不是一个字符串，可以赋给任何对象**。 空字符：代表声明了一个对象实例，这个对象实例的值是一个长度为0的空字符串。 2.在实体类中，基本数据类型建议使用其对应的包装类型——&amp;gt;Int Integer </description>
     </item>
     
     <item>

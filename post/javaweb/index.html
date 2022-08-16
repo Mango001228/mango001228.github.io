@@ -16,13 +16,21 @@
 <meta name="twitter:description" content="JavaWeb 网页：展现数据 数据库:存储和管理数据 javaweb程序：逻辑处理 JDBC JDBC简介 快速入门 JDBC API详解 DriverManger 1.注册驱动Class.forName(&quot;&quot;);
 Connection 1.获取执行SQL的对象
 2.管理事务
-Statement ResultSet 使用方法 PreparedStatment 使用 "/>
+Statement ResultSet 使用方法 PreparedStatment 目的 防止sql注入问题的发生———&gt;将敏感字符进行转义
+使用 useServerPrepStmts=true预编译功能开启，默认是关闭的，添加在url后
+数据库连接池 标准接口：DataSource&#39;
+官方提供的数据库连接池标准接口，由第三方组织实现此接口 功能：获取连接 是个容器，管理分配数据库连接（Connection） Connection getConnection()
+Druid数据库连接池 使用步骤 //1.导入Druid maven依赖 //2.定义配置文件 //3.加载配置文件 Properties prop = new Properties(); prop.load(new FileInputStream(&#34;src/druid.properties&#34;)); //4.获取连接池对象 DataSource dataSource = DruidDataSourceFactory.createDataSource(prop); //5.获取数据库连接Connection Connection connection = dataSource.getConnection(); System.out.println(connection); JDBC增删改查练习 建表 create table tb_brand( -- id 主键 自增长 id int primary key auto_increment, -- 品牌名称 brand_name varchar(20), -- 企业名称 company_name varchar(20), -- 排序字段 ordered int, -- 描述信息 description varchar(50), -- 状态： 0：禁用 1：启用 status int ); -- 添加数据 insert into tb_brand (brand_name, company_name, ordered, description, status) VALUES ( &#39;三只松鼠&#39;,&#39;三只松鼠股份有限公司&#39;,5,&#39;好吃不上火&#39;,0),( &#39;华为&#39;,&#39;华为技术有限公司&#39;,100,&#39;华为致力于把数字世界带入每个人、每个家庭、每个组织，构建万物互联的智能世界&#39;,1),( &#39;小米&#39;,&#39;小米科技有限公司&#39;,50,&#39;are u ok&#39;,1); select * from tb_brand; 操作相同和不同之处"/>
 
     <meta property="og:title" content="Javaweb" />
 <meta property="og:description" content="JavaWeb 网页：展现数据 数据库:存储和管理数据 javaweb程序：逻辑处理 JDBC JDBC简介 快速入门 JDBC API详解 DriverManger 1.注册驱动Class.forName(&quot;&quot;);
 Connection 1.获取执行SQL的对象
 2.管理事务
-Statement ResultSet 使用方法 PreparedStatment 使用 " />
+Statement ResultSet 使用方法 PreparedStatment 目的 防止sql注入问题的发生———&gt;将敏感字符进行转义
+使用 useServerPrepStmts=true预编译功能开启，默认是关闭的，添加在url后
+数据库连接池 标准接口：DataSource&#39;
+官方提供的数据库连接池标准接口，由第三方组织实现此接口 功能：获取连接 是个容器，管理分配数据库连接（Connection） Connection getConnection()
+Druid数据库连接池 使用步骤 //1.导入Druid maven依赖 //2.定义配置文件 //3.加载配置文件 Properties prop = new Properties(); prop.load(new FileInputStream(&#34;src/druid.properties&#34;)); //4.获取连接池对象 DataSource dataSource = DruidDataSourceFactory.createDataSource(prop); //5.获取数据库连接Connection Connection connection = dataSource.getConnection(); System.out.println(connection); JDBC增删改查练习 建表 create table tb_brand( -- id 主键 自增长 id int primary key auto_increment, -- 品牌名称 brand_name varchar(20), -- 企业名称 company_name varchar(20), -- 排序字段 ordered int, -- 描述信息 description varchar(50), -- 状态： 0：禁用 1：启用 status int ); -- 添加数据 insert into tb_brand (brand_name, company_name, ordered, description, status) VALUES ( &#39;三只松鼠&#39;,&#39;三只松鼠股份有限公司&#39;,5,&#39;好吃不上火&#39;,0),( &#39;华为&#39;,&#39;华为技术有限公司&#39;,100,&#39;华为致力于把数字世界带入每个人、每个家庭、每个组织，构建万物互联的智能世界&#39;,1),( &#39;小米&#39;,&#39;小米科技有限公司&#39;,50,&#39;are u ok&#39;,1); select * from tb_brand; 操作相同和不同之处" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mango001228.github.io/post/javaweb/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-08-11T15:57:50+08:00" />
@@ -87,7 +95,7 @@ Statement ResultSet 使用方法 PreparedStatment 使用 " />
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          3 min read
         </div>
       </div>
     </header>
@@ -120,9 +128,359 @@ Statement ResultSet 使用方法 PreparedStatment 使用 " />
 <h5 id="使用方法">使用方法</h5>
 <!-- raw HTML omitted -->
 <h4 id="preparedstatment">PreparedStatment</h4>
+<h5 id="目的">目的</h5>
+<p>防止sql注入问题的发生———&gt;将敏感字符进行转义</p>
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220815113836204.png" alt="image-20220815113836204"></p>
 <h5 id="使用">使用</h5>
 <!-- raw HTML omitted -->
+<p>useServerPrepStmts=true预编译功能开启，默认是关闭的，添加在url后</p>
+<h4 id="数据库连接池">数据库连接池</h4>
+<p>标准接口：DataSource'</p>
+<ul>
+<li>官方提供的数据库连接池标准接口，由第三方组织实现此接口</li>
+<li>功能：获取连接</li>
+<li>是个容器，管理分配数据库连接（Connection）</li>
+</ul>
+<p>Connection   getConnection()</p>
+<h5 id="druid数据库连接池">Druid数据库连接池</h5>
+<h6 id="使用步骤">使用步骤</h6>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code>        //1.导入Druid maven依赖
+
+        //2.定义配置文件
+
+        //3.加载配置文件
+        Properties prop = new Properties();
+        prop.load(new FileInputStream(&#34;src/druid.properties&#34;));
+        //4.获取连接池对象
+        DataSource dataSource = DruidDataSourceFactory.createDataSource(prop);
+        //5.获取数据库连接Connection
+        Connection connection = dataSource.getConnection();
+        System.out.println(connection);
+</code></pre><h3 id="jdbc增删改查练习">JDBC增删改查练习</h3>
+<h4 id="建表">建表</h4>
+<pre tabindex="0"><code>create table tb_brand(
+    -- id 主键 自增长
+    id int primary key auto_increment,
+    -- 品牌名称
+    brand_name varchar(20),
+    -- 企业名称
+    company_name varchar(20),
+    -- 排序字段
+    ordered int,
+    -- 描述信息
+    description varchar(50),
+    -- 状态： 0：禁用 1：启用
+    status int
+);
+-- 添加数据
+insert into tb_brand (brand_name, company_name, ordered, description, status) VALUES (
+    &#39;三只松鼠&#39;,&#39;三只松鼠股份有限公司&#39;,5,&#39;好吃不上火&#39;,0),(
+    &#39;华为&#39;,&#39;华为技术有限公司&#39;,100,&#39;华为致力于把数字世界带入每个人、每个家庭、每个组织，构建万物互联的智能世界&#39;,1),(
+    &#39;小米&#39;,&#39;小米科技有限公司&#39;,50,&#39;are u ok&#39;,1);
+
+select * from tb_brand;
+</code></pre><p>操作相同和不同之处</p>
+<pre tabindex="0"><code>1.获取Connection                （同）
+2.定义SQL  eg.select*from xxx;  （不同） 
+3.获取PreparedStatement对象		 （同）
+4.设置参数  eg.需要参或不需要		（不同）
+5.执行SQL						  （同）
+6.处理结果  eg.List&lt;Brand&gt;       （不同） 
+7.释放资源						 （同）
+</code></pre><h2 id="maven">Maven</h2>
+<h3 id="maven常用命令">Maven常用命令</h3>
+<ul>
+<li>compile: 编译</li>
+<li>clean: 清理</li>
+<li>test：测试</li>
+<li>package：打包</li>
+<li>install：安装</li>
+</ul>
+<h3 id="maven生命周期">Maven生命周期</h3>
+<!-- raw HTML omitted -->
+<h3 id="maven坐标详解">Maven坐标详解</h3>
+<h4 id="什么是坐标">什么是坐标？</h4>
+<ul>
+<li>Maven中的坐标是资源的唯一标识</li>
+<li>使用坐标来定义项目或引入项目中需要的依赖</li>
+</ul>
+<h4 id="maven坐标主要组成">Maven坐标主要组成</h4>
+<ul>
+<li>groupId:定义当前Maven项目隶属组织名称（通常是域名反写，例如：com.xxxxx）</li>
+<li>artifactId:定义当前Maven项目名称（通常是模块名称，例如order-service、goods-service）</li>
+<li>version:定义当前项目版本号</li>
+</ul>
+<h4 id="依赖范围">依赖范围</h4>
+<!-- raw HTML omitted -->
+<h2 id="mybatis">MyBatis</h2>
+<ul>
+<li>mybatis是持久层框架，用于简化JDBC开发</li>
+<li>JavaEE三层框架：表现层、业务层、持久层（负责将数据保存到数据库的那一层代码）</li>
+<li>免除了几乎所有的JDBC代码以及社渚参数和获取结果集的工作</li>
+</ul>
+<h3 id="mybatis快速入门">MyBatis快速入门</h3>
+<h4 id="查询user表中所有数据">查询user表中所有数据</h4>
+<ul>
+<li>
+<p>创建user表，添加数据</p>
+</li>
+<li>
+<pre tabindex="0"><code>create database mybatis;
+use mybatis;
+
+drop table if exists tb_user;
+
+create table tb_user(
+    id int primary key auto_increment,
+    username varchar(20),
+    password varchar(20),
+    gender char(1),
+    addr varchar(30)
+);
+
+insert into tb_user (id,username, password, gender, addr) values (1,&#39;张三&#39;,&#39;123&#39;,&#39;男&#39;,&#39;北京&#39;),
+                                                                 (2,&#39;李四&#39;,&#39;234&#39;,&#39;女&#39;,&#39;天津&#39;),
+                                                                 (3,&#39;王五&#39;,&#39;11&#39;,&#39;男&#39;,&#39;西安&#39;);
+</code></pre></li>
+<li>
+<p>创建模块，导入坐标</p>
+</li>
+<li>
+<p>编写MyBatis核心配置文件 &ndash;&gt;替代连接信息 解决硬编码问题</p>
+<pre tabindex="0"><code>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;
+&lt;!DOCTYPE configuration
+  PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;
+  &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt;
+&lt;configuration&gt;
+  &lt;environments default=&#34;development&#34;&gt;
+    &lt;environment id=&#34;development&#34;&gt;
+      &lt;transactionManager type=&#34;JDBC&#34;/&gt;
+      &lt;dataSource type=&#34;POOLED&#34;&gt;
+        &lt;property name=&#34;driver&#34; value=&#34;${driver}&#34;/&gt;
+        &lt;property name=&#34;url&#34; value=&#34;${url}&#34;/&gt;
+        &lt;property name=&#34;username&#34; value=&#34;${username}&#34;/&gt;
+        &lt;property name=&#34;password&#34; value=&#34;${password}&#34;/&gt;
+      &lt;/dataSource&gt;
+    &lt;/environment&gt;
+  &lt;/environments&gt;
+  &lt;mappers&gt;
+    &lt;mapper resource=&#34;org/mybatis/example/BlogMapper.xml&#34;/&gt;
+  &lt;/mappers&gt;
+&lt;/configuration&gt;
+</code></pre></li>
+<li>
+<p>编写SQL映射文件 &ndash;&gt;统一管理sql语句 解决硬编码问题</p>
+</li>
+<li>
+<pre tabindex="0"><code>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;
+&lt;!DOCTYPE mapper
+  PUBLIC &#34;-//mybatis.org//DTD Mapper 3.0//EN&#34;
+  &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;
+&lt;mapper namespace=&#34;org.mybatis.example.BlogMapper&#34;&gt;
+  &lt;select id=&#34;selectBlog&#34; resultType=&#34;Blog&#34;&gt;
+    select * from Blog where id = #{id}
+  &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre></li>
+<li>
+<p>编码</p>
+<ul>
+<li>
+<p>定义POJO类（实体类）</p>
+</li>
+<li>
+<p>加载核心配置文件，获取SqlSessionFactory对象</p>
+<pre tabindex="0"><code>String resource = &#34;org/mybatis/example/mybatis-config.xml&#34;;
+InputStream inputStream = Resources.getResourceAsStream(resource);
+SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+</code></pre></li>
+<li>
+<p>获取SqlSession对象，执行SQL语句</p>
+<pre tabindex="0"><code>SqlSession sqlSession = sqlSessionFactory.openSession();
+</code></pre></li>
+<li>
+<p>释放资源</p>
+<pre tabindex="0"><code>sqlSession.close();
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="mapper代理开发">Mapper代理开发</h3>
+<h5 id="目的-1">目的</h5>
+<ul>
+<li>
+<p>解决原生方式中的硬编码</p>
+</li>
+<li>
+<p>简化后期执行SQL</p>
+<pre tabindex="0"><code>原生方式：
+//3.执行SQL语句
+List&lt;User&gt; users = sqlSession.selectList(&#34;test.selectAll&#34;);
+
+Mapper代理开发
+//3.获取接口代理对象
+UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+//4.执行sql语句
+List&lt;User&gt;user = userMapper.selectAll();
+</code></pre></li>
+</ul>
+<h5 id="使用方法-1">使用方法</h5>
+<ul>
+<li>
+<p>定义与SQL映射文件同名的Mapper接口，并且将Mapper接口和SQL映射文件放置在同一目录下（resources下用/隔开）</p>
+</li>
+<li>
+<p>设置SQL映射文件的namespace属性为Mapper接口全限定名</p>
+<pre tabindex="0"><code>&lt;mapper namespace=&#34;pers.mango.mapper.UserMapper&#34;&gt;
+</code></pre></li>
+<li>
+<p>在Mapper接口中定义方法，方法名就是SQL映射文件中sql语句的id，并保持参数类型和返回值类型一致</p>
+</li>
+<li>
+<p>编码</p>
+<ul>
+<li>通过SqlSession的getMapper方法获取Mapper接口的代理对象</li>
+<li>调用对应方法完成sql的执行</li>
+</ul>
+</li>
+<li>
+<p>如果遵守Mapper使用规则，即Mapper和SQL映射文件名称相同且在同一目录下，可以使用包扫描的方式简化SQL映射文件的加载</p>
+<pre tabindex="0"><code>&lt;!--加载sql映射文件--&gt;
+&lt;mapper resource=&#34;pers/mango/mapper/UserMapper.xml&#34;/&gt;
+
+&lt;!--Mapper代理方式，包扫描--&gt;
+&lt;package name=&#34;pers.mango.mapper&#34;/&gt;
+</code></pre></li>
+</ul>
+<h3 id="mybatis配置文件完成增删改查">MyBatis配置文件完成增删改查</h3>
+<h4 id="核心思路">核心思路</h4>
+<ul>
+<li>
+<p>编写接口方法：Mapper接口</p>
+<pre tabindex="0"><code>List&lt;Brand&gt;selectAll();
+</code></pre></li>
+<li>
+<p>参数：看情况</p>
+</li>
+<li>
+<p>结果：返回什么</p>
+</li>
+<li>
+<p>编写SQL语句：SQL映射文件</p>
+<pre tabindex="0"><code>&lt;select id=&#34;selectAll&#34; resultType=&#34;brand&#34;&gt;
+	select * from tb_brand;
+&lt;/select&gt;
+</code></pre></li>
+<li>
+<p>执行方法，测试</p>
+</li>
+</ul>
+<h4 id="准备期">准备期</h4>
+<ul>
+<li>
+<p>数据库表tb_brand</p>
+<pre tabindex="0"><code>drop table if exists tb_brand;
+
+create table tb_brand(
+    -- id主键自增长
+    id int primary key auto_increment,
+    -- 品牌商
+    brand_name varchar(20),
+    -- 企业名称
+    company_name varchar(20),
+    -- 排序字段
+    ordered int,
+    -- 描述信息
+    description varchar(100),
+    -- 状态 0：禁用 1：启用
+    status int
+);
+
+insert into tb_brand (brand_name, company_name, ordered, description, status) values (&#39;三只松鼠&#39;,&#39;三只松鼠股份有限公司&#39;,5,&#39;好吃不上火&#39;,0),
+                                                                                         (&#39;华为&#39;,&#39;华为技术有限公司&#39;,100,&#39;华为致力于xxxxxxx&#39;,1),
+                                                                                         (&#39;小米&#39;,&#39;小米科技有限公司&#39;,50,&#39;are u ok&#39;,1);
+
+select *from tb_brand;
+</code></pre></li>
+<li>
+<p>实体类Brand</p>
+</li>
+<li>
+<p>测试用例</p>
+</li>
+<li>
+<p>安装MyBatisX插件</p>
+</li>
+</ul>
+<h4 id="实战期">实战期</h4>
+<ul>
+<li>
+<p>查询</p>
+<ul>
+<li>
+<p>查询所有数据</p>
+<pre tabindex="0"><code>&lt;!--
+    数据库表的字段名称  和   实体类的属性名称  不一样，则不能实现自动封装
+        *起别名：对不一样的列名起别名，让别名和实体类的属性名一样
+            *缺点：每次查询都要定义一次别名
+                *sql片段
+                    *缺点：不灵活
+        *resultMap：
+            1.定义&lt;resultMap&gt;标签
+            2.在&lt;select&gt;标签中，使用resultMap属性替换resultType属性
+--&gt;
+&lt;mapper namespace=&#34;pers.mango.mapper.BrandMapper&#34;&gt;
+
+    &lt;!--
+        id:唯一标识
+        tpye：映射的类型，支持别名
+    --&gt;
+    &lt;resultMap id=&#34;brandResultMap&#34; type=&#34;brand&#34;&gt;
+        &lt;!--
+            id:完成主键字段的映射
+                column：表的列名
+                property：实体类的属性名
+             result：完成一般字段的映射
+                column：表的列名
+                property：实体类的属性名
+        --&gt;
+        &lt;result column=&#34;brand_name&#34; property=&#34;brandName&#34;/&gt;
+        &lt;result column=&#34;company_name&#34; property=&#34;companyName&#34;/&gt;
+    &lt;/resultMap&gt;
+
+    &lt;select id=&#34;selectAll&#34; resultMap=&#34;brandResultMap&#34;&gt;
+        select *
+        from tb_brand;
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre></li>
+<li>
+<p>查看详情</p>
+</li>
+<li>
+<p>条件查询</p>
+</li>
+</ul>
+</li>
+<li>
+<p>添加</p>
+</li>
+<li>
+<p>修改</p>
+<ul>
+<li>修改全部字段</li>
+<li>修改动态字段</li>
+</ul>
+</li>
+<li>
+<p>删除</p>
+<ul>
+<li>删除一个</li>
+<li>批量删除</li>
+</ul>
+</li>
+</ul>
 
     </div>
     <div class="post-footer">
