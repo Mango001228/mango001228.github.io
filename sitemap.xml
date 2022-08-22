@@ -2,16 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mango001228.github.io/post/javaweb/</loc>
-    <lastmod>2022-08-11T15:57:50+08:00</lastmod>
+    <loc>https://mango001228.github.io/post/essay/</loc>
+    <lastmod>2022-08-11T14:21:47+08:00</lastmod>
   </url><url>
     <loc>https://mango001228.github.io/</loc>
-    <lastmod>2022-08-11T15:57:50+08:00</lastmod>
+    <lastmod>2022-08-11T14:21:47+08:00</lastmod>
   </url><url>
     <loc>https://mango001228.github.io/post/</loc>
-    <lastmod>2022-08-11T15:57:50+08:00</lastmod>
-  </url><url>
-    <loc>https://mango001228.github.io/post/essay/</loc>
     <lastmod>2022-08-11T14:21:47+08:00</lastmod>
   </url><url>
     <loc>https://mango001228.github.io/post/sql/</loc>
@@ -37,6 +34,8 @@
   </url><url>
     <loc>https://mango001228.github.io/post/blog/</loc>
     <lastmod>2022-07-29T14:08:18+08:00</lastmod>
+  </url><url>
+    <loc>https://mango001228.github.io/post/javaweb/</loc>
   </url><url>
     <loc>https://mango001228.github.io/categories/</loc>
   </url><url>

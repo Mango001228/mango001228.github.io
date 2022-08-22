@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
   <head>
-    <title>Javaweb // Mango&#39;s&#39; Blog Site</title>
+    <title> // Mango&#39;s&#39; Blog Site</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.101.0" />
@@ -12,8 +12,9 @@
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Javaweb"/>
-<meta name="twitter:description" content="JavaWeb 网页：展现数据 数据库:存储和管理数据 javaweb程序：逻辑处理 JDBC JDBC简介 快速入门 JDBC API详解 DriverManger 1.注册驱动Class.forName(&quot;&quot;);
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="title: &ldquo;Javaweb&rdquo; date: 2022-08-11T15:57:50&#43;08:00 draft: true
+JavaWeb 网页：展现数据 数据库:存储和管理数据 javaweb程序：逻辑处理 JDBC JDBC简介 快速入门 JDBC API详解 DriverManger 1.注册驱动Class.forName(&quot;&quot;);
 Connection 1.获取执行SQL的对象
 2.管理事务
 Statement ResultSet 使用方法 PreparedStatment 目的 防止sql注入问题的发生———&gt;将敏感字符进行转义
@@ -22,8 +23,9 @@ Statement ResultSet 使用方法 PreparedStatment 目的 防止sql注入问题�
 官方提供的数据库连接池标准接口，由第三方组织实现此接口 功能：获取连接 是个容器，管理分配数据库连接（Connection） Connection getConnection()
 Druid数据库连接池 使用步骤 //1.导入Druid maven依赖 //2.定义配置文件 //3.加载配置文件 Properties prop = new Properties(); prop.load(new FileInputStream(&#34;src/druid.properties&#34;)); //4.获取连接池对象 DataSource dataSource = DruidDataSourceFactory.createDataSource(prop); //5.获取数据库连接Connection Connection connection = dataSource.getConnection(); System.out.println(connection); JDBC增删改查练习 建表 create table tb_brand( -- id 主键 自增长 id int primary key auto_increment, -- 品牌名称 brand_name varchar(20), -- 企业名称 company_name varchar(20), -- 排序字段 ordered int, -- 描述信息 description varchar(50), -- 状态： 0：禁用 1：启用 status int ); -- 添加数据 insert into tb_brand (brand_name, company_name, ordered, description, status) VALUES ( &#39;三只松鼠&#39;,&#39;三只松鼠股份有限公司&#39;,5,&#39;好吃不上火&#39;,0),( &#39;华为&#39;,&#39;华为技术有限公司&#39;,100,&#39;华为致力于把数字世界带入每个人、每个家庭、每个组织，构建万物互联的智能世界&#39;,1),( &#39;小米&#39;,&#39;小米科技有限公司&#39;,50,&#39;are u ok&#39;,1); select * from tb_brand; 操作相同和不同之处"/>
 
-    <meta property="og:title" content="Javaweb" />
-<meta property="og:description" content="JavaWeb 网页：展现数据 数据库:存储和管理数据 javaweb程序：逻辑处理 JDBC JDBC简介 快速入门 JDBC API详解 DriverManger 1.注册驱动Class.forName(&quot;&quot;);
+    <meta property="og:title" content="" />
+<meta property="og:description" content="title: &ldquo;Javaweb&rdquo; date: 2022-08-11T15:57:50&#43;08:00 draft: true
+JavaWeb 网页：展现数据 数据库:存储和管理数据 javaweb程序：逻辑处理 JDBC JDBC简介 快速入门 JDBC API详解 DriverManger 1.注册驱动Class.forName(&quot;&quot;);
 Connection 1.获取执行SQL的对象
 2.管理事务
 Statement ResultSet 使用方法 PreparedStatment 目的 防止sql注入问题的发生———&gt;将敏感字符进行转义
@@ -33,8 +35,8 @@ Statement ResultSet 使用方法 PreparedStatment 目的 防止sql注入问题�
 Druid数据库连接池 使用步骤 //1.导入Druid maven依赖 //2.定义配置文件 //3.加载配置文件 Properties prop = new Properties(); prop.load(new FileInputStream(&#34;src/druid.properties&#34;)); //4.获取连接池对象 DataSource dataSource = DruidDataSourceFactory.createDataSource(prop); //5.获取数据库连接Connection Connection connection = dataSource.getConnection(); System.out.println(connection); JDBC增删改查练习 建表 create table tb_brand( -- id 主键 自增长 id int primary key auto_increment, -- 品牌名称 brand_name varchar(20), -- 企业名称 company_name varchar(20), -- 排序字段 ordered int, -- 描述信息 description varchar(50), -- 状态： 0：禁用 1：启用 status int ); -- 添加数据 insert into tb_brand (brand_name, company_name, ordered, description, status) VALUES ( &#39;三只松鼠&#39;,&#39;三只松鼠股份有限公司&#39;,5,&#39;好吃不上火&#39;,0),( &#39;华为&#39;,&#39;华为技术有限公司&#39;,100,&#39;华为致力于把数字世界带入每个人、每个家庭、每个组织，构建万物互联的智能世界&#39;,1),( &#39;小米&#39;,&#39;小米科技有限公司&#39;,50,&#39;are u ok&#39;,1); select * from tb_brand; 操作相同和不同之处" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mango001228.github.io/post/javaweb/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-08-11T15:57:50+08:00" />
-<meta property="article:modified_time" content="2022-08-11T15:57:50+08:00" />
+
+
 
 
 
@@ -81,26 +83,29 @@ Druid数据库连接池 使用步骤 //1.导入Druid maven依赖 //2.定义配�
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Javaweb</h1>
+      <h1 class ="post-title"></h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Aug 11, 2022
+          Jan 1, 0001
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          3 min read
+          7 min read
         </div>
       </div>
     </header>
     <div class="post-content">
-      <h1 id="javaweb">JavaWeb</h1>
+      <p>title: &ldquo;Javaweb&rdquo;
+date: 2022-08-11T15:57:50+08:00
+draft: true</p>
+<h1 id="javaweb">JavaWeb</h1>
 <ul>
 <li>网页：展现数据</li>
 <li>数据库:存储和管理数据</li>
@@ -457,9 +462,46 @@ select *from tb_brand;
 </code></pre></li>
 <li>
 <p>查看详情</p>
-</li>
+<pre tabindex="0"><code>&lt;!--
+        *参数占位符？：
+            1.#{}:会将其替换为?，为了防止SQL注入
+            2.${}:拼sql。会存在SQL注入问题
+            3.使用时机：
+                *参数传递的时候:#{}
+                *表名或者列名不固定的情况下:${}会存在SQL注入问题
+        *参数类型：parameterTpye:可以省略
+        *特殊字符处理:
+            1.转义字符:
+            2.CDATA区:
+            from tb_brand where if
+        	[&lt;![CDATA[
+            &lt;
+            ]]&gt;]
+    --&gt;
+</code></pre></li>
 <li>
 <p>条件查询</p>
+<ul>
+<li>
+<p>多条件查询</p>
+<pre tabindex="0"><code>SQL语句多参数设置方式
+1.散装参数：
+	*需要使用@Param(&#34;SQL中的参数占位符名称&#34;)
+	List&lt;Brand&gt; selectByCondition(@Param(&#34;status&#34;)int status,@Param(&#34;companyName&#34;)String companyName,@Param(&#34;brandName&#34;)String brandName);
+2.实体类封装参数
+	*只需要保证SQL中的参数名和实体类属性名对应上，即可设置成功
+	List&lt;Brand&gt;selectByCondition(Brand brand);
+3.map集合
+	*只需要保证SQL中的参数名和map集合的键的名称对应上，即可设置成功
+	List&lt;Brand&gt;selectByCondition(Map map);
+</code></pre></li>
+<li>
+<p>多条件动态查询</p>
+</li>
+<li>
+<p>单条件动态查询</p>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -481,6 +523,694 @@ select *from tb_brand;
 </ul>
 </li>
 </ul>
+<h2 id="html">HTML</h2>
+<h3 id="html结构标签">html结构标签</h3>
+<pre tabindex="0"><code>&lt;HTML&gt; ———— 定义HTML文档
+&lt;head&gt; ———— 定义关于文档的信息
+&lt;title&gt; ———— 定义文档的标题
+&lt;body&gt; ———— 定义文档的主体
+</code></pre><h3 id="html基础标签">html基础标签</h3>
+<pre tabindex="0"><code>&lt;h1&gt; - &lt;h6&gt; ———— 定义标题，h1最大，h6最小
+&lt;font&gt; ———— 定义文本的字体、字体尺寸、字体颜色
+&lt;b&gt; ———— 定义粗体文本
+&lt;i&gt; ———— 定义斜体文本
+&lt;u&gt; ———— 定义文本下划线
+&lt;center&gt; ———— 定义文本居中
+&lt;p&gt; ———— 定义段落
+&lt;br&gt; ———— 定义换行
+&lt;hr&gt; ———— 定义水平线
+</code></pre><h3 id="html转义字符">html转义字符</h3>
+<!-- raw HTML omitted -->
+<h3 id="图片音频视频标签">图片、音频、视频标签</h3>
+<pre tabindex="0"><code>&lt;img&gt; ———— 定义图片
+&lt;audio&gt; ———— 定义音频，格式：MP3、WAV、OGG
+&lt;video&gt; ———— 定义视频，格式：MP4、WebM、OGG
+	*src:规定显示图像/音频/的URL（统一资源定位符）
+		*相对路径：
+			1.同一目录下直接书写：./img/xx.jpg
+			2.同级目录需要返回上一级：../img/xx.jpg
+	*height/width:定义高度和宽度
+	*controls:显示音频/视频播放控件
+</code></pre><h3 id="超链接标签">超链接标签</h3>
+<pre tabindex="0"><code>&lt;a&gt; ———— 定义超链接，用于链接到另一个资源
+	*href:指定访问资源的URL
+	*target：指定打开资源的方式
+			1._serf:默认值，在当前页面打开
+			2._blank:在空白页打开
+</code></pre><h3 id="列表标签">列表标签</h3>
+<pre tabindex="0"><code>有序列表：
+	&lt;ol&gt;
+		&lt;li&gt;咖啡&lt;/li&gt;
+		&lt;li&gt;茶&lt;/li&gt;
+		&lt;li&gt;牛奶&lt;/li&gt;
+	&lt;/ol&gt;
+	1.咖啡
+	2.茶
+	3.牛奶
+无序列表:
+	&lt;ul&gt;
+		&lt;li&gt;咖啡&lt;/li&gt;
+		&lt;li&gt;茶&lt;/li&gt;
+		&lt;li&gt;牛奶&lt;/li&gt;
+	&lt;/ul&gt;
+	*咖啡
+	*茶
+	*牛奶
+</code></pre><h3 id="表格标签">表格标签</h3>
+<pre tabindex="0"><code>&lt;table&gt; ———— 定义表格
+	*border:规定表格边框的宽度
+	*width:规定表格的宽度
+	*cellspacing:规定单元格之间的空白
+&lt;tr&gt; ———— 定义行
+	*align:定义表格行的内容对齐方式
+&lt;td&gt; ———— 定义单元格
+	*rowspan:规定单元格可横跨的行数
+	*colspan:规定单元格可横跨的列数
+&lt;th&gt; ———— 定义表头单元格
+</code></pre><h3 id="布局标签">布局标签</h3>
+<pre tabindex="0"><code>&lt;div&gt; ———— 定义HTML文档中的一个区域部分，经常与CSS一起使用，用来布局网页
+&lt;span&gt; ———— 用于组合行内元素
+ *必须结合CSS，否则显示不出什么
+</code></pre><h3 id="表单标签">表单标签</h3>
+<ul>
+<li>
+<p>表单：在网页中主要负责数据采集功能，使用<!-- raw HTML omitted -->标签定义表单</p>
+</li>
+<li>
+<p>表单项（元素）：不同类型的input元素、下拉列表、文本域等</p>
+<pre tabindex="0"><code>&lt;form&gt; ———— 定义表单
+	*action:指定表单数据提交的URL
+		1.表单项数据要想被提交，则必须指定其name属性
+	*method：指定表单提交的方式
+		*get:默认值
+			1.请求参数会拼接在URL后边
+			2.url的长度有限制 4KB
+		*post:
+			1.请求参数会在http请求协议的请求体中
+			2.请求参数无限制的
+	&lt;form action=&#34;#&#34; method=&#34;post&#34;&gt;
+		&lt;input type=&#34;text&#34; name=&#34;username&#34;&gt;
+		&lt;input type=&#34;submit&#34;&gt;
+	&lt;/form&gt;
+&lt;input&gt; ———— 定义表单项，通过type属性控制输入形式
+	*type取值
+		1.text ———— 默认值。定义单行的输入字段          
+		2.password ———— 定义密码字段
+		3.radio ———— 定义单选按钮
+		4.checkbox ———— 定义复选框
+		5.file ———— 定义文件上传按钮
+		6.hidden ———— 定义隐藏的输入字段
+		7.submit ———— 定义提交按钮，提交按钮会把表单数据发送到服务器
+		8.reset ———— 定义重置按钮，重置按钮会清除表单中的所有数据
+		9.button ———— 定义可点击按钮
+&lt;label&gt; ———— 为表单项定义标注
+&lt;select&gt; ———— 定义下拉列表
+&lt;option&gt; ———— 定义下拉列表的列表项
+&lt;textarea&gt; ———— 定义文本域
+</code></pre></li>
+<li>
+<p>可以说几乎每个做过Web开发的人都问过，到底元素的ID和Name有什么区别阿？为什么有了ID还要有Name呢?! 而同样我们也可以得到最classical的答案：ID就像是一个人的身份证号码，而Name就像是他的名字，ID显然是唯一的，而Name是可以重复的。</p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="css">CSS</h2>
+<ul>
+<li>CSS：层叠样式表</li>
+</ul>
+<h3 id="css导入方式">CSS导入方式</h3>
+<ul>
+<li>
+<p>内联样式：在标签内部使用style属性，属性值是css属性键值对</p>
+<pre tabindex="0"><code>&lt;div style=&#34;color:red&#34;&gt;Hello CSS~&lt;/div&gt;
+</code></pre></li>
+<li>
+<p>内部样式：定义<!-- raw HTML omitted -->标签，在标签内部定义CSS样式</p>
+<pre tabindex="0"><code>&lt;style type=&#34;text/css&#34;&gt;
+	div{
+		color:red;
+	}
+&lt;/style&gt;
+</code></pre></li>
+<li>
+<p>外部样式：定义link标签，引入外部的css文件</p>
+<pre tabindex="0"><code>&lt;link rel=&#34;stylesheet&#34; href=&#34;demo.css&#34;&gt;
+</code></pre><ul>
+<li>
+<p>demo.css:</p>
+<pre tabindex="0"><code>div{
+	color:red;
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="css选择器">CSS选择器</h3>
+<!-- raw HTML omitted -->
+<h3 id="css属性">CSS属性</h3>
+<p>W3school</p>
+<h2 id="javascript">JavaScript</h2>
+<h3 id="javascript引入方式">JavaScript引入方式</h3>
+<ul>
+<li>
+<p>内部脚本：将JS代码定义在HTML页面中</p>
+<pre tabindex="0"><code>&lt;script&gt;
+	alert(&#34;hello JS~&#34;);
+&lt;/script&gt;
+</code></pre></li>
+<li>
+<p>外部脚本：将JS代码定义在外部JS文件中，然后引入到HTML页面中</p>
+<pre tabindex="0"><code>外部文件：demo.js ---- alert(&#34;hello JS~&#34;)
+引入外部js文件 ———— &lt;script src=&#34;../js/demo.js&#34;&gt;&lt;/script&gt;
+</code></pre></li>
+</ul>
+<h3 id="javascript基础语法">JavaScript基础语法</h3>
+<h4 id="书写语法">书写语法</h4>
+<ul>
+<li>基本与Java一致</li>
+</ul>
+<h4 id="输出语法">输出语法</h4>
+<ul>
+<li>使用window.alert()写入警告框</li>
+<li>使用document.write()写入HTML输出</li>
+<li>使用console.log()写入游览器控制台</li>
+<li>window可省略</li>
+</ul>
+<h4 id="变量">变量</h4>
+<ul>
+<li>用var关键字来声明变量，全局变量，能重复声明</li>
+</ul>
+<pre tabindex="0"><code>var test = 20;
+test = &#34;张三&#34;;；
+</code></pre><ul>
+<li>弱语言类型，变量可以存放不同类型的值</li>
+<li>let关键字，类似于var，但只在let关键字所在的代码块内有效，且不能重复申明</li>
+<li>const关键字，声明一个只读的常量，一旦声明，常量的值就不囊改变</li>
+</ul>
+<h4 id="数据类型">数据类型</h4>
+<ul>
+<li>
+<p>分为原始类型和引用类型</p>
+<pre tabindex="0"><code>原始类型：
+1.number:数字（整数、小数、NaN（Not a Number））
+2.string:字符、字符串，单双引皆可
+3.boolean:布尔。true、false
+4.null:对象为空
+5.underfined:当声明的变量未初始化时，该变量的默认值是underfined
+</code></pre></li>
+<li>
+<p>使用typeof运算符可以获取数据类型</p>
+<pre tabindex="0"><code>aler(typeof age);
+</code></pre></li>
+</ul>
+<h4 id="运算符">运算符</h4>
+<ul>
+<li>
+<p>一元运算符：++, &ndash;</p>
+</li>
+<li>
+<p>算术运算符：+, -, *, /, %</p>
+</li>
+<li>
+<p>赋值运算符：=, +=, -=&hellip;</p>
+</li>
+<li>
+<p>关系运算符：&gt;, &lt;, &gt;=, &lt;=, !=, ==, ===&hellip;</p>
+<pre tabindex="0"><code>==:
+	1.判断类型是否一样，如果不一样，则进行类型转换
+	2.再去比较其值
+	var age1=20;
+	var age2=&#34;20&#34;; true
+===:全等于
+	1.判断类型是否一样，如果不一样，直接返false
+	2.相同类型再去比较其值
+	var age1=20;
+	var age2=&#34;20&#34;; false
+
+类型转换：
+	*其他类型转为number：
+		1.string：按照字符串的字面值，转为数字，如果字面值不是数字，则转为NaN.一般使用parseInt方法
+			var str = &#34;20&#34;;
+			alert(parseInt(str)+1); ———— 21
+		2.boolean：true转为1，false转为0
+	*其他类型转为boolean
+		1.number:0和NaN转为false，其他的数字转为true
+		2.string:空字符串转为false，其他的字符串转为true
+		3.null:false
+		4.underfined:false
+</code></pre></li>
+<li>
+<p>逻辑运算符：&amp;&amp;, ||, !</p>
+</li>
+<li>
+<p>三元运算符：条件表达式?true_value:false_value</p>
+</li>
+</ul>
+<h4 id="流程控制语句">流程控制语句</h4>
+<ul>
+<li>等同于Java的流程控制语句的用法</li>
+</ul>
+<h4 id="函数">函数</h4>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="web核心">web核心</h2>
+<h3 id="javaweb技术栈">JavaWeb技术栈</h3>
+<!-- raw HTML omitted -->
+<h3 id="路径问题">路径问题</h3>
+<p>路径给游览器使用：需要加虚拟路径（项目访问路径）</p>
+<p>路径给服务端使用：不需要加虚拟目录</p>
+<h3 id="http">HTTP</h3>
+<h4 id="概念及协议特点">概念及协议特点</h4>
+<!-- raw HTML omitted -->
+<h4 id="http请求数据格式">HTTP请求数据格式</h4>
+<h5 id="请求数据分为3部分">请求数据分为3部分</h5>
+<!-- raw HTML omitted -->
+<h5 id="常见的http请求头">常见的HTTP请求头</h5>
+<!-- raw HTML omitted -->
+<h5 id="get请求和post请求区别">Get请求和Post请求区别</h5>
+<!-- raw HTML omitted -->
+<h4 id="http响应数据格式">HTTP响应数据格式</h4>
+<h5 id="响应数据分为3部分">响应数据分为3部分</h5>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h5 id="常见的http响应头">常见的HTTP响应头</h5>
+<!-- raw HTML omitted -->
+<h5 id="状态码分类">状态码分类</h5>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code>http://cloud.tencent.com/developer/chapter/13553
+</code></pre><h3 id="web服务器">Web服务器</h3>
+<h4 id="目的-2">目的</h4>
+<p>对HTTP协议操作的封装，使得Web开发更为便捷。主要功能——提供网上信息游览服务</p>
+<h4 id="tomcat">Tomcat</h4>
+<h5 id="基本使用">基本使用</h5>
+<h6 id="下载-安装-卸载">下载-安装-卸载</h6>
+<!-- raw HTML omitted -->
+<h6 id="配置端口号-端口号冲突-启动窗口闪退">配置端口号-端口号冲突-启动窗口闪退</h6>
+<!-- raw HTML omitted -->
+<h6 id="部署项目">部署项目</h6>
+<ul>
+<li>将项目放置到webapps目录下，即部署完成</li>
+<li>一般会将javaweb项目会被打成war包，然后将war包放到webapps目录下，tomcat会自动解压缩war文件</li>
+</ul>
+<h4 id="idea中创建maven-web项目">idea中创建maven web项目</h4>
+<h5 id="web项目结构">web项目结构</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220821153454722.png" alt=""></p>
+<ul>
+<li>编译后的Java字节码文件和resources的资源文件，放在WEB-INF下的classes目录下</li>
+<li>pom.xml中依赖坐标对应的jar包，放入WEB-INF的lib目录下</li>
+</ul>
+<h5 id="创建项目">创建项目</h5>
+<h6 id="使用骨架">使用骨架</h6>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code>  &lt;!--
+     &lt;packaging&gt;:打包方式
+      *jar:默认方式
+      *war：web项目
+  --&gt;
+  &lt;packaging&gt;war&lt;/packaging&gt;
+</code></pre><h6 id="不使用骨架">不使用骨架</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220821160646132.png" alt="image-20220821160646132"></p>
+<h4 id="idea中使用tomcat">idea中使用Tomcat</h4>
+<h5 id="集成本地tomcat将本地tomcat集成到idea中然后进行项目部署">集成本地Tomcat——将本地Tomcat集成到idea中，然后进行项目部署</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220821161135258.png" alt="image-20220821161135258"></p>
+<h5 id="tomcat-maven插件">Tomcat Maven插件</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220821162021859.png" alt=""></p>
+<pre tabindex="0"><code>&lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+
+                &lt;!--tomcat 插件--&gt;
+                &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+                &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.2&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;port&gt;80&lt;/port&gt;
+                    &lt;path&gt;/&lt;/path&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+</code></pre><h3 id="servlet">Servlet</h3>
+<ul>
+<li>Servlet是Java提供的一门动态web资源开发技术</li>
+<li>Servlet是JavaEE规范之一，其实就是一个接口，我们需要定义Servlet类实现Servlet接口，并由web服务器运行Servlet</li>
+</ul>
+<!-- raw HTML omitted -->
+<h4 id="servlet快速入门">Servlet快速入门</h4>
+<p>1.创建web项目，导入Servlet依赖坐标</p>
+<pre tabindex="0"><code>&lt;dependency&gt;
+	&lt;groupId&gt;javax.servlet&lt;/groudId&gt;
+	&lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+	&lt;version&gt;3.1.0&lt;version&gt;
+	&lt;!--provided只在编译和测试阶段有效，Tomcat自带了此包，假如不设provided，在项目打成war后会起冲突--&gt;
+	&lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre><p>2.创建：定义一个类，实现Servlet接口，并重写接口中所有方法，并在service方法中输入一句话</p>
+<pre tabindex="0"><code>public class ServletDemo1 implements Servlet{
+	public void service(){}
+}
+</code></pre><p>3.配置：在类上使用@WebServlet注解，配置该Servlet的访问路径</p>
+<pre tabindex="0"><code>@WebServlet(&#34;/demo1&#34;)
+public class ServletDemo1 implements Servlet{
+</code></pre><p>4.访问：启动Tomcat，游览器输入URL访问该Servlet</p>
+<pre tabindex="0"><code>http://localhost:8080/web-demo/demo1
+</code></pre><h4 id="servlet执行流程">Servlet执行流程</h4>
+<!-- raw HTML omitted -->
+<h4 id="servlet生命周期">Servlet生命周期</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220821180745327.png" alt="image-20220821180745327"></p>
+<pre tabindex="0"><code>@WebServlet(urlPatterns = &#34;/demo2&#34;,loadOnStartup = 1)
+public class ServletDemo2 implements Servlet {
+
+    /**
+     * 初始化方法
+     * 1.调用时机：默认情况下，servlet被第一次访问时，调用
+     *      *loadOnStartup:改变创建时机
+     * 2.调用次数：1次
+     * @param config
+     * @throws ServletException
+     */
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        System.out.println(&#34;init...&#34;);
+    }
+
+    /**
+     * 提供服务
+     * 1.调用时机：每一次Servlet被访问时，调用
+     * 2.调用次数：多次
+     *
+     * @param req
+     * @param res
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Override
+    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+        System.out.println(&#34;servlet hello world!&#34;);
+    }
+
+    /**
+     *销毁方法
+     * 1.调用时机：内存释放或者服务器关闭的时候，Servlet对象会被销毁，调用
+     * 2.调用次数：1次
+     */
+    @Override
+    public void destroy() {
+        System.out.println(&#34;destroy&#34;);
+    }
+
+    @Override
+    public ServletConfig getServletConfig() {
+        return null;
+    }
+
+    @Override
+    public String getServletInfo() {
+        return null;
+    }
+}
+</code></pre><h4 id="servlet体系结构">Servlet体系结构</h4>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220821192506722.png" alt="image-20220821192506722"></p>
+<ul>
+<li>
+<p>HttpServlet使用步骤</p>
+<p>1.继承HttpServlet</p>
+<p>2.重写doGet和doPost方法</p>
+<pre tabindex="0"><code>@WebServlet(&#34;/demo4&#34;)
+public class ServletDemo4 extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(&#34;get...&#34;);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(&#34;post...&#34;);
+    }
+}
+</code></pre></li>
+<li>
+<p>HttpServlet原理</p>
+<p>获取请求方式，并根据不同的请求方式，调用不用的doXxx方法</p>
+</li>
+</ul>
+<h4 id="servlet-urlpattern配置">Servlet urlPattern配置</h4>
+<ul>
+<li>Servlet要想被访问，必须配置其访问路径（urlPattern）</li>
+</ul>
+<h5 id="1一个servlet可以配置多个urlpattern">1.一个Servlet，可以配置多个urlPattern</h5>
+<pre tabindex="0"><code>@WebServlet(urlPattern = {&#34;/demo1&#34;,&#34;/demo2&#34;})
+</code></pre><h5 id="2urlpattern配置规则">2.urlPattern配置规则</h5>
+<ul>
+<li>
+<p>精确匹配</p>
+<pre tabindex="0"><code>配置路径：@WebServlet(&#34;/user/select&#34;)
+访问路径：localhost:8080/web-demo/user/select
+</code></pre></li>
+<li>
+<p>目录匹配</p>
+<pre tabindex="0"><code>配置路径：@WebServlet(&#34;/user/*&#34;)
+访问路径：localhost:8080/web-demo/user/aaa*
+		localhost:8080/web-demo/user/bbb
+</code></pre></li>
+<li>
+<p>扩展名匹配</p>
+<pre tabindex="0"><code>配置路径：@WebServlet(&#34;*.do&#34;)
+访问路径：localhost:8080/web-demo/aaa.do
+		localhost:8080/web-demo/bbb.do
+</code></pre></li>
+<li>
+<p>任意匹配</p>
+<pre tabindex="0"><code>配置路径：@WebServlet(&#34;/&#34;)
+		@WebServlet(&#34;/*&#34;)
+访问路径：localhost:8080/web-demo/hehe
+		localhost:8080/web-demo/haha
+</code></pre><ul>
+<li>当项目中的Servlet配置了&quot;/&quot;，会覆盖掉tomcat中的DefaultServlet，导致项目中的静态资源访问不了</li>
+<li>&ldquo;/*&rdquo; ,意味着匹配任意访问路径</li>
+</ul>
+</li>
+<li>
+<p>优先级：</p>
+<p>精确路径 &gt; 目录路径 &gt; 扩展名路径 &gt; /* &gt; /</p>
+</li>
+</ul>
+<h4 id="xml配置方式编写servlet">XML配置方式编写Servlet</h4>
+<p>老方法，效率低且不方便</p>
+<h3 id="requestresponse请求响应">Request&amp;Response（请求&amp;响应）</h3>
+<ul>
+<li>Request:获取请求数据</li>
+<li>Response：设置响应数据</li>
+</ul>
+<h4 id="request">Request</h4>
+<h5 id="request继承体系">Request继承体系</h5>
+<!-- raw HTML omitted -->
+<h5 id="request获取请求数据">Request获取请求数据</h5>
+<p>1.请求行：</p>
+<pre tabindex="0"><code>GET/request-demo/req1?username=zhangsan HTTP/1.1
+</code></pre><ul>
+<li>String getMethod(): 获取请求方式 —— GET</li>
+<li>String getContextPath(): 获取虚拟目录（项目访问路径） —— /request demo</li>
+<li>StringBuffer getRequestURL(): 获取URL（统一资源定位符）—— http://loacalhost:8080/request-demo/req1</li>
+<li>String getRequestURI(): 获取URI（统一资源标识符）—— /request-demo/req1</li>
+<li>String getQueryString(): 获取请求参数（GET方式）—— username=zhangsan&amp;password=123</li>
+</ul>
+<p>2.请求头</p>
+<pre tabindex="0"><code>User-Agent:Mozilla/5.0 Chrome/91.0.4472.106
+</code></pre><ul>
+<li>
+<p>String getHeader(String name): 根据请求头名称，获取值</p>
+<pre tabindex="0"><code>user-agent:游览器的版本信息
+*查询游览器信息
+String header = req.getHeader(&#34;user-agent&#34;);
+System.out.println(header);
+</code></pre></li>
+</ul>
+<p>3.请求体(POST方式)</p>
+<pre tabindex="0"><code>username=superbaby&amp;password=123
+</code></pre><ul>
+<li>ServletInputStream getInputStream(): 获取字节输入流</li>
+<li>ButteredReader getReader(): 获取字符输入流</li>
+<li>流的类型：
+* jdk 1.0 字节流： 主要用来表示二进制文件（图片，视频，音频，文本文件等）；
+* 字节输人流： 读取数据 InputStream 四个都是抽象类
+* 字节输出流： 写出数据 OutputStream
+* jdk 1.1 字符流： 表示文本文件（Windows自带的记事本软件能打开能看懂的文件）
+* 字符输入流：读取数据 Reader
+* 字符输出流：写出数据 Writer</li>
+</ul>
+<h6 id="request通用方式获取请求参数">Request通用方式获取请求参数</h6>
+<ul>
+<li>Map&lt;String,String[]&gt;getParameterMap(): 获取所有参数Map集合</li>
+<li>String[]getParameterValues(String name): 根据名称获取参数值（数组）</li>
+<li>String getParameter(String name): 根据名称获取参数值（单个值）</li>
+</ul>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code>@WebServlet(&#34;/req1&#34;)
+public class ServletDemo5 extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        //1.获取所有参数的Map集合
+        Map&lt;String, String[]&gt; Map = req.getParameterMap();
+
+        for (String key: Map.keySet()) {
+            System.out.print(key+&#34;:&#34;);
+
+            //获取值
+            String[] values = Map.get(key);
+            for (String value : values) {
+                System.out.print(value + &#34; &#34;);
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        //2.根据key获取参数值，数组
+        String[] hobbies = req.getParameterValues(&#34;hobby&#34;);
+        for (String hobby : hobbies) {
+            System.out.print(hobby);
+        }
+
+        System.out.println();
+
+        System.out.println();
+
+        //3.获取单个值
+        String username = req.getParameter(&#34;username&#34;);
+        String password = req.getParameter(&#34;password&#34;);
+        System.out.println(username);
+        System.out.println(password);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doGet(req, resp);
+    }
+}
+</code></pre><h6 id="请求参数中文乱码">请求参数中文乱码</h6>
+<ul>
+<li>
+<p>POST解决方法——设置字符输入流的编码</p>
+<pre tabindex="0"><code>request.setCharacterEncoding(&#34;UTF-8&#34;);
+</code></pre></li>
+<li>
+<p>通用方式GET/POST:先解码，再编码</p>
+<pre tabindex="0"><code>new String(username.getBytes(StandardCharsets.ISO_8859_1),StandardCharsets.UTF_8)
+</code></pre><pre tabindex="0"><code>//post解决乱码方案
+        request.setCharacterEncoding(&#34;UTF-8&#34;);
+
+        String username = request.getParameter(&#34;username&#34;);
+        System.out.println(username);
+
+        byte[] bytes = username.getBytes(StandardCharsets.ISO_8859_1);
+
+        username = new String(bytes, StandardCharsets.UTF_8);
+        System.out.println(username);
+
+        //post/get通用解决方法
+        username = new String(username.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        System.out.println(username);
+</code></pre></li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p>URL编码实现方式</p>
+<ul>
+<li>
+<p>编码</p>
+<pre tabindex="0"><code>URLEncoder.encode(str.&#34;utf-8&#34;);
+</code></pre></li>
+<li>
+<p>解码</p>
+<pre tabindex="0"><code>URLDecoder.decode(s.&#34;ISO-8859-1&#34;);
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h5 id="request请求转发">Request请求转发</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220822151129612.png" alt="image-20220822151129612"></p>
+<pre tabindex="0"><code>/req5
+//存储数据
+        request.setAttribute(&#34;name&#34;,&#34;zhangsan&#34;);
+
+        //请求转发
+        request.getRequestDispatcher(&#34;/req6&#34;).forward(request,response);
+</code></pre><pre tabindex="0"><code>/req6
+//接收数据
+        Object name = request.getAttribute(&#34;name&#34;);
+        System.out.println(name);
+</code></pre><h4 id="response">Response</h4>
+<h5 id="response继承体系">Response继承体系</h5>
+<!-- raw HTML omitted -->
+<h5 id="response设置响应数据功能方法">Response设置响应数据功能（方法）</h5>
+<p>1.响应行</p>
+<pre tabindex="0"><code>HTTP/1.1 200 OK —— 1.1连接协议 —— 200连接状态码 —— OK成功
+</code></pre><ul>
+<li>void setStatus(int sc): 设置响应状态码</li>
+</ul>
+<p>2.响应头</p>
+<pre tabindex="0"><code>Content-Type:text/html
+</code></pre><ul>
+<li>void setHeader(String name,String value):设置响应头键值对</li>
+</ul>
+<p>3.响应体</p>
+<pre tabindex="0"><code>&lt;html&gt;
+	&lt;head&gt;&lt;/head&gt;
+	&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><ul>
+<li>PrintWriter getWriter(): 获取字符输出流</li>
+<li>ServletOutputStream getOutputStream(): 获取字节输出流</li>
+</ul>
+<h5 id="response完成重定向">Response完成重定向</h5>
+<!-- raw HTML omitted -->
+<h6 id="简化方式完成重定向">简化方式完成重定向</h6>
+<pre tabindex="0"><code>response.sendRedirect(&#34;/web-demo/resp2&#34;); 
+————/web-demo/resp2跳转地址
+</code></pre><h6 id="动态方式获取虚拟目录并完成重定向">动态方式获取虚拟目录并完成重定向</h6>
+<pre tabindex="0"><code>String contextPath = request.getContextPath();
+response.sendRedirect(contextPath+&#34;resp2&#34;);
+</code></pre><h5 id="response响应字符数据">Response响应字符数据</h5>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code>//设置响应数据格式与字符集
+        response.setContentType(&#34;text/html;charset=utf-8&#34;);
+        //1.获取字符流
+        PrintWriter writer = response.getWriter();
+
+        writer.write(&#34;aaa&#34;);
+        writer.write(&#34;&lt;h1&gt;aaa&lt;/h1&gt;&#34;);
+</code></pre><h5 id="response响应字节数据">Response响应字节数据</h5>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code> //1.读取文件
+        FileInputStream fileInputStream = new FileInputStream(&#34;C:\\Users\\Mango\\Desktop\\pictures\\1.jpg&#34;);
+
+        //2.获取response字节输出流
+        ServletOutputStream outputStream = response.getOutputStream();
+
+        //3.完成流的copy
+        IOUtils.copy(fileInputStream,outputStream);
+
+        fileInputStream.close();
+</code></pre><pre tabindex="0"><code>io工具类
+&lt;dependency&gt;
+	&lt;groupId&gt;commons-io&lt;/groupId&gt;
+	&lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+	&lt;version&gt;2.6&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="jsp">JSP</h3>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220822170851341.png" alt="image-20220822170851341"></p>
+<h4 id="jsp快速入门">JSP快速入门</h4>
+<p>1.导入JSP坐标</p>
+<pre tabindex="0"><code></code></pre><p>2.创建JSP文件</p>
+<pre tabindex="0"><code></code></pre><p>3.编写HTML标签和Java代码</p>
+<pre tabindex="0"><code></code></pre><h4 id="jsp原理">JSP原理</h4>
+<h4 id="jsp脚本">JSP脚本</h4>
+<h4 id="el表达式">EL表达式</h4>
+<h4 id="jstl标签">JSTL标签</h4>
+<h4 id="mvc模式和三层架构">MVC模式和三层架构</h4>
+<h2 id="案例">案例</h2>
 
     </div>
     <div class="post-footer">
