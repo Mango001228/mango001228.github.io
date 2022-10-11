@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <title> // Mango&#39;s&#39; Blog Site</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.101.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Mango" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://mango001228.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="微服务技术栈 微服务框架——SpringCloud微服务架构 认识微服务 服务架构演变 单体架构 将业务的所有功能集中在一个项目中开发，打成一个包部署
+优先：架构简单、部署成本低
+缺点：耦合度高
+分布式架构 分布式架构需要考虑的问题 微服务 微服务技术对比 企业需求 SpringCloud 服务拆分及远程调用 服务拆分 服务拆分注意事项 不同微服务，不要重复开发相同业务 微服务数据独立，不要访问其它微服务的数据库 微服务可以将自己的业务暴露为接口，供其它微服务调用 案例：导入服务拆分Demo 服务间调用 提供者与消费者 eureka注册中心 远程调用问题 Eureka原理 搭建EurekaServer 动手实践 服务注册 单实例部署 模拟多实例部署 服务发现 Ribbon负载均衡原理 nacos注册中心 "/>
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="微服务技术栈 微服务框架——SpringCloud微服务架构 认识微服务 服务架构演变 单体架构 将业务的所有功能集中在一个项目中开发，打成一个包部署
+优先：架构简单、部署成本低
+缺点：耦合度高
+分布式架构 分布式架构需要考虑的问题 微服务 微服务技术对比 企业需求 SpringCloud 服务拆分及远程调用 服务拆分 服务拆分注意事项 不同微服务，不要重复开发相同业务 微服务数据独立，不要访问其它微服务的数据库 微服务可以将自己的业务暴露为接口，供其它微服务调用 案例：导入服务拆分Demo 服务间调用 提供者与消费者 eureka注册中心 远程调用问题 Eureka原理 搭建EurekaServer 动手实践 服务注册 单实例部署 模拟多实例部署 服务发现 Ribbon负载均衡原理 nacos注册中心 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mango001228.github.io/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8A%80%E6%9C%AF%E6%A0%88/" /><meta property="article:section" content="post" />
+
+
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://mango001228.github.io"><img class="app-header-avatar" src="/1.jpg" alt="Mango" /></a>
+      <h1>Mango&#39;s&#39; Blog Site</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/posts/">首页</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tecs/">技术</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/books/">技术系列</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/free/">随笔</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">关于</a>
+      </nav>
+      <p>When your mind is telling you you’re done, you’re really only 40 percent done.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/gohugoio" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/gohugoio" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title"></h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jan 1, 0001
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="微服务技术栈">微服务技术栈</h1>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009123128707.png" alt="image-20221009123128707"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009123201664.png" alt="image-20221009123201664"></p>
+<h2 id="微服务框架springcloud微服务架构">微服务框架——SpringCloud微服务架构</h2>
+<h3 id="认识微服务">认识微服务</h3>
+<h4 id="服务架构演变">服务架构演变</h4>
+<h5 id="单体架构">单体架构</h5>
+<p>将业务的所有功能集中在一个项目中开发，打成一个包部署</p>
+<p>优先：架构简单、部署成本低</p>
+<p>缺点：耦合度高</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009123819398.png" alt="image-20221009123819398"></p>
+<h5 id="分布式架构">分布式架构</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009123933260.png" alt="image-20221009123933260"></p>
+<h6 id="分布式架构需要考虑的问题">分布式架构需要考虑的问题</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009124100172.png" alt=""></p>
+<h5 id="微服务">微服务</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009124356757.png" alt="image-20221009124356757"></p>
+<h4 id="微服务技术对比">微服务技术对比</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009125011057.png" alt="image-20221009125011057"></p>
+<h5 id="企业需求">企业需求</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009125131941.png" alt="image-20221009125131941"></p>
+<h4 id="springcloud">SpringCloud</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009125305245.png" alt="image-20221009125305245"></p>
+<h3 id="服务拆分及远程调用">服务拆分及远程调用</h3>
+<h4 id="服务拆分">服务拆分</h4>
+<h5 id="服务拆分注意事项">服务拆分注意事项</h5>
+<ol>
+<li>不同微服务，不要重复开发相同业务</li>
+<li>微服务数据独立，不要访问其它微服务的数据库</li>
+<li>微服务可以将自己的业务暴露为接口，供其它微服务调用</li>
+</ol>
+<h5 id="案例导入服务拆分demo">案例：导入服务拆分Demo</h5>
+<h4 id="服务间调用">服务间调用</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009160313421.png" alt="image-20221009160313421"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009160748152.png" alt="image-20221009160748152"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009160758718.png" alt="image-20221009160758718"></p>
+<h5 id="提供者与消费者">提供者与消费者</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009160937004.png" alt="image-20221009160937004"></p>
+<h3 id="eureka注册中心">eureka注册中心</h3>
+<h4 id="远程调用问题">远程调用问题</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009161614506.png" alt="image-20221009161614506"></p>
+<h4 id="eureka原理">Eureka原理</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009162033263.png" alt="image-20221009162033263"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009162147053.png" alt="image-20221009162147053"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009162231335.png" alt="image-20221009162231335"></p>
+<h4 id="搭建eurekaserver">搭建EurekaServer</h4>
+<h5 id="动手实践">动手实践</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009162333171.png" alt="image-20221009162333171"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009162730042.png" alt="image-20221009162730042"></p>
+<h4 id="服务注册">服务注册</h4>
+<h5 id="单实例部署">单实例部署</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009164241178.png" alt="image-20221009164241178"></p>
+<h5 id="模拟多实例部署">模拟多实例部署</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009165119312.png" alt="image-20221009165119312"></p>
+<h4 id="服务发现">服务发现</h4>
+<h3 id="ribbon负载均衡原理">Ribbon负载均衡原理</h3>
+<h3 id="nacos注册中心">nacos注册中心</h3>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

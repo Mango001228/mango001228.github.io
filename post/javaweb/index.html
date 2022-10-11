@@ -97,7 +97,7 @@ Druid数据库连接池 使用步骤 //1.导入Druid maven依赖 //2.定义配�
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          7 min read
+          11 min read
         </div>
       </div>
     </header>
@@ -419,12 +419,8 @@ select *from tb_brand;
 </li>
 </ul>
 <h4 id="实战期">实战期</h4>
-<ul>
-<li>
-<p>查询</p>
-<ul>
-<li>
-<p>查询所有数据</p>
+<h5 id="查询">查询</h5>
+<h6 id="查询所有数据">查询所有数据</h6>
 <pre tabindex="0"><code>&lt;!--
     数据库表的字段名称  和   实体类的属性名称  不一样，则不能实现自动封装
         *起别名：对不一样的列名起别名，让别名和实体类的属性名一样
@@ -459,9 +455,7 @@ select *from tb_brand;
         from tb_brand;
     &lt;/select&gt;
 &lt;/mapper&gt;
-</code></pre></li>
-<li>
-<p>查看详情</p>
+</code></pre><h6 id="查看详情">查看详情</h6>
 <pre tabindex="0"><code>&lt;!--
         *参数占位符？：
             1.#{}:会将其替换为?，为了防止SQL注入
@@ -478,12 +472,8 @@ select *from tb_brand;
             &lt;
             ]]&gt;]
     --&gt;
-</code></pre></li>
-<li>
-<p>条件查询</p>
-<ul>
-<li>
-<p>多条件查询</p>
+</code></pre><h5 id="条件查询">条件查询</h5>
+<h6 id="多条件查询">多条件查询</h6>
 <pre tabindex="0"><code>SQL语句多参数设置方式
 1.散装参数：
 	*需要使用@Param(&#34;SQL中的参数占位符名称&#34;)
@@ -494,35 +484,49 @@ select *from tb_brand;
 3.map集合
 	*只需要保证SQL中的参数名和map集合的键的名称对应上，即可设置成功
 	List&lt;Brand&gt;selectByCondition(Map map);
+</code></pre><h6 id="多条件动态查询">多条件动态查询</h6>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220823171055628.png" alt="image-20220823171055628"></p>
+<h6 id="单条件动态查询">单条件动态查询</h6>
+<!-- raw HTML omitted -->
+<h5 id="添加">添加</h5>
+<h6 id="修改">修改</h6>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p>需要提交事务</p>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code>SqlSession sqlSession = sqlSessionFactory.openSession(autoCommit:true) //开启事务自动提交
+sqlSession.commit();  //手动设置事务提交
 </code></pre></li>
 <li>
-<p>多条件动态查询</p>
-</li>
-<li>
-<p>单条件动态查询</p>
+<p>添加——主键返回</p>
 </li>
 </ul>
-</li>
-</ul>
-</li>
-<li>
-<p>添加</p>
-</li>
-<li>
-<p>修改</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h6 id="修改全部字段">修改全部字段</h6>
+<h6 id="修改动态字段">修改动态字段</h6>
 <ul>
-<li>修改全部字段</li>
-<li>修改动态字段</li>
+<li><!-- raw HTML omitted -->标签与<!-- raw HTML omitted -->标签</li>
 </ul>
-</li>
-<li>
-<p>删除</p>
-<ul>
-<li>删除一个</li>
-<li>批量删除</li>
-</ul>
-</li>
-</ul>
+<h5 id="删除">删除</h5>
+<h6 id="删除一个">删除一个</h6>
+<h6 id="批量删除">批量删除</h6>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code>collection=&#34;ids&#34; ————ids遍历集合名
+item=&#34;id&#34;     	 ————id遍历后产生的局部临时变量
+separator=&#34;,&#34;    ————分隔符设置
+open=&#34;(&#34;  	     ————开始符设置
+close=&#34;)&#34;        ————结束符设置
+</code></pre><pre tabindex="0"><code>mybatis会将数组参数，封装为一个Map集合。
+            * 默认：array = 数组
+            * 使用@Param注解改变map集合的默认key的名称
+</code></pre><h5 id="注解开发">注解开发</h5>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220824141752588.png" alt="image-20220824141752588"></p>
+<h4 id="mybatis参数传递">Mybatis参数传递</h4>
+<!-- raw HTML omitted -->
 <h2 id="html">HTML</h2>
 <h3 id="html结构标签">html结构标签</h3>
 <pre tabindex="0"><code>&lt;HTML&gt; ———— 定义HTML文档
@@ -772,6 +776,171 @@ test = &#34;张三&#34;;；
 <h4 id="函数">函数</h4>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
+<h3 id="javascript对象">JavaScript对象</h3>
+<h4 id="array">Array</h4>
+<h5 id="定义">定义</h5>
+<pre tabindex="0"><code>var 变量名 = new Array(元素列表);———— 方式一      var arr = new Array(1,2,3);
+var 变量名 = [元素列表] ———— 方式二               var arr = [1,2,3];
+</code></pre><h5 id="访问赋值">访问(赋值)</h5>
+<pre tabindex="0"><code>arr[索引] = 值;
+arr[0] = 1;
+</code></pre><ul>
+<li>JS数组类似于Java集合，长度，类型都可变</li>
+</ul>
+<h5 id="属性">属性</h5>
+<ul>
+<li>length: 数组中元素的个数</li>
+</ul>
+<pre tabindex="0"><code>var arr = [1,2,3];
+for(let i = 0;i &lt; arr.length; i++){  //遍历长度
+	alert(arr[i]);
+}
+</code></pre><h5 id="方法">方法</h5>
+<ul>
+<li>push：添加方法</li>
+</ul>
+<pre tabindex="0"><code>var arr = [1,2,3];
+arr.push(10);
+alert(arr);  ————————输出结果为1，2，3，10
+</code></pre><ul>
+<li>splice：删除元素</li>
+</ul>
+<pre tabindex="0"><code>var arr = [1,2,3];
+arr.splice(0,1);  ——————(从哪个位置开始删，删除几个—);
+alert(arr); ——————输出结果为2，3
+</code></pre><h4 id="string">String</h4>
+<h5 id="定义-1">定义</h5>
+<pre tabindex="0"><code>var 变量名 = new String(s);———— 方式一      var str = new String(&#34;hello&#34;);
+var 变量名 = s ———— 方式二               var str = &#34;hello&#34;; &amp;&amp; var str = &#39;hello&#39;;
+</code></pre><h5 id="属性-1">属性</h5>
+<ul>
+<li>length: 字符串的长度</li>
+</ul>
+<pre tabindex="0"><code>var str = &#34;abc&#34;
+alert(str.length); ————输出结果为3
+</code></pre><h5 id="方法-1">方法</h5>
+<ul>
+<li>trim(): 去除字符串前后两端的空白字符</li>
+</ul>
+<pre tabindex="0"><code>var str = &#39;   abc   &#39;;
+alert(1 + str.trim() + 1);   //输出结果为1abc1
+</code></pre><ul>
+<li>
+<p>charAt(): 返回在指定位置的字符</p>
+</li>
+<li>
+<p>indexOf(): 检索字符串</p>
+</li>
+</ul>
+<h4 id="自定义对象">自定义对象</h4>
+<h5 id="格式">格式</h5>
+<pre tabindex="0"><code>var对象名称 = {
+	属性名称1：属性值1,
+	属性名称1：属性值1,
+	...
+	函数名称:function(形参列表){}
+	...
+}
+
+var person = {
+	name:&#34;zhangsan&#34;,
+	age:23,
+	eat:function(){
+		alert(&#34;干饭~&#34;);
+	}
+}
+调属性与方法
+alert(person.name);
+alert(person.name);
+person.eat();
+</code></pre><h4 id="bom">BOM</h4>
+<ul>
+<li>Browser Object Model 游览器对象模型</li>
+<li>JavaScript 将游览器的各个组成部分封装为对象</li>
+<li>组成：
+<ul>
+<li>Window：游览器窗口对象</li>
+<li>Navigator: 游览器对象</li>
+<li>Screen: 屏幕对象</li>
+<li>History: 历史记录对象</li>
+<li>Location: 地址栏对象</li>
+</ul>
+</li>
+</ul>
+<h5 id="window">window</h5>
+<h6 id="获取">获取</h6>
+<p>直接使用window，其中window. 可以省略</p>
+<pre tabindex="0"><code>window.alert(&#34;abc&#34;);
+</code></pre><h6 id="属性-2">属性</h6>
+<p>获取其他BOM对象</p>
+<p>history</p>
+<p>Navigator</p>
+<p>Screen</p>
+<p>location</p>
+<h6 id="方法-2">方法</h6>
+<pre tabindex="0"><code>1.alert() —————— 显示一段消息和一个确认按钮的警告框
+2.confirm() —————— 显示一段消息和一个带有确认和取消按钮的对话框  方法需要返回值
+3.setInterval(function,毫秒值) —————— 计时器，在一段时间后执行一个function，循环执行
+4.setTimeout(function,毫秒值) —————— 计时器，在一段时间后执行一个function，只执行一次
+</code></pre><h5 id="history">History</h5>
+<p>历史记录</p>
+<h6 id="获取-1">获取</h6>
+<p>使用window.history获取，其中window. 可省略</p>
+<pre tabindex="0"><code>window.history.方法();
+history方法.();
+</code></pre><h6 id="方法-3">方法</h6>
+<pre tabindex="0"><code>back() —————— 加载history列表中的前一个URL
+forward() —————— 加载history列表中的下一个URL
+</code></pre><h5 id="location">Location</h5>
+<p>地址栏对象</p>
+<h6 id="获取-2">获取</h6>
+<p>使用window.location获取，其中window. 可省略</p>
+<pre tabindex="0"><code>window.location.方法();
+location方法.();
+</code></pre><h6 id="属性-3">属性</h6>
+<pre tabindex="0"><code>href —————— 设置或者返回完整的URL
+</code></pre><h4 id="dom">DOM</h4>
+<ul>
+<li>Document Object Model 文档对象模型</li>
+<li>将标记语言的各个组成部分封装为对象
+<ul>
+<li>Document: 整个文档对象</li>
+<li>Element: 元素对象</li>
+<li>Attribute: 属性对象</li>
+<li>Text: 文本对象</li>
+<li>Comment: 注释对象</li>
+</ul>
+</li>
+</ul>
+<h5 id="dom树">DOM树</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220823125041914.png" alt="image-20220823125041914"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220823124957572.png" alt="image-20220823124957572"></p>
+<h5 id="获取element对象">获取Element对象</h5>
+<p>Element：元素对象</p>
+<h6 id="获取-3">获取</h6>
+<p>使用Document对象的方法来获取</p>
+<!-- raw HTML omitted -->
+<h5 id="常见html-element对象的使用">常见HTML Element对象的使用</h5>
+<ul>
+<li>查文档</li>
+</ul>
+<h6 id="常用">常用</h6>
+<pre tabindex="0"><code>1.style:设置元素CSS样式            divs[i].style.color = &#39;red&#39;
+2.innerHTML: 设置元素内容          divs[i].innerHTML = &#39;呵呵&#39;
+3.checked：返回checkbox是否被选中   hobbys[i].checked = true;
+</code></pre><h4 id="事件监听">事件监听</h4>
+<h5 id="什么是事件什么是事件监听">什么是事件，什么是事件监听</h5>
+<!-- raw HTML omitted -->
+<h5 id="事件绑定">事件绑定</h5>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li>推荐使用第二种，HTML代码与JavaScript代码没有耦合到一块，做到了职责单一</li>
+</ul>
+<h5 id="常见事件">常见事件</h5>
+<!-- raw HTML omitted -->
+<h4 id="正则表达式">正则表达式</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220823162108316.png" alt="image-20220823162108316"></p>
 <h2 id="web核心">web核心</h2>
 <h3 id="javaweb技术栈">JavaWeb技术栈</h3>
 <!-- raw HTML omitted -->
@@ -1002,7 +1171,18 @@ public class ServletDemo4 extends HttpServlet {
 <li>Request:获取请求数据</li>
 <li>Response：设置响应数据</li>
 </ul>
-<h4 id="request">Request</h4>
+<h4 id="什么时候用get什么时候用post">什么时候用GET？什么时候用POST？</h4>
+<pre tabindex="0"><code>若符合下列任一情况，则用POST方法：
+* 请求的结果有持续性的副作用，例如，数据库内添加新的数据行。
+* 若使用GET方法，则表单上收集的数据可能让URL过长。
+* 要传送的数据不是采用7位的ASCII编码。
+
+若符合下列任一情况，则用GET方法：
+
+* 请求是为了查找资源，HTML表单数据仅用来帮助搜索。
+* 请求结果无持续性的副作用。
+* 收集的数据及HTML表单内的输入字段名称的总长不超过1024个字符。
+</code></pre><h4 id="request">Request</h4>
 <h5 id="request继承体系">Request继承体系</h5>
 <!-- raw HTML omitted -->
 <h5 id="request获取请求数据">Request获取请求数据</h5>
@@ -1120,7 +1300,7 @@ public class ServletDemo5 extends HttpServlet {
 <ul>
 <li>
 <p>编码</p>
-<pre tabindex="0"><code>URLEncoder.encode(str.&#34;utf-8&#34;);
+<pre tabindex="0"><code>URLEncoder.encode(str,&#34;utf-8&#34;);
 </code></pre></li>
 <li>
 <p>解码</p>
@@ -1203,15 +1383,564 @@ response.sendRedirect(contextPath+&#34;resp2&#34;);
 <p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220822170851341.png" alt="image-20220822170851341"></p>
 <h4 id="jsp快速入门">JSP快速入门</h4>
 <p>1.导入JSP坐标</p>
-<pre tabindex="0"><code></code></pre><p>2.创建JSP文件</p>
-<pre tabindex="0"><code></code></pre><p>3.编写HTML标签和Java代码</p>
-<pre tabindex="0"><code></code></pre><h4 id="jsp原理">JSP原理</h4>
-<h4 id="jsp脚本">JSP脚本</h4>
-<h4 id="el表达式">EL表达式</h4>
-<h4 id="jstl标签">JSTL标签</h4>
-<h4 id="mvc模式和三层架构">MVC模式和三层架构</h4>
-<h2 id="案例">案例</h2>
+<pre tabindex="0"><code> &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet.jsp&lt;/groupId&gt;
+            &lt;artifactId&gt;jsp-api&lt;/artifactId&gt;
+            &lt;version&gt;2.2&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+</code></pre><p>2.创建JSP文件</p>
+<pre tabindex="0"><code>hello.jsp
+</code></pre><p>3.编写HTML标签和Java代码</p>
+<pre tabindex="0"><code>&lt;%@ page contentType=&#34;text/html;charset=UTF-8&#34; language=&#34;java&#34; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
+    &lt;h1&gt;hello jsp&lt;/h1&gt;
+
+    &lt;%
+        System.out.println(&#34;hello jsp~&#34;);
+    %&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h4 id="jsp原理">JSP原理</h4>
+<ul>
+<li>本质上就是一个Servlet</li>
+</ul>
+<!-- raw HTML omitted -->
+<h4 id="jsp脚本">JSP脚本</h4>
+<!-- raw HTML omitted -->
+<h4 id="jsp缺点">JSP缺点</h4>
+<!-- raw HTML omitted -->
+<h4 id="el表达式">EL表达式</h4>
+<!-- raw HTML omitted -->
+<h4 id="jstl标签">JSTL标签</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220829150944661.png" alt="image-20220829150944661"></p>
+<h5 id="快速入门-1">快速入门</h5>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220829152035641.png" alt="image-20220829152035641"></p>
+<h4 id="mvc模式和三层架构">MVC模式和三层架构</h4>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220829153254806.png" alt="image-20220829153254806"></p>
+<!-- raw HTML omitted -->
+<h4 id="案例">案例</h4>
+<p>查询</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220830142403059.png" alt="image-20220830142403059"></p>
+<p>添加</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220830192802155.png" alt="image-20220830192802155"></p>
+<p>修改-数据回显</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220830201823570.png" alt="image-20220830201823570"></p>
+<p>修改数据</p>
+<!-- raw HTML omitted -->
+<h3 id="会话跟踪技术">会话跟踪技术</h3>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220829154013879.png" alt="image-20220829154013879"></p>
+<h4 id="cookie基本使用">Cookie基本使用</h4>
+<ul>
+<li>
+<p>Cookie:客户端会话技术，将数据保存到客户端，以后每次请求都携带Cookie数据进行访问</p>
+</li>
+<li>
+<p>Cookie基本使用：</p>
+<ul>
+<li>
+<p>发送Cookie：</p>
+<ul>
+<li>
+<p>创建Cookie对象，设置数据</p>
+<pre tabindex="0"><code>Cookie cookie = new Cookie(&#34;key&#34;,&#34;value&#34;);
+</code></pre></li>
+<li>
+<p>发送Cookie到客户端，使用response对象</p>
+<pre tabindex="0"><code>response.addCookie(cookie);
+</code></pre></li>
+<li>
+<pre tabindex="0"><code> //发送Cookie
+
+        //1.创建Cookie对象
+        Cookie cookie = new Cookie(&#34;username&#34;,&#34;zs&#34;);
+
+        //2.发送Cookie.response
+        response.addCookie(cookie);
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>获取Cookie</p>
+<ul>
+<li>
+<p>获取客户端携带的所有Cookie，使用request对象</p>
+<pre tabindex="0"><code>Cookie[] cookie = request.getCookie();
+</code></pre></li>
+<li>
+<p>遍历数组，获取每一个Cookie对象：for</p>
+</li>
+<li>
+<p>使用Cookie对象方法获取数据</p>
+<pre tabindex="0"><code>cookie.getName();
+cookie.getValue();
+</code></pre><pre tabindex="0"><code>        //获取Cookie
+
+        //1.获取Cookie数组
+        Cookie[] cookies = request.getCookies();
+
+        //2.遍历数组
+        for (Cookie cookie : cookies) {
+            //3.获取数组
+            String name = cookie.getName();
+            if (&#34;username&#34;.equals(name)){
+                String value = cookie.getValue();
+                System.out.println(name+&#34;:&#34;+value);
+
+                break;
+            }
+
+        }
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="cookie原理">Cookie原理</h4>
+<!-- raw HTML omitted -->
+<h4 id="cookie使用细节">Cookie使用细节</h4>
+<h5 id="cookie存活时间">Cookie存活时间</h5>
+<ul>
+<li>关闭游览器才算结束默认Cookie，而不是关掉标签页</li>
+</ul>
+<!-- raw HTML omitted -->
+<h5 id="cookie存储中文">Cookie存储中文</h5>
+<ul>
+<li>
+<p>Cookie不能直接存储中文</p>
+</li>
+<li>
+<p>如需存储，则需要进行转码：URL编码</p>
+</li>
+</ul>
+<h4 id="session基本使用">Session基本使用</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220829195725652.png" alt="image-20220829195725652"></p>
+<h4 id="session原理">Session原理</h4>
+<ul>
+<li>Session的实现是基于Cookie的</li>
+<li></li>
+</ul>
+<h4 id="session使用细节">Session使用细节</h4>
+<h5 id="session钝化活化">Session钝化、活化</h5>
+<ul>
+<li>钝化：在服务器正常关闭后，Tomcat会自动将Session数据写入硬盘的文件中</li>
+<li>活化：再次启动服务器后，从文件中加载数据到Session</li>
+</ul>
+<p>Session销毁</p>
+<ul>
+<li>
+<p>默认情况下，无操作，30分钟自动销毁</p>
+<pre tabindex="0"><code>&lt;session-config&gt;
+            &lt;session-timeout&gt;100&lt;/session-timeout&gt;
+        &lt;/session-config&gt;   
+</code></pre></li>
+<li>
+<p>调用Session对象的invalidate()方法</p>
+<pre tabindex="0"><code>session.invalidate();
+</code></pre></li>
+</ul>
+<h4 id="cookiesession总结">Cookie、Session总结</h4>
+<ul>
+<li>Cookie和Session都是完成一次会话内多次请求间数据共享的</li>
+</ul>
+<p>区别：</p>
+<ul>
+<li>存储位置：Cookie是将数据存储在客户端，Session将数据存储在服务端</li>
+<li>安全性：Cookie不安全，Session安全</li>
+<li>数据大小：Cookie最大3KB，Session无大小限制</li>
+<li>存储时间：Cookie可以长期存储，Session默认30分钟</li>
+<li>服务器性能：Cookie不占服务器资源，Session占用服务器资源</li>
+</ul>
+<p>一般登录前Cookie，登陆后Session</p>
+<h4 id="案例-1">案例</h4>
+<p>登录注册案例</p>
+<h5 id="需求说明">需求说明：</h5>
+<!-- raw HTML omitted -->
+<h3 id="filter">Filter</h3>
+<!-- raw HTML omitted -->
+<h4 id="filter快速入门">Filter快速入门</h4>
+<!-- raw HTML omitted -->
+<h4 id="filter执行流程">Filter执行流程</h4>
+<!-- raw HTML omitted -->
+<ul>
+<li>放行前，对request数据进行处理</li>
+<li>放行</li>
+<li>放行后，对response数据进行处理</li>
+</ul>
+<h4 id="filter使用细节">Filter使用细节</h4>
+<h5 id="filter拦截路径配置">Filter拦截路径配置</h5>
+<ul>
+<li>Filter可以根据需求，配置不用的拦截资源路径</li>
+</ul>
+<!-- raw HTML omitted -->
+<h5 id="过滤器链">过滤器链</h5>
+<ul>
+<li>一个Web应用，可以配置多个过滤器，这多个过滤器称为过滤器链</li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>注解配置的Filter，优先级按照过滤器类名(字符串)的自然排序</li>
+</ul>
+<h4 id="案例-2">案例</h4>
+<h5 id="登录验证">登录验证</h5>
+<ul>
+<li>需求：访问服务器资源时，需要先进行登录验证，如果没有登录，则自动跳转到登录页面</li>
+</ul>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220906151659778.png" alt="image-20220906151659778"></p>
+<h3 id="listener">Listener</h3>
+<h4 id="概念">概念</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220906152433793.png" alt="image-20220906152433793"></p>
+<h4 id="servletcontextlistener使用">ServletContextListener使用</h4>
+<!-- raw HTML omitted -->
+<h3 id="ajax">AJAX</h3>
+<h4 id="概念与作用">概念与作用</h4>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220906153448717.png" alt="image-20220906153448717"></p>
+<h4 id="同步和异步">同步和异步</h4>
+<!-- raw HTML omitted -->
+<h4 id="ajax快速入门">AJAX快速入门</h4>
+<!-- raw HTML omitted -->
+<h4 id="案例-3">案例</h4>
+<p><strong>使用AJAX验证用户名是否存在</strong></p>
+<!-- raw HTML omitted -->
+<h4 id="axios异步框架">Axios异步框架</h4>
+<ul>
+<li>Axios对原生的AJAX进行封装，简化书写</li>
+<li>官网:http://www.axios-http.cn</li>
+</ul>
+<h5 id="axios快速入门">Axios快速入门</h5>
+<!-- raw HTML omitted -->
+<h4 id="json">JSON</h4>
+<!-- raw HTML omitted -->
+<h5 id="json基础语法">JSON基础语法</h5>
+<!-- raw HTML omitted -->
+<h5 id="json数据和java对象转换">JSON数据和Java对象转换</h5>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h5 id="案例-4">案例</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220913121720802.png" alt="image-20220913121720802"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220913121701618.png" alt="image-20220913121701618"></p>
+<h2 id="vue">Vue</h2>
+<ul>
+<li>Vue前端框架，免除原生JavaScript中的DOM操作，简化书写</li>
+<li>基于MVVM(Model-View-ViewModel)思想，实现数据的双向绑定，将编程的关注点放在数据上</li>
+<li><a href="http://cn.vuejs.org">http://cn.vuejs.org</a></li>
+</ul>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220913122214093.png" alt="image-20220913122214093"></p>
+<h3 id="vue快速入门">Vue快速入门</h3>
+<!-- raw HTML omitted -->
+<h3 id="vue常用指令">Vue常用指令</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="vue生命周期">Vue生命周期</h3>
+<!-- raw HTML omitted -->
+<h3 id="案例-5">案例</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="element">Element</h2>
+<!-- raw HTML omitted -->
+<h3 id="element快速入门">Element快速入门</h3>
+<!-- raw HTML omitted -->
+<h3 id="element布局">Element布局</h3>
+<!-- raw HTML omitted -->
+<h3 id="element组件">Element组件</h3>
+<!-- raw HTML omitted -->
+<h2 id="案例-6">案例</h2>
+<h3 id="表单验证">表单验证</h3>
+<p>1.当输入框失去焦点时，验证输入内容是否符合要求</p>
+<p>2.当点击注册按钮时，判断所有输入框的内容是否都符合要求，如果不符合则阻止表单提交</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;title&gt;欢迎注册&lt;/title&gt;
+    &lt;link href=&#34;../css/register.css&#34; rel=&#34;stylesheet&#34;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&#34;form-div&#34;&gt;
+    &lt;div class=&#34;reg-content&#34;&gt;
+        &lt;h1&gt;欢迎注册&lt;/h1&gt;
+        &lt;span&gt;已有帐号？&lt;/span&gt; &lt;a href=&#34;#&#34;&gt;登录&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;form id=&#34;reg-form&#34; action=&#34;#&#34; method=&#34;get&#34;&gt;
+
+        &lt;table&gt;
+
+            &lt;tr&gt;
+                &lt;td&gt;用户名&lt;/td&gt;
+                &lt;td class=&#34;inputs&#34;&gt;
+                    &lt;input name=&#34;username&#34; type=&#34;text&#34; id=&#34;username&#34;&gt;
+                    &lt;br&gt;
+                    &lt;span id=&#34;username_err&#34; class=&#34;err_msg&#34; style=&#34;display: none&#34;&gt;用户名不太受欢迎&lt;/span&gt;
+                &lt;/td&gt;
+
+            &lt;/tr&gt;
+
+            &lt;tr&gt;
+                &lt;td&gt;密码&lt;/td&gt;
+                &lt;td class=&#34;inputs&#34;&gt;
+                    &lt;input name=&#34;password&#34; type=&#34;password&#34; id=&#34;password&#34;&gt;
+                    &lt;br&gt;
+                    &lt;span id=&#34;password_err&#34; class=&#34;err_msg&#34; style=&#34;display: none&#34;&gt;密码格式有误&lt;/span&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+
+
+            &lt;tr&gt;
+                &lt;td&gt;手机号&lt;/td&gt;
+                &lt;td class=&#34;inputs&#34;&gt;&lt;input name=&#34;tel&#34; type=&#34;text&#34; id=&#34;tel&#34;&gt;
+                    &lt;br&gt;
+                    &lt;span id=&#34;tel_err&#34; class=&#34;err_msg&#34; style=&#34;display: none&#34;&gt;手机号格式有误&lt;/span&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+
+        &lt;/table&gt;
+
+        &lt;div class=&#34;buttons&#34;&gt;
+            &lt;input value=&#34;注 册&#34; type=&#34;submit&#34; id=&#34;reg_btn&#34;&gt;
+        &lt;/div&gt;
+        &lt;br class=&#34;clear&#34;&gt;
+    &lt;/form&gt;
+
+&lt;/div&gt;
+
+
+&lt;script&gt;
+    //1.当输入框失去焦点，验证输入内容是否符合要求
+    //获取表单输入框
+    var usernameInput = document.getElementById(&#34;username&#34;);
+
+    //绑定onblur事件 失去焦点
+    usernameInput.onblur = checkUsername;
+
+        function checkUsername() {
+
+        //trim排除空字符，提升代码健壮性
+        var username = usernameInput.value.trim();
+
+        var flag = username.length &gt;= 6 &amp;&amp; username.length &lt;= 12;
+        //判断用户名是否符合规则：长度6~12
+        if (flag){
+            //符合规则
+            document.getElementById(&#34;username_err&#34;).style.display=&#34;none&#34;;
+        }else {
+            //不符合规则
+            document.getElementById(&#34;username_err&#34;).style.display=&#34;&#34;;
+        }
+        return flag;
+    }
+
+
+    //获取表单输入框
+    var passwordInput = document.getElementById(&#34;password&#34;);
+
+    //绑定onblur事件 失去焦点
+    passwordInput.onblur = checkPassword;
+
+        function checkPassword() {
+
+        //trim排除空字符，提升代码健壮性
+        var password = passwordInput.value.trim();
+
+
+        var flag = password.length &gt;= 6 &amp;&amp; password.length &lt;= 12;
+        //判断密码是否符合规则：长度6~12
+        if (flag){
+            //符合规则
+            document.getElementById(&#34;password_err&#34;).style.display=&#34;none&#34;;
+        }else {
+            //不符合规则
+            document.getElementById(&#34;password_err&#34;).style.display=&#34;&#34;;
+        }
+
+        return flag;
+    }
+
+
+    //获取表单输入框
+    var telInput = document.getElementById(&#34;tel&#34;);
+
+    //绑定onblur事件 失去焦点
+    telInput.onblur = checkTel;
+
+        function checkTel() {
+
+        //trim排除空字符，提升代码健壮性
+        var tel = telInput.value.trim();
+
+            var flag = tel.length &gt;= 11;
+        //判断手机号是否符合规则：长度11
+        if (flag){
+            //符合规则
+            document.getElementById(&#34;tel_err&#34;).style.display=&#34;none&#34;;
+        }else {
+            //不符合规则
+            document.getElementById(&#34;tel_err&#34;).style.display=&#34;&#34;;
+        }
+        return flag;
+    }
+
+
+    //2.当点击注册按钮时，判断所有输入框的内容是否都符合要求，如果不符合则阻止表单提交
+    //获取表单对象
+    var regForm = document.getElementById(&#34;reg-form&#34;);
+
+    //绑定onsubmit事件，不符合阻止提交
+    regForm.onsubmit = function (){
+
+        //挨个判断每一个表单项是否符合需求
+        var flag = checkPassword() &amp;&amp; checkUsername() &amp;&amp; checkTel();
+
+        return flag;
+    }
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="用户登录">用户登录</h3>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220824163440362.png" alt="image-20220824163440362"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220824161802024.png" alt="image-20220824161802024"></p>
+<h4 id="建数据库">建数据库</h4>
+<pre tabindex="0"><code>create database if not exists webapp;
+
+use webapp;
+
+create table tb_user(
+    id int primary key auto_increment,
+    username varchar(20) unique,
+    password varchar(32)
+);
+
+insert into tb_user (username, password)values (&#39;zhangsan&#39;,&#39;123&#39;),(&#39;lisi&#39;,&#39;234&#39;);
+
+select*from tb_user;
+</code></pre><h4 id="创建user实体类">创建user实体类</h4>
+<pre tabindex="0"><code>public class User {
+
+   private Integer id ;
+   private String username;
+   private String password;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return &#34;User{&#34; +
+                &#34;id=&#34; + id +
+                &#34;, username=&#39;&#34; + username + &#39;\&#39;&#39; +
+                &#34;, password=&#39;&#34; + password + &#39;\&#39;&#39; +
+                &#39;}&#39;;
+    }
+}
+</code></pre><h4 id="导入mybatismysql驱动坐标">导入mybatis、mysql驱动坐标</h4>
+<pre tabindex="0"><code>&lt;dependency&gt;
+	&lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+	&lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+	&lt;version&gt;3.5.5&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+	&lt;groupId&gt;mysql&lt;/groupId&gt;
+	&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+	&lt;version&gt;8.0.20&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="综合案例">综合案例</h3>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220915141600241.png" alt="image-20220915141600241"></p>
+<!-- raw HTML omitted -->
+<h4 id="查询-1">查询</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220915143530562.png" alt="image-20220915143530562"></p>
+<h4 id="添加-1">添加</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220915154556489.png" alt="image-20220915154556489"></p>
+<h4 id="批量删除-1">批量删除</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220915184014673.png" alt="image-20220915184014673"></p>
+<h4 id="分页查询">分页查询</h4>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220917162532099.png" alt="image-20220917162532099"></p>
+<h4 id="条件查询-1">条件查询</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220917175559551.png" alt="image-20220917175559551"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220917184412968.png" alt="image-20220917184412968"></p>
+<h2 id="servlet代码优化">Servlet代码优化</h2>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220915170126805.png" alt="image-20220915170126805"></p>
+<h2 id="web相关pomxml">web相关pom.xml</h2>
+<pre tabindex="0"><code>    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;3.1.0&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;commons-io&lt;/groupId&gt;
+            &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+            &lt;version&gt;2.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+&lt;dependency&gt;
+	&lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+	&lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+	&lt;version&gt;3.5.5&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+	&lt;groupId&gt;mysql&lt;/groupId&gt;
+	&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+	&lt;version&gt;8.0.20&lt;/version&gt;
+&lt;/dependency&gt;
+
+    &lt;/dependencies&gt;
+
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;!--tomcat 插件--&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+                &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.2&lt;/version&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+</code></pre>
     </div>
     <div class="post-footer">
       

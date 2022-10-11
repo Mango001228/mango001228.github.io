@@ -6,7 +6,22 @@
     <description>Recent content on Mango&#39;s&#39; Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 11 Aug 2022 14:21:47 +0800</lastBuildDate><atom:link href="https://mango001228.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Sep 2022 21:16:53 +0800</lastBuildDate><atom:link href="https://mango001228.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ssm</title>
+      <link>https://mango001228.github.io/post/ssm/</link>
+      <pubDate>Thu, 22 Sep 2022 21:16:53 +0800</pubDate>
+      
+      <guid>https://mango001228.github.io/post/ssm/</guid>
+      <description>SSM Spring SpringMVC Maven高级 SpringBoot MyBatisPlus Spring 简化开发，降低企业级开发的复杂性 IoC AOP 事务处理 框架整合，高效整合其他技术，提高企业级应用开发与运行效率 MyBatis MyBatis-plus Struts Struts2 Hibernate &amp;hellip;&amp;hellip; Spring主流技术 Spring Framework —— Spring底层框架 Spring Boot —— Spring加速开发 Spring Cloud —— 分布式开发 Spring报错，从下往上阅读报错信息 Spring Framework系统架构 Spring Framework学习路线 核心概念 IoC/DI
+IoC容器
+Bean
+目标：充分解耦 使用IoC容器管理bean(IoC) 在IoC容器内将有依赖关系的bean进行绑定(DI) 最终效果 使用对象时，不仅可以从IoC容器中获取，并且获取到的bean已经绑定了所以的依赖关系 IoC入门案例思路分析 DI入门案例思路分析 bean bean基础配置 bean别名配置 bean作用范围配置 bean作用范围说明 为什么bean默认单例？—— 可重复实用的 不需要反复创建新的对象，高效；非单例则会使用一次造一个，无穷无尽
+适合交给容器进行管理的bean
+表现层对象 业务层对象 数据层对象 工具对象 不适合交给容器进行管理的bean
+封装实体的域对象 bean实例化 bean本质上就是对象，创建bean使用构造方法完成 实例化bean的四种方式 构造方法(常用) 无参的 静态工厂(了解) 实例工厂(了解) FactoryBean(实用) bean生命周期 生命周期：</description>
+    </item>
+    
     <item>
       <title>Essay</title>
       <link>https://mango001228.github.io/post/essay/</link>
@@ -169,6 +184,31 @@ Statement ResultSet 使用方法 PreparedStatment 目的 防止sql注入问题�
 数据库连接池 标准接口：DataSource&#39;
 官方提供的数据库连接池标准接口，由第三方组织实现此接口 功能：获取连接 是个容器，管理分配数据库连接（Connection） Connection getConnection()
 Druid数据库连接池 使用步骤 //1.导入Druid maven依赖 //2.定义配置文件 //3.加载配置文件 Properties prop = new Properties(); prop.load(new FileInputStream(&amp;#34;src/druid.properties&amp;#34;)); //4.获取连接池对象 DataSource dataSource = DruidDataSourceFactory.createDataSource(prop); //5.获取数据库连接Connection Connection connection = dataSource.getConnection(); System.out.println(connection); JDBC增删改查练习 建表 create table tb_brand( -- id 主键 自增长 id int primary key auto_increment, -- 品牌名称 brand_name varchar(20), -- 企业名称 company_name varchar(20), -- 排序字段 ordered int, -- 描述信息 description varchar(50), -- 状态： 0：禁用 1：启用 status int ); -- 添加数据 insert into tb_brand (brand_name, company_name, ordered, description, status) VALUES ( &amp;#39;三只松鼠&amp;#39;,&amp;#39;三只松鼠股份有限公司&amp;#39;,5,&amp;#39;好吃不上火&amp;#39;,0),( &amp;#39;华为&amp;#39;,&amp;#39;华为技术有限公司&amp;#39;,100,&amp;#39;华为致力于把数字世界带入每个人、每个家庭、每个组织，构建万物互联的智能世界&amp;#39;,1),( &amp;#39;小米&amp;#39;,&amp;#39;小米科技有限公司&amp;#39;,50,&amp;#39;are u ok&amp;#39;,1); select * from tb_brand; 操作相同和不同之处</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mango001228.github.io/post/jvm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mango001228.github.io/post/jvm/</guid>
+      <description>JVM 引言 什么是 JVM ？ 定义 Java Virtual Machine - java 程序的运行环境（Java 二进制字节码的运行环境）
+好处 一次编写，别处运行 自动内存管理，垃圾回收功能 数组下标越界 越界检查 多态 比较：jvm、jre、jdk 学习 JVM 有什么用？ 面试 理解底层的实现原理 中高级程序员的必备技能 常见的 JVM 学习路线 编译过程：类加载器 ——&amp;gt; JVM内存结构 ——&amp;gt; 执行引擎 ——&amp;gt; 配合本地方法接口(方法实现类)
+学习过程：JVM内存结构、GC垃圾回收、Java class、classloader、JIT Compiler即时编译器
+内存结构 程序计数器 定义 Program Counter Register 程序计数器（寄存器）
+作用 作用：记住下一条jvm指令的执行地址 特点 是线程私有的 不会存在内存溢出 虚拟机栈 本地方法栈 堆 方法区 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mango001228.github.io/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8A%80%E6%9C%AF%E6%A0%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mango001228.github.io/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8A%80%E6%9C%AF%E6%A0%88/</guid>
+      <description>微服务技术栈 微服务框架——SpringCloud微服务架构 认识微服务 服务架构演变 单体架构 将业务的所有功能集中在一个项目中开发，打成一个包部署
+优先：架构简单、部署成本低
+缺点：耦合度高
+分布式架构 分布式架构需要考虑的问题 微服务 微服务技术对比 企业需求 SpringCloud 服务拆分及远程调用 服务拆分 服务拆分注意事项 不同微服务，不要重复开发相同业务 微服务数据独立，不要访问其它微服务的数据库 微服务可以将自己的业务暴露为接口，供其它微服务调用 案例：导入服务拆分Demo 服务间调用 提供者与消费者 eureka注册中心 远程调用问题 Eureka原理 搭建EurekaServer 动手实践 服务注册 单实例部署 模拟多实例部署 服务发现 Ribbon负载均衡原理 nacos注册中心 </description>
     </item>
     
   </channel>

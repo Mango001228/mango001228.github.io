@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <title> // Mango&#39;s&#39; Blog Site</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.101.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Mango" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://mango001228.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="JVM 引言 什么是 JVM ？ 定义 Java Virtual Machine - java 程序的运行环境（Java 二进制字节码的运行环境）
+好处 一次编写，别处运行 自动内存管理，垃圾回收功能 数组下标越界 越界检查 多态 比较：jvm、jre、jdk 学习 JVM 有什么用？ 面试 理解底层的实现原理 中高级程序员的必备技能 常见的 JVM 学习路线 编译过程：类加载器 ——&gt; JVM内存结构 ——&gt; 执行引擎 ——&gt; 配合本地方法接口(方法实现类)
+学习过程：JVM内存结构、GC垃圾回收、Java class、classloader、JIT Compiler即时编译器
+内存结构 程序计数器 定义 Program Counter Register 程序计数器（寄存器）
+作用 作用：记住下一条jvm指令的执行地址 特点 是线程私有的 不会存在内存溢出 虚拟机栈 本地方法栈 堆 方法区 "/>
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="JVM 引言 什么是 JVM ？ 定义 Java Virtual Machine - java 程序的运行环境（Java 二进制字节码的运行环境）
+好处 一次编写，别处运行 自动内存管理，垃圾回收功能 数组下标越界 越界检查 多态 比较：jvm、jre、jdk 学习 JVM 有什么用？ 面试 理解底层的实现原理 中高级程序员的必备技能 常见的 JVM 学习路线 编译过程：类加载器 ——&gt; JVM内存结构 ——&gt; 执行引擎 ——&gt; 配合本地方法接口(方法实现类)
+学习过程：JVM内存结构、GC垃圾回收、Java class、classloader、JIT Compiler即时编译器
+内存结构 程序计数器 定义 Program Counter Register 程序计数器（寄存器）
+作用 作用：记住下一条jvm指令的执行地址 特点 是线程私有的 不会存在内存溢出 虚拟机栈 本地方法栈 堆 方法区 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mango001228.github.io/post/jvm/" /><meta property="article:section" content="post" />
+
+
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://mango001228.github.io"><img class="app-header-avatar" src="/1.jpg" alt="Mango" /></a>
+      <h1>Mango&#39;s&#39; Blog Site</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/posts/">首页</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tecs/">技术</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/books/">技术系列</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/free/">随笔</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">关于</a>
+      </nav>
+      <p>When your mind is telling you you’re done, you’re really only 40 percent done.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/gohugoio" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/gohugoio" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title"></h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jan 1, 0001
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="jvm">JVM</h1>
+<h2 id="引言">引言</h2>
+<h3 id="什么是-jvm-">什么是 JVM ？</h3>
+<h4 id="定义">定义</h4>
+<p>Java Virtual  Machine - java 程序的运行环境（Java 二进制字节码的运行环境）</p>
+<h4 id="好处">好处</h4>
+<ul>
+<li>一次编写，别处运行</li>
+<li>自动内存管理，垃圾回收功能</li>
+<li>数组下标越界 越界检查</li>
+<li>多态</li>
+</ul>
+<h4 id="比较jvmjrejdk">比较：jvm、jre、jdk</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009134644675.png" alt="image-20221009134644675"></p>
+<h3 id="学习-jvm-有什么用">学习 JVM 有什么用？</h3>
+<ul>
+<li>面试</li>
+<li>理解底层的实现原理</li>
+<li>中高级程序员的必备技能</li>
+</ul>
+<h3 id="常见的-jvm">常见的 JVM</h3>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009140102332.png" alt="image-20221009140102332"></p>
+<h3 id="学习路线">学习路线</h3>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009140314223.png" alt="image-20221009140314223"></p>
+<p>编译过程：类加载器 ——&gt; JVM内存结构 ——&gt; 执行引擎 ——&gt; 配合本地方法接口(方法实现类)</p>
+<p>学习过程：JVM内存结构、GC垃圾回收、Java class、classloader、JIT Compiler即时编译器</p>
+<h2 id="内存结构">内存结构</h2>
+<h3 id="程序计数器">程序计数器</h3>
+<h4 id="定义-1">定义</h4>
+<p>Program Counter Register 程序计数器（寄存器）</p>
+<h4 id="作用">作用</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221009153227521.png" alt="image-20221009153227521"></p>
+<ul>
+<li>作用：记住下一条jvm指令的执行地址</li>
+<li>特点
+<ul>
+<li>是线程私有的</li>
+<li>不会存在内存溢出</li>
+</ul>
+</li>
+</ul>
+<h3 id="虚拟机栈">虚拟机栈</h3>
+<h3 id="本地方法栈">本地方法栈</h3>
+<h3 id="堆">堆</h3>
+<h3 id="方法区">方法区</h3>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

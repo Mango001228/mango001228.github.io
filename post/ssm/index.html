@@ -1,0 +1,1185 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <title>Ssm // Mango&#39;s&#39; Blog Site</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.101.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Mango" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://mango001228.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ssm"/>
+<meta name="twitter:description" content="SSM Spring SpringMVC Maven高级 SpringBoot MyBatisPlus Spring 简化开发，降低企业级开发的复杂性 IoC AOP 事务处理 框架整合，高效整合其他技术，提高企业级应用开发与运行效率 MyBatis MyBatis-plus Struts Struts2 Hibernate &hellip;&hellip; Spring主流技术 Spring Framework —— Spring底层框架 Spring Boot —— Spring加速开发 Spring Cloud —— 分布式开发 Spring报错，从下往上阅读报错信息 Spring Framework系统架构 Spring Framework学习路线 核心概念 IoC/DI
+IoC容器
+Bean
+目标：充分解耦 使用IoC容器管理bean(IoC) 在IoC容器内将有依赖关系的bean进行绑定(DI) 最终效果 使用对象时，不仅可以从IoC容器中获取，并且获取到的bean已经绑定了所以的依赖关系 IoC入门案例思路分析 DI入门案例思路分析 bean bean基础配置 bean别名配置 bean作用范围配置 bean作用范围说明 为什么bean默认单例？—— 可重复实用的 不需要反复创建新的对象，高效；非单例则会使用一次造一个，无穷无尽
+适合交给容器进行管理的bean
+表现层对象 业务层对象 数据层对象 工具对象 不适合交给容器进行管理的bean
+封装实体的域对象 bean实例化 bean本质上就是对象，创建bean使用构造方法完成 实例化bean的四种方式 构造方法(常用) 无参的 静态工厂(了解) 实例工厂(了解) FactoryBean(实用) bean生命周期 生命周期："/>
+
+    <meta property="og:title" content="Ssm" />
+<meta property="og:description" content="SSM Spring SpringMVC Maven高级 SpringBoot MyBatisPlus Spring 简化开发，降低企业级开发的复杂性 IoC AOP 事务处理 框架整合，高效整合其他技术，提高企业级应用开发与运行效率 MyBatis MyBatis-plus Struts Struts2 Hibernate &hellip;&hellip; Spring主流技术 Spring Framework —— Spring底层框架 Spring Boot —— Spring加速开发 Spring Cloud —— 分布式开发 Spring报错，从下往上阅读报错信息 Spring Framework系统架构 Spring Framework学习路线 核心概念 IoC/DI
+IoC容器
+Bean
+目标：充分解耦 使用IoC容器管理bean(IoC) 在IoC容器内将有依赖关系的bean进行绑定(DI) 最终效果 使用对象时，不仅可以从IoC容器中获取，并且获取到的bean已经绑定了所以的依赖关系 IoC入门案例思路分析 DI入门案例思路分析 bean bean基础配置 bean别名配置 bean作用范围配置 bean作用范围说明 为什么bean默认单例？—— 可重复实用的 不需要反复创建新的对象，高效；非单例则会使用一次造一个，无穷无尽
+适合交给容器进行管理的bean
+表现层对象 业务层对象 数据层对象 工具对象 不适合交给容器进行管理的bean
+封装实体的域对象 bean实例化 bean本质上就是对象，创建bean使用构造方法完成 实例化bean的四种方式 构造方法(常用) 无参的 静态工厂(了解) 实例工厂(了解) FactoryBean(实用) bean生命周期 生命周期：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mango001228.github.io/post/ssm/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-09-22T21:16:53+08:00" />
+<meta property="article:modified_time" content="2022-09-22T21:16:53+08:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://mango001228.github.io"><img class="app-header-avatar" src="/1.jpg" alt="Mango" /></a>
+      <h1>Mango&#39;s&#39; Blog Site</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/posts/">首页</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tecs/">技术</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/books/">技术系列</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/free/">随笔</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">关于</a>
+      </nav>
+      <p>When your mind is telling you you’re done, you’re really only 40 percent done.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/gohugoio" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/gohugoio" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Ssm</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 22, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="ssm">SSM</h1>
+<ul>
+<li>Spring</li>
+<li>SpringMVC</li>
+<li>Maven高级</li>
+<li>SpringBoot</li>
+<li>MyBatisPlus</li>
+</ul>
+<h2 id="spring">Spring</h2>
+<ul>
+<li><strong>简化开发</strong>，降低企业级开发的复杂性
+<ul>
+<li>IoC</li>
+<li>AOP
+<ul>
+<li>事务处理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>框架整合</strong>，高效整合其他技术，提高企业级应用开发与运行效率
+<ul>
+<li>MyBatis</li>
+<li>MyBatis-plus</li>
+<li>Struts</li>
+<li>Struts2</li>
+<li>Hibernate</li>
+<li>&hellip;&hellip;</li>
+</ul>
+</li>
+</ul>
+<h3 id="spring主流技术">Spring主流技术</h3>
+<ul>
+<li>Spring Framework —— Spring底层框架</li>
+<li>Spring Boot —— Spring加速开发</li>
+<li>Spring Cloud —— 分布式开发</li>
+</ul>
+<h4 id="spring报错从下往上阅读报错信息">Spring报错，从下往上阅读报错信息</h4>
+<h4 id="spring-framework系统架构">Spring Framework系统架构</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220922221835888.png" alt="image-20220922221835888"></p>
+<h4 id="spring-framework学习路线">Spring Framework学习路线</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220922222032762.png" alt="image-20220922222032762"></p>
+<h4 id="核心概念">核心概念</h4>
+<p>IoC/DI</p>
+<p>IoC容器</p>
+<p>Bean</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220922222929625.png" alt="image-20220922222929625"></p>
+<ul>
+<li>目标：<strong>充分解耦</strong>
+<ul>
+<li>使用IoC容器管理bean(IoC)</li>
+<li>在IoC容器内将有依赖关系的bean进行绑定(DI)</li>
+</ul>
+</li>
+<li>最终效果
+<ul>
+<li>使用对象时，不仅可以从IoC容器中获取，并且获取到的bean已经绑定了所以的依赖关系</li>
+</ul>
+</li>
+</ul>
+<h4 id="ioc入门案例思路分析">IoC入门案例思路分析</h4>
+<!-- raw HTML omitted -->
+<h4 id="di入门案例思路分析">DI入门案例思路分析</h4>
+<!-- raw HTML omitted -->
+<h4 id="bean">bean</h4>
+<h5 id="bean基础配置">bean基础配置</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923121717559.png" alt="image-20220923121717559"></p>
+<h5 id="bean别名配置">bean别名配置</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923124554803.png" alt="image-20220923124554803"></p>
+<h5 id="bean作用范围配置">bean作用范围配置</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923124754903.png" alt="image-20220923124754903"></p>
+<h6 id="bean作用范围说明">bean作用范围说明</h6>
+<p>为什么bean默认单例？—— 可重复实用的 不需要反复创建新的对象，高效；非单例则会使用一次造一个，无穷无尽</p>
+<p>适合交给容器进行管理的bean</p>
+<ul>
+<li>表现层对象</li>
+<li>业务层对象</li>
+<li>数据层对象</li>
+<li>工具对象</li>
+</ul>
+<p>不适合交给容器进行管理的bean</p>
+<ul>
+<li>封装实体的域对象</li>
+</ul>
+<h5 id="bean实例化">bean实例化</h5>
+<ul>
+<li>bean本质上就是对象，创建bean使用构造方法完成</li>
+</ul>
+<h6 id="实例化bean的四种方式">实例化bean的四种方式</h6>
+<ul>
+<li>构造方法(常用)
+<ul>
+<li>无参的</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>静态工厂(了解)</li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>实例工厂(了解)</li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>FactoryBean(实用)</li>
+</ul>
+<!-- raw HTML omitted -->
+<h5 id="bean生命周期">bean生命周期</h5>
+<!-- raw HTML omitted -->
+<p><strong>生命周期：</strong></p>
+<p><strong><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923143907579.png" alt="image-20220923143907579"></strong></p>
+<h6 id="生命周期控制">生命周期控制</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923143721321.png" alt="image-20220923143721321"></p>
+<p>接口控制（了解）</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923143818748.png" alt="image-20220923143818748"></p>
+<h6 id="bean销毁时机">bean销毁时机</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923144032123.png" alt="image-20220923144032123"></p>
+<h6 id="小结">小结</h6>
+<!-- raw HTML omitted -->
+<h4 id="依赖注入方式">依赖注入方式</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923144523103.png" alt="image-20220923144523103"></p>
+<h5 id="setter注入">setter注入</h5>
+<h6 id="引用类型">引用类型</h6>
+<!-- raw HTML omitted -->
+<h6 id="简单类型">简单类型</h6>
+<!-- raw HTML omitted -->
+<h5 id="构造器注入了解">构造器注入(了解)</h5>
+<h6 id="引用类型-1">引用类型</h6>
+<!-- raw HTML omitted -->
+<h6 id="简单类型-1">简单类型</h6>
+<!-- raw HTML omitted -->
+<h6 id="参数适配了解">参数适配（了解）</h6>
+<!-- raw HTML omitted -->
+<h5 id="依赖注入方式选择">依赖注入方式选择</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923160041672.png" alt="image-20220923160041672"></p>
+<h5 id="小结-1">小结</h5>
+<!-- raw HTML omitted -->
+<h4 id="依赖自动装配">依赖自动装配</h4>
+<h5 id="自动装配概念">自动装配概念</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923160602249.png" alt="image-20220923160602249"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923162010270.png" alt="image-20220923162010270"></p>
+<h5 id="依赖自动装配特征">依赖自动装配特征</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923162153689.png" alt="image-20220923162153689"></p>
+<h4 id="集合注入">集合注入</h4>
+<h5 id="数组">数组</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923163019549.png" alt="image-20220923163019549"></p>
+<h5 id="list">List</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923163048726.png" alt="image-20220923163048726"></p>
+<h5 id="set">Set</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923163106849.png" alt="image-20220923163106849"></p>
+<h5 id="map">Map</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923163134632.png" alt="image-20220923163134632"></p>
+<h5 id="properties">Properties</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220923163148362.png" alt="image-20220923163148362"></p>
+<h4 id="第三方资源配置管理">第三方资源配置管理</h4>
+<p>案例</p>
+<ul>
+<li>Druid</li>
+<li>C3P0</li>
+</ul>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925142326767.png" alt="image-20220925142326767"></p>
+<h4 id="加载properties">加载properties</h4>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925160739101.png" alt="image-20220925160739101"></p>
+<h4 id="容器">容器</h4>
+<h5 id="创建容器">创建容器</h5>
+<!-- raw HTML omitted -->
+<h5 id="获取bean">获取bean</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925161610723.png" alt="image-20220925161610723"></p>
+<h5 id="容器类层次结构">容器类层次结构</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925162136728.png" alt="image-20220925162136728"></p>
+<h5 id="beanfactory所有实现类的顶层接口仅需了解">BeanFactory(所有实现类的顶层接口，仅需了解)</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925162154214.png" alt="image-20220925162154214"></p>
+<h5 id="小结-2">小结</h5>
+<!-- raw HTML omitted -->
+<h4 id="核心容器总结">核心容器总结</h4>
+<h5 id="容器相关">容器相关</h5>
+<!-- raw HTML omitted -->
+<h5 id="bean相关">bean相关</h5>
+<!-- raw HTML omitted -->
+<h5 id="依赖注入相关">依赖注入相关</h5>
+<!-- raw HTML omitted -->
+<h3 id="注解开发">注解开发</h3>
+<h4 id="注解开发bean">注解开发bean</h4>
+<h5 id="注解开发定义bean">注解开发定义bean</h5>
+<!-- raw HTML omitted -->
+<ul>
+<li>Spring提供@Component注解的三个衍生注解，用法相同，功能一样，便于区分</li>
+</ul>
+<!-- raw HTML omitted -->
+<h5 id="纯注解开发">纯注解开发</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925221814676.png" alt="image-20220925221814676"></p>
+<p>加载配置（文件/类）初始化容器</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925222012275.png" alt="image-20220925222012275"></p>
+<h5 id="小结-3">小结</h5>
+<!-- raw HTML omitted -->
+<h4 id="注解开发管理bean">注解开发管理bean</h4>
+<h5 id="bean作用范围">bean作用范围</h5>
+<!-- raw HTML omitted -->
+<h5 id="bean生命周期-1">bean生命周期</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925224445308.png" alt="image-20220925224445308"></p>
+<h5 id="小结-4">小结</h5>
+<!-- raw HTML omitted -->
+<h4 id="注解开发依赖注入">注解开发依赖注入</h4>
+<h5 id="自动装配">自动装配</h5>
+<h6 id="引用类型-2">引用类型</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925230932178.png" alt="image-20220925230932178"></p>
+<p>存在多个相同类型时</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925231001137.png" alt="image-20220925231001137"></p>
+<h6 id="简单类型-2">简单类型</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925231221438.png" alt="image-20220925231221438"></p>
+<h5 id="注解加载properties">注解加载properties</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220925231928287.png" alt="image-20220925231928287"></p>
+<h5 id="小结-5">小结</h5>
+<!-- raw HTML omitted -->
+<h4 id="注解开发管理第三方bean">注解开发管理第三方bean</h4>
+<h5 id="第三方bean管理">第三方bean管理</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220926161710551.png" alt="image-20220926161710551"></p>
+<h5 id="第三方bean依赖注入">第三方bean依赖注入</h5>
+<h6 id="简单类型依赖注入">简单类型依赖注入</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220926162427764.png" alt="image-20220926162427764"></p>
+<h6 id="引用类型依赖注入">引用类型依赖注入</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220926162445387.png" alt="image-20220926162445387"></p>
+<h4 id="注解开发总结">注解开发总结</h4>
+<h5 id="xml配置与注解配置比较">XML配置与注解配置比较</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220926163423662.png" alt="image-20220926163423662"></p>
+<h5 id="常用注解">常用注解</h5>
+<ul>
+<li>@Service</li>
+<li>@ComponentScan</li>
+<li>@Autowired</li>
+<li>@Bean</li>
+</ul>
+<p><strong>PS：核心容器结束</strong></p>
+<hr>
+<h3 id="spring整合mybatis">Spring整合MyBatis</h3>
+<h4 id="mybatis管理的其实就是sqlsessionfactory">MyBatis管理的其实就是SqlSessionFactory</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220926195506306.png" alt="image-20220926195506306"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220926195543734.png" alt="image-20220926195543734"></p>
+<h4 id="pom需要的依赖">pom需要的依赖</h4>
+<ul>
+<li>
+<p>spring-context</p>
+</li>
+<li>
+<p>数据源例如druid</p>
+</li>
+<li>
+<p>mysql-connect-java</p>
+</li>
+<li>
+<p>mybatis</p>
+</li>
+<li>
+<p>spring-jdbc</p>
+</li>
+<li>
+<p>mybatis-spring</p>
+</li>
+</ul>
+<h4 id="小结-6">小结</h4>
+<ul>
+<li>其实就是整合两个bean
+<ul>
+<li>SqlSessionFactoryBean</li>
+<li>MapperScannerConfigurer</li>
+</ul>
+</li>
+</ul>
+<h3 id="srping整合junit">Srping整合JUnit</h3>
+<h4 id="俩注解">俩注解</h4>
+<ul>
+<li>@Runwith(SpringJUnit4ClassRunner.class)</li>
+<li>@ContextConfiguration(classes =  xxx.class)</li>
+</ul>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928180828942.png" alt="image-20220928180828942"></p>
+<h4 id="pom需要的依赖-1">pom需要的依赖</h4>
+<ul>
+<li>junit</li>
+<li>spring-test</li>
+</ul>
+<h3 id="aop">AOP</h3>
+<h4 id="aop核心概念与aop作用">AOP核心概念与AOP作用</h4>
+<ul>
+<li>
+<p>AOP(Aspect Oriented Programming)面向切面编程，一种编程范式，指导开发者如何组织程序结构</p>
+<ul>
+<li>OOP(Object Oriented Programming)面向对象编程</li>
+</ul>
+</li>
+<li>
+<p>作用： 在<strong>不惊动原始设计</strong>的基础上为其进行功能增强</p>
+</li>
+<li>
+<p>Spring理念：无入侵式/无侵入式</p>
+</li>
+</ul>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928183354490.png" alt="image-20220928183354490"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928183620551.png" alt="image-20220928183620551"></p>
+<h4 id="aop入门案例思路分析与实现">AOP入门案例思路分析与实现</h4>
+<p>案例：在接口执行前输出当前系统时间</p>
+<h5 id="思路分析">思路分析</h5>
+<ol>
+<li>导入坐标（pom.xml）</li>
+<li>制作连接点方法（原始操作，Dao接口与实现类）</li>
+<li>制作共性功能（通知类与通知）</li>
+<li>定义切入点</li>
+<li>绑定切入点与通知关系（切面）</li>
+</ol>
+<h5 id="实现">实现</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928191513657.png" alt="image-20220928191513657"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928191524064.png" alt="image-20220928191524064"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928191534798.png" alt="image-20220928191534798"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928191546708.png" alt="image-20220928191546708"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928191635089.png" alt="image-20220928191635089"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928191654218.png" alt="image-20220928191654218"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928191704739.png" alt="image-20220928191704739"></p>
+<h4 id="aop工作流程">AOP工作流程</h4>
+<h5 id="aop工作流程-1">AOP工作流程</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928192617798.png" alt="image-20220928192617798"></p>
+<h5 id="aop核心概念">AOP核心概念</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928192837337.png" alt="image-20220928192837337"></p>
+<h5 id="小结-7">小结</h5>
+<!-- raw HTML omitted -->
+<h4 id="aop切入点表达式">AOP切入点表达式</h4>
+<!-- raw HTML omitted -->
+<h5 id="语法格式">语法格式</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928193348285.png" alt="image-20220928193348285"></p>
+<h5 id="通配符">通配符</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928193708326.png" alt="image-20220928193708326"></p>
+<h5 id="书写技巧">书写技巧</h5>
+<pre tabindex="0"><code>* ———— 任意一个，必须得有
+.. ———— 随便有或者没有
+
+* pers.mango.*.*Service.save(..)
+</code></pre><p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928201801309.png" alt="image-20220928201801309"></p>
+<h4 id="aop通知类型">AOP通知类型</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928202212370.png" alt="image-20220928202212370"></p>
+<h5 id="before">Before</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928205631284.png" alt="image-20220928205631284"></p>
+<h5 id="after">After</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928205638111.png" alt="image-20220928205638111"></p>
+<h5 id="around">Around</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928205647596.png" alt="image-20220928205647596"></p>
+<h6 id="around注意事项">Around注意事项</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928205808586.png" alt="image-20220928205808586"></p>
+<h5 id="afterreturning">AfterReturning</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928205820937.png" alt="image-20220928205820937"></p>
+<h5 id="afterthrowing">AfterThrowing</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928205829645.png" alt="image-20220928205829645"></p>
+<h4 id="aop案例测量业务层接口万次执行效率">AOP案例：测量业务层接口万次执行效率</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928212506494.png" alt="image-20220928212506494"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220928222735734.png" alt="image-20220928222735734"></p>
+<h4 id="aop通知获取数据">AOP通知获取数据</h4>
+<h5 id="获取参数">获取参数</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929124603356.png" alt="image-20220929124603356"></p>
+<h5 id="获取返回值">获取返回值</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929124619191.png" alt=""></p>
+<h5 id="获取异常">获取异常</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929124627702.png" alt="image-20220929124627702"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929131846473.png" alt="image-20220929131846473"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929131935404.png" alt="image-20220929131935404"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929131949722.png" alt="image-20220929131949722"></p>
+<h4 id="aop案例百度网盘密码数据兼容处理">AOP案例：百度网盘密码数据兼容处理</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929134819660.png" alt="image-20220929134819660"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929142645903.png" alt="image-20220929142645903"></p>
+<h4 id="aop总结">AOP总结</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929142854740.png" alt="image-20220929142854740"></p>
+<h5 id="重点">重点</h5>
+<h6 id="切入点">切入点</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929143002343.png" alt="image-20220929143002343"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929143025350.png" alt="image-20220929143025350"></p>
+<h6 id="通知">通知</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929143233356.png" alt="image-20220929143233356"></p>
+<h6 id="通知获取数据">通知获取数据</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929143349378.png" alt="image-20220929143349378"></p>
+<h3 id="spring事务">Spring事务</h3>
+<h4 id="spring事务简介">Spring事务简介</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929143911200.png" alt="image-20220929143911200"></p>
+<h4 id="案例银行账户转账">案例：银行账户转账</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929144032724.png" alt="image-20220929144032724"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929152329304.png" alt="image-20220929152329304"></p>
+<h5 id="spring事务使用">Spring事务使用</h5>
+<h6 id="1在业务层接口上添加spring事务管理">1.在业务层接口上添加Spring事务管理</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929153118755.png" alt=""></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929153030992.png" alt="image-20220929153030992"></p>
+<h6 id="2设置事务管理">2.设置事务管理</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929153147834.png" alt="image-20220929153147834"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929153156297.png" alt="image-20220929153156297"></p>
+<h6 id="3开启注解式事务驱动">3.开启注解式事务驱动</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929153237652.png" alt="image-20220929153237652"></p>
+<h4 id="spring事务角色">Spring事务角色</h4>
+<!-- raw HTML omitted -->
+<h5 id="事务管理员">事务管理员：</h5>
+<p>​	发起事务方，在Spring中通常指代业务层开启事务的方法</p>
+<h5 id="事务协调员">事务协调员：</h5>
+<p>​	加入事务方，在Spring中通常指代数据层方法，也可以是业务层方法</p>
+<h4 id="事务相关配置">事务相关配置</h4>
+<h5 id="事务配置">事务配置</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929154345985.png" alt=""></p>
+<h5 id="案例转账业务追加日志">案例：转账业务追加日志</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929183504300.png" alt="image-20220929183504300"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929190304083.png" alt="image-20220929190304083"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929190313627.png" alt="image-20220929190313627"></p>
+<h5 id="事务传播行为">事务传播行为</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929190422150.png" alt="image-20220929190422150"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929190627458.png" alt="image-20220929190627458"></p>
+<h6 id="常用的六个事务传播行为">常用的六个事务传播行为</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929190911557.png" alt="image-20220929190911557"></p>
+<h2 id="springmvc">SpringMVC</h2>
+<h3 id="学习目标">学习目标</h3>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929202218806.png" alt="image-20220929202218806"></p>
+<h3 id="springmvc简介">SpringMVC简介</h3>
+<h4 id="概述">概述</h4>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929202600370.png" alt="image-20220929202600370"></p>
+<ul>
+<li>
+<p>SpringMVC技术与Servlet技术功能等同，均属于web层开发技术</p>
+</li>
+<li>
+<p>SpingMVC是一种基于Java实现MVC模型的轻量级Web框架</p>
+</li>
+<li>
+<p>优点：</p>
+<ul>
+<li>使用简单，开发便捷(相比于Servlet)</li>
+<li>灵活性强</li>
+</ul>
+</li>
+</ul>
+<h5 id="小结-8">小结</h5>
+<ol>
+<li>SpringMVC一种表现层框架技术</li>
+<li>SpringMVC用于进行表现层功能开发</li>
+</ol>
+<h4 id="入门案例">入门案例</h4>
+<h5 id="springmvc使用步骤">SpringMVC使用步骤</h5>
+<p><strong>导入SpringMVC坐标与Servlet坐标</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929203126675.png" alt="image-20220929203126675"></p>
+<p><strong>创建SpringMVC控制器类(等同于Servlet功能)</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929203114880.png" alt="image-20220929203114880"></p>
+<p><strong>初始化SpringMVC环境(同Spring环境)，设定SpringMVC加载对应的bean</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929203257714.png" alt="image-20220929203257714"></p>
+<p><strong>初始化Servlet容器，加载SpringMVC环境，并设置SpringMVC技术处理的请求</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929210604725.png" alt="image-20220929210604725"></p>
+<h5 id="入门案例-1">入门案例</h5>
+<h6 id="controller">@Controller</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929212130487.png" alt="image-20220929212130487"></p>
+<h6 id="requestmapping">@RequestMapping</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929212402450.png" alt="image-20220929212402450"></p>
+<h6 id="responsebody">@ResponseBody</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929212323780.png" alt="image-20220929212323780"></p>
+<h5 id="小结-9">小结</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220929212843130.png" alt="image-20220929212843130"></p>
+<h4 id="入门案例工作流程分析">入门案例工作流程分析</h4>
+<h5 id="启动服务器初始化过程">启动服务器初始化过程</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002102048623.png" alt="image-20221002102048623"></p>
+<h5 id="单次请求过程">单次请求过程</h5>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002102322885.png" alt="image-20221002102322885"></p>
+<h4 id="controller加载控制">Controller加载控制</h4>
+<h5 id="controller加载控制与业务bean加载控制">Controller加载控制与业务bean加载控制</h5>
+<ul>
+<li>SpringMVC相关bean(表现层bean)</li>
+<li>Spring控制的bean
+<ul>
+<li>业务bean(Service)</li>
+<li>功能bean(DataSource等)</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h5 id="因为功能不同如何避免spring错误的加载到springmvc的bean">因为功能不同，如何避免Spring错误的加载到SpringMVC的bean?</h5>
+<p>​		<strong>加载Spring控制的bean的时候排除掉SpringMVC控制的bean</strong></p>
+<ul>
+<li>SpringMVC相关bean加载控制
+<ul>
+<li>SpringMVC加载的bean对应的包均在pers.mango.controller包内</li>
+</ul>
+</li>
+<li>Spring相关bean加载控制
+<ul>
+<li>方式一：Spring加载的bean设定扫描范围为pers.mango，排除掉controller包内的bean</li>
+<li>方式二：Spring加载的bean设定扫描范围为精准范围，例如service包、dao包等</li>
+<li>方式三：不区分Spring和SpringMVC的环境，加载到同一个环境中</li>
+</ul>
+</li>
+</ul>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002110104774.png" alt="image-20221002110104774"></p>
+<h5 id="bean的加载格式">bean的加载格式</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002110315601.png" alt="image-20221002110315601"></p>
+<h4 id="postman">Postman</h4>
+<h5 id="postman简介">PostMan简介</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002110605863.png" alt="image-20221002110605863"></p>
+<h4 id="小结-10">小结</h4>
+<!-- raw HTML omitted -->
+<h3 id="请求与响应">请求与响应</h3>
+<h4 id="请求映射路径">请求映射路径</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002121059540.png" alt="image-20221002121059540"></p>
+<h4 id="请求方式">请求方式</h4>
+<h5 id="get请求传参">Get请求传参</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002123013292.png" alt="image-20221002123013292"></p>
+<h5 id="post请求">Post请求</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002123036269.png" alt="image-20221002123036269"></p>
+<h6 id="post请求中文乱码处理">Post请求中文乱码处理</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002123834473.png" alt="image-20221002123834473"></p>
+<h4 id="请求参数">请求参数</h4>
+<h5 id="五种格式">五种格式</h5>
+<h6 id="普通参数">普通参数</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002131112065.png" alt="image-20221002131112065"></p>
+<h6 id="pojo参数">POJO参数</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002131131962.png" alt="image-20221002131131962"></p>
+<h6 id="嵌套pojo参数">嵌套POJO参数</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002131144574.png" alt="image-20221002131144574"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002131153866.png" alt="image-20221002131153866"></p>
+<h6 id="数组参数">数组参数</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002131205717.png" alt="image-20221002131205717"></p>
+<h6 id="集合参数">集合参数</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002131213060.png" alt="image-20221002131213060"></p>
+<h6 id="requestparam注解的使用">@RequestParam注解的使用</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002131123110.png" alt="image-20221002131123110"></p>
+<h5 id="传递json数据">传递json数据</h5>
+<h6 id="使用过程">使用过程</h6>
+<ol>
+<li>
+<p>加坐标</p>
+<pre tabindex="0"><code> &lt;dependency&gt;
+      &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+      &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+      &lt;version&gt;2.9.0&lt;/version&gt;
+    &lt;/dependency&gt;
+</code></pre></li>
+<li>
+<p>设置发送json数据(请求body中添加json数据)</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002143719712.png" alt="image-20221002143719712"></p>
+</li>
+<li>
+<p>开启自动转换json数据的支持@EnableWebMvc</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002143749998.png" alt="image-20221002143749998"></p>
+</li>
+<li>
+<p>设置接收json数据</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002143828413.png" alt="image-20221002143828413"></p>
+</li>
+</ol>
+<h6 id="json数组">json数组</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002144113314.png" alt="image-20221002144113314"></p>
+<h6 id="json对象pojo">json对象(POJO)</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002143919488.png" alt="image-20221002143919488"></p>
+<h6 id="json数组pojo">json数组(POJO)</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002143943591.png" alt="image-20221002143943591"></p>
+<h6 id="requestbody与requestparam区别">@RequestBody与@RequestParam区别</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002144239377.png" alt="image-20221002144239377"></p>
+<h4 id="日期类型参数传递">日期类型参数传递</h4>
+<h5 id="接收形参时根据不同的日期格式设置不同的接收方式">接收形参时，根据不同的日期格式设置不同的接收方式</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002144734846.png" alt="image-20221002144734846"></p>
+<h5 id="datetimeformat">@DateTimeFormat</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002144830082.png" alt="image-20221002144830082"></p>
+<h5 id="类型转换器converter接口">类型转换器——Converter接口</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002145405774.png" alt="image-20221002145405774"></p>
+<h4 id="响应">响应</h4>
+<h5 id="响应页面了解">响应页面（了解）</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002154827215.png" alt="image-20221002154827215"></p>
+<h5 id="响应数据">响应数据</h5>
+<h6 id="文本数据了解">文本数据（了解）</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002154835558.png" alt="image-20221002154835558"></p>
+<h6 id="json数据">json数据</h6>
+<p>响应json数据(对象转json)</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002154857518.png" alt="image-20221002154857518"></p>
+<p>响应json数据(对象集合转json数组)</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002154913446.png" alt="image-20221002154913446"></p>
+<h5 id="responsebody-1">@ResponseBody</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002155203359.png" alt="image-20221002155203359"></p>
+<h6 id="用httpmessageconverter接口转换">用HttpMessageConverter接口转换</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002155413973.png" alt="image-20221002155413973"></p>
+<h3 id="rest风格">REST风格</h3>
+<h4 id="rest风格简介">Rest风格简介</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002155827679.png" alt="image-20221002155827679"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002155912204.png" alt="image-20221002155912204"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002160146014.png" alt="image-20221002160146014"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002160015788.png" alt="image-20221002160015788"></p>
+<h4 id="restful入门案例">RESTful入门案例</h4>
+<h5 id="1设定http请求动作">1.设定http请求动作</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002192810499.png" alt="image-20221002192810499"></p>
+<h5 id="2设定请求参数">2.设定请求参数</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002192817365.png" alt="image-20221002192817365"></p>
+<h5 id="requestmethod">RequestMethod</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002192937791.png" alt="image-20221002192937791"></p>
+<h5 id="pathvariable">@PathVariable</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002193002223.png" alt="image-20221002193002223"></p>
+<h4 id="requestbody-requestparam-pathvariable-三者接参数区别与应用">@RequestBody @RequestParam @PathVariable 三者接参数区别与应用</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002193447397.png" alt="image-20221002193447397"></p>
+<h4 id="rest快速开发">REST快速开发</h4>
+<h5 id="restcontroller">@RestController</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002195509210.png" alt="image-20221002195509210"></p>
+<h5 id="标准请求动作隐射4种">标准请求动作隐射（4种）</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221002195521802.png" alt="image-20221002195521802"></p>
+<h4 id="案例基于resrful页面数据交互">案例：基于RESRful页面数据交互</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003161325449.png" alt="image-20221003161325449"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003161340316.png" alt="image-20221003161340316"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003161402249.png" alt="image-20221003161402249"></p>
+<!-- raw HTML omitted -->
+<h3 id="ssm整合">SSM整合</h3>
+<h4 id="ssm整合-1">SSM整合</h4>
+<ol>
+<li>创建工程</li>
+<li>SSM整合
+<ul>
+<li>Spring
+<ul>
+<li>SpringConfig</li>
+</ul>
+</li>
+<li>MyBatis
+<ul>
+<li>MybatisConfig</li>
+<li>JdbcConfig</li>
+<li>jdbc.properties</li>
+</ul>
+</li>
+<li>SpringMVC
+<ul>
+<li>ServletConfig</li>
+<li>SpringMvcConfig</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>功能模块
+<ul>
+<li>表与实体类</li>
+<li>dao(接口＋实现类)</li>
+<li>service(接口+实现类)
+<ul>
+<li>业务层接口测试(整合JUnit)</li>
+</ul>
+</li>
+<li>controller
+<ul>
+<li>表现层接口测试(PostMan)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="spring整合mybatis-1">Spring整合MyBatis</h5>
+<!-- raw HTML omitted -->
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003221829673.png" alt="image-20221003221829673"></p>
+<h5 id="spring整合springmvc">Spring整合SpringMVC</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003221902213.png" alt="image-20221003221902213"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003221937562.png" alt="image-20221003221937562"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003221945801.png" alt="image-20221003221945801"></p>
+<h4 id="表现层数据封装">表现层数据封装</h4>
+<h5 id="设置统一数据返回结果类">设置统一数据返回结果类</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004115737064.png" alt=""></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004115730028.png" alt="image-20221004115730028"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004135018425.png" alt="image-20221004135018425"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004135025514.png" alt="image-20221004135025514"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004135059765.png" alt="image-20221004135059765"></p>
+<h4 id="异常处理器">异常处理器</h4>
+<h5 id="出现异常现象的常见位置与常见诱因如下">出现异常现象的常见位置与常见诱因如下：</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004135642994.png" alt="image-20221004135642994"></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h5 id="异常处理器-1">异常处理器</h5>
+<h6 id="集中的统一的处理项目中出现的异常">集中的、统一的处理项目中出现的异常</h6>
+<pre tabindex="0"><code>@RestControllerAdvice
+public class ProjectExceptionAdvice {
+    @ExceptionHandler(Exception.class)
+    public Result doException(Exception ex){
+        System.out.println(&#34;catch exception&#34;);
+        return new Result(666,null,&#34;catch exception&#34;);
+    }
+
+}
+</code></pre><h6 id="restcontrolleradvice">@RestControllerAdvice</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004141927059.png" alt="image-20221004141927059"></p>
+<h6 id="exceptionhandler">@ExceptionHandler</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004142002860.png" alt="image-20221004142002860"></p>
+<h4 id="项目异常处理方案">项目异常处理方案</h4>
+<h5 id="项目异常分类">项目异常分类</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004142344321.png" alt="image-20221004142344321"></p>
+<h5 id="项目异常处理方案-1">项目异常处理方案</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004142612500.png" alt=""></p>
+<h5 id="项目异常处理步骤">项目异常处理步骤</h5>
+<h6 id="自定义项目系统级异常">自定义项目系统级异常</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004145830764.png" alt="image-20221004145830764"></p>
+<h6 id="自定义项目业务级异常">自定义项目业务级异常</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004145852072.png" alt="image-20221004145852072"></p>
+<h6 id="自定义异常编码持续补充">自定义异常编码(持续补充)</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004145921144.png" alt="image-20221004145921144"></p>
+<h6 id="触发自定义异常">触发自定义异常</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004145954604.png" alt="image-20221004145954604"></p>
+<h6 id="拦截并处理异常">拦截并处理异常</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004150009685.png" alt="image-20221004150009685"></p>
+<h6 id="异常处理器效果对比">异常处理器效果对比</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004150059288.png" alt="image-20221004150059288"></p>
+<h4 id="案例ssm整合标准开发">案例：SSM整合标准开发</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004155121280.png" alt="image-20221004155121280"></p>
+<!-- raw HTML omitted -->
+<h3 id="拦截器">拦截器</h3>
+<h4 id="拦截器概念">拦截器概念</h4>
+<!-- raw HTML omitted -->
+<ul>
+<li>拦截器是一种动态拦截方法调用的机制，在SpringMVC中动态拦截控制器方法的执行</li>
+<li>作用：
+<ul>
+<li>在指定的方法调用前后执行预先设定的代码</li>
+<li>阻止原始方法的执行</li>
+</ul>
+</li>
+</ul>
+<p><strong>拦截器与过滤器区别</strong></p>
+<ul>
+<li>归属不同：Filter属于Servlet技术，Interceptor属于SpringMVC技术</li>
+<li>拦截内容不同：Filter对所有访问进行增强，Interceptor仅针对SpringMVC的访问进行增强</li>
+</ul>
+<h4 id="入门案例-2">入门案例</h4>
+<ol>
+<li>制作拦截器功能类</li>
+<li>配置拦截器的执行位置</li>
+</ol>
+<h5 id="步骤">步骤</h5>
+<p>声明拦截器的bean，并实现HandlerInterceptor接口(注意：扫描加载bean)</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004191216948.png" alt="image-20221004191216948"></p>
+<p>定义配置类，继承WebMvcConfigurationSupport,实现addInterceptor方法(注意：扫描加载bean)</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004191335187.png" alt="image-20221004191335187"></p>
+<p>添加拦截器并设定拦截的访问路径，路径考研通过可变参数设置多个</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004191447105.png" alt="image-20221004191447105"></p>
+<h5 id="简化步骤">简化步骤</h5>
+<p>使用标准接口WebMvcConfiguration简化开发(注意：侵入式较强)</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004191901931.png" alt="image-20221004191901931"></p>
+<h5 id="执行流程">执行流程</h5>
+<h6 id="无拦截器">无拦截器</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004192014137.png" alt="image-20221004192014137"></p>
+<h6 id="有拦截器">有拦截器</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004192023721.png" alt="image-20221004192023721"></p>
+<h4 id="拦截器参数">拦截器参数</h4>
+<h5 id="前置处理">前置处理</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004192720611.png" alt="image-20221004192720611"></p>
+<h5 id="后置处理">后置处理</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004192733232.png" alt="image-20221004192733232"></p>
+<h5 id="完成后处理">完成后处理</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004192752099.png" alt="image-20221004192752099"></p>
+<h4 id="多拦截器执行顺序">多拦截器执行顺序</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221004193622731.png" alt="image-20221004193622731"></p>
+<h2 id="maven进阶">Maven进阶</h2>
+<h3 id="学习目标-1">学习目标</h3>
+<!-- raw HTML omitted -->
+<h3 id="分模块开发与设计">分模块开发与设计</h3>
+<h4 id="分模块开发意义">分模块开发意义</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003162305978.png" alt="image-20221003162305978"></p>
+<h4 id="分模块开发步骤">分模块开发步骤</h4>
+<h5 id="创建maven模块">创建Maven模块</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005115017209.png" alt="image-20221005115017209"></p>
+<h5 id="书写模块代码">书写模块代码</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005115149211.png" alt="image-20221005115149211"></p>
+<h5 id="通过maven指令安装模块到本地仓库install指令">通过maven指令安装模块到本地仓库(install指令)</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005115254084.png" alt="image-20221005115254084"></p>
+<h3 id="依赖管理">依赖管理</h3>
+<h4 id="依赖传递与依赖冲突">依赖传递与依赖冲突</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005115406089.png" alt=""></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005115811184.png" alt="image-20221005115811184"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005120016021.png" alt="image-20221005120016021"></p>
+<h4 id="可选依赖">可选依赖</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005121004332.png" alt="image-20221005121004332"></p>
+<h4 id="排除依赖">排除依赖</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005121019711.png" alt="image-20221005121019711"></p>
+<h3 id="聚合与继承">聚合与继承</h3>
+<h4 id="聚合">聚合</h4>
+<h5 id="什么是聚合">什么是聚合</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005122510271.png" alt="image-20221005122510271"></p>
+<h5 id="聚合工程开发步骤">聚合工程开发步骤</h5>
+<p>创建Maven模块，设置打包类型为pom</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005123104927.png" alt="image-20221005123104927"></p>
+<p>设置当前聚合工程所包含的子模块名称</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005123135041.png" alt="image-20221005123135041"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005123152855.png" alt="image-20221005123152855"></p>
+<h4 id="继承">继承</h4>
+<h5 id="什么是继承">什么是继承？</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005123629098.png" alt="image-20221005123629098"></p>
+<h5 id="继承的作用">继承的作用</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005123644659.png" alt="image-20221005123644659"></p>
+<h5 id="聚合工程开发步骤-1">聚合工程开发步骤</h5>
+<p>创建Maven模块，设置打包类型为pom</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005123104927.png" alt="image-20221005123104927"></p>
+<p>在父工程的pom文件中配置依赖关系(子工程将沿用父工程中的依赖关系)</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005124954448.png" alt="image-20221005124954448"></p>
+<p>配置子工程中可选的依赖关系</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005125026317.png" alt="image-20221005125026317"></p>
+<p>在子工程中配置当前工程所继承的父工程</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005125055602.png" alt="image-20221005125055602"></p>
+<p>在子工程中配置使用父工程中可选依赖的坐标</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005125137637.png" alt="image-20221005125137637"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005125158017.png" alt="image-20221005125158017"></p>
+<h4 id="聚合和继承的区别">聚合和继承的区别</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005125341315.png" alt="image-20221005125341315"></p>
+<h3 id="属性管理">属性管理</h3>
+<h4 id="属性">属性</h4>
+<p>定义属性</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005130003446.png" alt="image-20221005130003446"></p>
+<p>引用属性</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005130021624.png" alt="image-20221005130021624"></p>
+<h4 id="资源文件引用属性">资源文件引用属性</h4>
+<p>定义属性</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005133609924.png" alt="image-20221005133609924"></p>
+<p>配置文件中引用属性</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005133629198.png" alt="image-20221005133629198"></p>
+<p>开启资源文件目录加载属性的过滤器  ( 为了能够在2中解析${} )</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005133659538.png" alt="image-20221005133659538"></p>
+<p>配置maven打war包时，忽略web.xml检查</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005133817935.png" alt="image-20221005133817935"></p>
+<h4 id="版本管理">版本管理</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005134237065.png" alt="image-20221005134237065"></p>
+<h3 id="多环境配置与应用">多环境配置与应用</h3>
+<h4 id="多环境开发">多环境开发</h4>
+<ul>
+<li>maven提供配置多种环境的设定，帮助开发者使用过程中快速切换环境</li>
+</ul>
+<h5 id="多环境开发步骤">多环境开发步骤</h5>
+<p>定义多环境</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005143340314.png" alt="image-20221005143340314"></p>
+<p>使用多环境(构建过程)</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005143403868.png" alt="image-20221005143403868"></p>
+<h4 id="跳过测试">跳过测试</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005144217662.png" alt="image-20221005144217662"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005144234545.png" alt="image-20221005144234545"></p>
+<h3 id="私服">私服</h3>
+<h4 id="私服简介">私服简介</h4>
+<h5 id="团队开发现状">团队开发现状：</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003163038220.png" alt="image-20221003163038220"></p>
+<h5 id="简介与主流产品">简介与主流产品</h5>
+<ul>
+<li>私服是一台独立的服务器，用于解决团队内部的资源共享与资源同步问题</li>
+<li>Nexus
+<ul>
+<li>Sonatype公司的一款maven私服产品</li>
+<li><a href="http://help.sonatype.com/repomanager3/download">http://help.sonatype.com/repomanager3/download</a></li>
+</ul>
+</li>
+</ul>
+<h5 id="nexus装与启动">Nexus装与启动</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003163752195.png" alt="image-20221003163752195"></p>
+<h4 id="私服仓库分类">私服仓库分类</h4>
+<h5 id="私服资源操作流程分析">私服资源操作流程分析</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003164503457.png" alt=""></p>
+<h5 id="私服仓库分类-1">私服仓库分类</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003164656434.png" alt="image-20221003164656434"></p>
+<h4 id="资源上传与下载">资源上传与下载</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221003165715107.png" alt="image-20221003165715107"></p>
+<h5 id="本地仓库访问私服权限设置">本地仓库访问私服权限设置</h5>
+<p>配置位置(setting.xml文件中)</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005150038770.png" alt="image-20221005150038770"></p>
+<p>私服的地址，仓库组的位置</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005150059133.png" alt="image-20221005150059133"></p>
+<h5 id="工程上传到私服服务器设置">工程上传到私服服务器设置</h5>
+<p>配置位置(工程pom文件中)</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005151619145.png" alt="image-20221005151619145"></p>
+<h5 id="私服访问中央服务器设置">私服访问中央服务器设置</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005151652331.png" alt="image-20221005151652331"></p>
+<h2 id="springboot">SpringBoot</h2>
+<h3 id="学习目标-2">学习目标</h3>
+<!-- raw HTML omitted -->
+<h3 id="springboot简介">SpringBoot简介</h3>
+<h4 id="入门案例-3">入门案例</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005152129012.png" alt="image-20221005152129012"></p>
+<h5 id="步骤-1">步骤</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005153535281.png" alt="image-20221005153535281"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005153602481.png" alt="image-20221005153602481"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005153610899.png" alt="image-20221005153610899"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005153619457.png" alt="image-20221005153619457"></p>
+<h5 id="springboot项目快速启动">SpringBoot项目快速启动</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005162922883.png" alt="image-20221005162922883"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005162948494.png" alt="image-20221005162948494"></p>
+<h4 id="springboot概述">SpringBoot概述</h4>
+<h5 id="简介">简介</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005163238526.png" alt="image-20221005163238526"></p>
+<h5 id="springboot起步依赖">SpringBoot起步依赖</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005164304619.png" alt="image-20221005164304619"></p>
+<h5 id="辅助功能">辅助功能</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005164557759.png" alt="image-20221005164557759"></p>
+<h5 id="引导类">引导类</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005164618875.png" alt="image-20221005164618875"></p>
+<h5 id="更换变更依赖及其方便">更换变更依赖及其方便</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005165240977.png" alt="image-20221005165240977"></p>
+<h3 id="基础配置">基础配置</h3>
+<h4 id="配置格式">配置格式</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005165652615.png" alt="image-20221005165652615"></p>
+<h4 id="自动提示功能消失解决方案">自动提示功能消失解决方案</h4>
+<ol>
+<li></li>
+</ol>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005171255345.png" alt="image-20221005171255345"></p>
+<ol start="2">
+<li></li>
+</ol>
+<!-- raw HTML omitted -->
+<ol start="3">
+<li></li>
+</ol>
+<!-- raw HTML omitted -->
+<ol start="4">
+<li></li>
+</ol>
+<!-- raw HTML omitted -->
+<h4 id="配置文件加载顺序">配置文件加载顺序</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005171436515.png" alt="image-20221005171436515"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221005171458771.png" alt="image-20221005171458771"></p>
+<h4 id="yaml">yaml</h4>
+<h5 id="yaml是什么">yaml是什么</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006205356387.png" alt=""></p>
+<h5 id="yaml语法规则">yaml语法规则</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006205643956.png" alt="image-20221006205643956"></p>
+<h5 id="yaml数组数据">yaml数组数据</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006205735292.png" alt="image-20221006205735292"></p>
+<h5 id="yaml数据读取方式三种">yaml数据读取方式（三种）</h5>
+<h6 id="1">1</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006213323787.png" alt="image-20221006213323787"></p>
+<h6 id="2">2</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006213347190.png" alt="image-20221006213347190"></p>
+<h6 id="3">3</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006213438869.png" alt="image-20221006213438869"></p>
+<h6 id="自定义对象封装数据警告解决方案">自定义对象封装数据警告解决方案</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006213545713.png" alt="image-20221006213545713"></p>
+<h4 id="多环境启动">多环境启动</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006213706641.png" alt="image-20221006213706641"></p>
+<h5 id="yml书写格式">yml书写格式</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006214820805.png" alt="image-20221006214820805"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006214845777.png" alt="image-20221006214845777"></p>
+<h5 id="properties文件多环境启动">properties文件多环境启动</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006214928744.png" alt="image-20221006214928744"></p>
+<h4 id="多环境启动命令格式">多环境启动命令格式</h4>
+<h5 id="先maven-clean-再-package">先maven clean 再 package</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006220256399.png" alt="image-20221006220256399"></p>
+<h5 id="参数加载优先顺序">参数加载优先顺序</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006220522979.png" alt="image-20221006220522979"></p>
+<h4 id="多环境开发控制">多环境开发控制</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006220803735.png" alt="image-20221006220803735"></p>
+<p><strong>maven为主，boot为辅</strong></p>
+<h5 id="1maven中设置多环境属性">1.Maven中设置多环境属性</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006222759275.png" alt="image-20221006222759275"></p>
+<h5 id="2springboot中引用maven属性">2.SpringBoot中引用Maven属性</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006222837694.png" alt="image-20221006222837694"></p>
+<h5 id="3对资源文件开启对默认占位符的解析">3.对资源文件开启对默认占位符的解析</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006223000837.png" alt="image-20221006223000837"></p>
+<h4 id="配置文件分类">配置文件分类</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006223211792.png" alt="image-20221006223211792"></p>
+<h3 id="整合第三方技术">整合第三方技术</h3>
+<h4 id="整合junit">整合JUnit</h4>
+<h5 id="spring整合junit">Spring整合JUnit</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006223819910.png" alt="image-20221006223819910"></p>
+<h5 id="springboot整合junit">SpringBoot整合JUnit</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221006224903696.png" alt="image-20221006224903696"></p>
+<h4 id="基于springboot实现ssm整合">基于SpringBoot实现SSM整合</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007112816581.png" alt="image-20221007112816581"></p>
+<h5 id="spring整合mybatis-2">Spring整合MyBatis</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007112948607.png" alt="image-20221007112948607"></p>
+<h5 id="springboot整合mybatis">SpringBoot整合MyBatis</h5>
+<p><strong>1.创建新模块，选择Spring初始化，并配置模块相关基础信息</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007114923144.png" alt="image-20221007114923144"></p>
+<p><strong>2.选择当前模块需要使用的技术集(MyBatis、MySQL)</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007115237768.png" alt="image-20221007115237768"></p>
+<p><strong>3.设置数据源参数</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007115330377.png" alt="image-20221007115330377"></p>
+<p><strong>4.定义数据层接口与映射配置</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007115409439.png" alt="image-20221007115409439"></p>
+<p><strong>5.测试类中注入dao接口，测试功能</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007115447826.png" alt="image-20221007115447826"></p>
+<h3 id="基于springboot的ssm整合案例">基于SpringBoot的SSM整合案例</h3>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007125111228.png" alt=""></p>
+<h2 id="mybatisplus">MyBatisPlus</h2>
+<h3 id="学习目标-3">学习目标</h3>
+<p><strong>基础MyBatisPlus完成标准Dao开发</strong></p>
+<h3 id="mybatisplus简介">MyBatisPlus简介</h3>
+<h4 id="入门案例-4">入门案例</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007130104893.png" alt="image-20221007130104893"></p>
+<h5 id="入门案例设计步骤">入门案例设计步骤</h5>
+<p><strong>1.创建新模块，选择Spring初始化，并配置模块相关基础信息</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007141203412.png" alt="image-20221007141203412"></p>
+<p><strong>2.选择当前模块需要使用的技术集（仅保留JDBC）</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007141255299.png" alt="image-20221007141255299"></p>
+<p><strong>3.手动添加mp起步依赖</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007141320909.png" alt="image-20221007141320909"></p>
+<p><strong>4.设置Jdbc参数(application.yml)</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007141405758.png" alt="image-20221007141405758"></p>
+<p><strong>5.制作实体类与表结构（类名与表名对应，属性名与字段名对应）</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007141500700.png" alt="image-20221007141500700"></p>
+<p><strong>6.定义数据接口，继承BaseMapper<!-- raw HTML omitted --></strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007141544460.png" alt="image-20221007141544460"></p>
+<p><strong>7.测试类中注入dao接口，测试方法</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007141610096.png" alt="image-20221007141610096"></p>
+<h4 id="mybatisplus概述">MyBatisPlus概述</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007141754020.png" alt="image-20221007141754020"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007141904449.png" alt="image-20221007141904449"></p>
+<h3 id="标准数据层开发">标准数据层开发</h3>
+<h4 id="标准数据层crud功能">标准数据层CRUD功能</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007142110806.png" alt="image-20221007142110806"></p>
+<h4 id="lombok">lombok</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007155227461.png" alt="image-20221007155227461"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007155241000.png" alt="image-20221007155241000"></p>
+<h4 id="mybatisplus-主键策略">MybatisPlus 主键策略</h4>
+<pre tabindex="0"><code>ASSIGN_ID（雪花算法）
+    如果不设置类型值，默认则使用IdType.ASSIGN_ID策略（自3.3.0起）。该策略会使用雪花算法自动生成主键ID，主键类型为长或字符串（分别对应的MySQL的表字段为BIGINT和VARCHAR）
+提示：该策略使用接口IdentifierGenerator的方法nextId（以实现类为DefaultIdentifierGenerator雪花算法），下面是雪花算法介绍：
+
+雪花算法（雪花）是微博开源的分布式ID生成算法其核心思想就是：使用一个64位的长型的数字作为全局唯一ID。在分布式系统中的应用十分广泛，且ID引入了时间戳，基本上保持自增的。
+</code></pre><p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007153047096.png" alt="image-20221007153047096"></p>
+<p><strong>Long与bright都可以</strong></p>
+<h4 id="分页功能">分页功能</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007162356548.png" alt="image-20221007162356548"></p>
+<h5 id="步骤-2">步骤</h5>
+<p><strong>1设置分页拦截器作为Spring管理的bean</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007162448697.png" alt="image-20221007162448697"></p>
+<p><strong>2.执行分页查询</strong></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007162520687.png" alt="image-20221007162520687"></p>
+<h5 id="开启日志">开启日志</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007162540660.png" alt="image-20221007162540660"></p>
+<h3 id="dql控制">DQL控制</h3>
+<h4 id="条件查询方式">条件查询方式</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221007162921398.png" alt="image-20221007162921398"></p>
+<h5 id="lambda格式条件查询">lambda格式条件查询</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008102440564.png" alt="image-20221008102440564"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008102526504.png" alt="image-20221008102526504"></p>
+<h5 id="null值处理">null值处理</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008113152045.png" alt="image-20221008113152045"></p>
+<h4 id="查询投影">查询投影</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008115829452.png" alt="image-20221008115829452"></p>
+<h4 id="查询条件设定">查询条件设定</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008120421623.png" alt="image-20221008120421623"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008120428060.png" alt="image-20221008120428060"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008120443992.png" alt="image-20221008120443992"></p>
+<h4 id="字段映射与表名映射">字段映射与表名映射</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008120658918.png" alt="image-20221008120658918"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008120750472.png" alt="image-20221008120750472"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008120913280.png" alt="image-20221008120913280"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008120945975.png" alt="image-20221008120945975"></p>
+<h3 id="dml控制">DML控制</h3>
+<h4 id="添加操作">添加操作</h4>
+<h5 id="id生成策略控制">id生成策略控制</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008141827352.png" alt="image-20221008141827352"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008143108343.png" alt="image-20221008143108343"></p>
+<p>原：</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008143130924.png" alt="image-20221008143130924"></p>
+<p>全局配置：</p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008143144052.png" alt="image-20221008143144052"></p>
+<h4 id="多记录操作">多记录操作</h4>
+<h5 id="按主键删除或查询多条记录">按主键删除或查询多条记录</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008143550251.png" alt="image-20221008143550251"></p>
+<h5 id="逻辑删除">逻辑删除</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008144034325.png" alt="image-20221008144034325"></p>
+<h6 id="步骤-3">步骤</h6>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008145751949.png" alt="image-20221008145751949"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008145810100.png" alt="image-20221008145810100"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008145820911.png" alt="image-20221008145820911"></p>
+<h4 id="乐观锁">乐观锁</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008145957874.png" alt="image-20221008145957874"></p>
+<h5 id="步骤-4">步骤</h5>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008151915200.png" alt="image-20221008151915200"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008151926094.png" alt="image-20221008151926094"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008151933936.png" alt="image-20221008151933936"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008151955781.png" alt="image-20221008151955781"></p>
+<h4 id="小结-11">小结</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008152048491.png" alt="image-20221008152048491"></p>
+<h3 id="快速开发">快速开发</h3>
+<h4 id="代码生成器">代码生成器</h4>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008152357773.png" alt="image-20221008152357773"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008154406014.png" alt="image-20221008154406014"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008154413898.png" alt="image-20221008154413898"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008154427615.png" alt="image-20221008154427615"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008154445548.png" alt="image-20221008154445548"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008154451680.png" alt="image-20221008154451680"></p>
+<p><img src="C:%5CUsers%5CMango%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221008154500443.png" alt="image-20221008154500443"></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
